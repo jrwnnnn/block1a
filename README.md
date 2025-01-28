@@ -8,8 +8,8 @@ mySQL: https://upload.wikimedia.org/wikipedia/labs/8/8e/Mysql_logo.png
 -->
 
 A school project. <br>
-**Programmed and published on GitHub by Mark Jerwin [(@jrwnnnn)](https://github.com/jrwnnnn).** <br>
-> Status: Active <br>
+**Programmed and published on GitHub by ________ .** <br>
+> Status: Passive <br>
 ### How to use
 
 ### Contribute
