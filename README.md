@@ -6,7 +6,7 @@ JAVA: https://upload.wikimedia.org/wikipedia/en/thumb/3/30/Java_programming_lang
 Python: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png
 mySQL: https://upload.wikimedia.org/wikipedia/labs/8/8e/Mysql_logo.png
 -->
-pano to <br>
+
 A school project. <br>
 **Programmed and published on GitHub by ________ .** <br>
 > Status: Passive <br>
@@ -15,3 +15,4 @@ A school project. <br>
 ### Contribute
 
 ### Note
+#### Hello World
