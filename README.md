@@ -16,9 +16,6 @@ mySQL: https://upload.wikimedia.org/wikipedia/labs/8/8e/Mysql_logo.png
 <li>Pinera, Roxane B.
 <li>Reyes, Jieben A.
 </ul>
-
-> Status: Active <br>
-
 ## How to use
 Just click [here](https://jrwnnnn.github.io) or run it locally:
 1. Clone this repository:  
