@@ -1,4 +1,5 @@
-# Project Name <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/512px-HTML5_logo_and_wordmark.svg.png" style="height:30px;">
+
+# Final Project <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/512px-HTML5_logo_and_wordmark.svg.png" style="height:30px;">
 
 <!-- PROGRAMMING LANGUAGE ICONS
 HTML: https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/512px-HTML5_logo_and_wordmark.svg.png
@@ -7,12 +8,21 @@ Python: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-no
 mySQL: https://upload.wikimedia.org/wikipedia/labs/8/8e/Mysql_logo.png
 -->
 
-A school project. <br>
-**Programmed and published on GitHub by ________ .** <br>
-> Status: Passive <br>
-### How to use
+**Programmed and published on GitHub by Group 8 members:** <br>
 
-### Contribute
+Baldestamon, Mark Jerwin M.
+Estopia, Debbie Anne O.
+Felices, Glaiza B.
+Pinera, Roxane B.
+Reyes, Jieben A.
 
-### Note
-#### Hello World
+> Status: Active <br>
+
+## How to use
+Just click [here](https://jrwnnnn.github.io) or run it locally:
+1. Clone this repository:  
+   ```sh
+   git clone https://github.com/yourgithubusername/projectname.git
+ 2. Locate `index.html` and run it on your web browser.
+
+## Contribute
