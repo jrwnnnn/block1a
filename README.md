@@ -13,9 +13,9 @@ mySQL: https://upload.wikimedia.org/wikipedia/labs/8/8e/Mysql_logo.png
 **Programmed and published on GitHub by Group 8 members:** <br>
 <ul>
 <li>Baldestamon, Mark Jerwin M.
-<li>Estopia, Debbie Anne O.
-<li>Felices, Glaiza B.
-<li>Pinera, Roxane B.
+<li>Nm1
+<li>Nm2
+<li>Nm3
 <li>Reyes, Jieben A.
 </ul>
 
