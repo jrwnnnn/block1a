@@ -14,7 +14,7 @@ mySQL: https://upload.wikimedia.org/wikipedia/labs/8/8e/Mysql_logo.png
 <ul>
 <li>Baldestamon, Mark Jerwin M.
 <li>Estopia, Debbie Anne O.
-<li>Nm2
+<li>Pinera, Roxane B.
 <li>Nm3
 <li>Reyes, Jieben A.
 </ul>
