@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+
+body {
+    margin: auto 20vw;
+    font-family: 'Quicksand', sans-serif;
+}
+.navbar{
+    margin: 2vh auto;
+    text-decoration: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "home about";
+}
+.navbar a {
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navbar .home {
+    grid-area: home;
+    border-bottom: 2px solid #000; 
+}
