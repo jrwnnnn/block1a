@@ -1,1 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 @import "tailwindcss";
+
+body {
+    font-family:'Quicksand', sans-serif;
+}
+.nav-tab {
+    @apply p-1 text-center transition ease-in-out hover:border-b-2 hover:border-white;
+}
+.nav-focused {
+    @apply font-bold;
+}
+.tile {
+    @apply p-4 w-[100%] h-max bg-[#4898DF] flex flex-col;
+    border-radius: 0.75rem;
+}
