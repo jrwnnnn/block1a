@@ -17,10 +17,10 @@ mySQL: https://upload.wikimedia.org/wikipedia/labs/8/8e/Mysql_logo.png
 </ul>
 
 ## How to use
-Just click [here](https://jrwnnnn.github.io) or run it locally:
+Just click [here](https://sentiment-1.netlify.app) or run it locally:
 1. Clone this repository:  
    ```sh
-   git clone https://github.com/yourgithubusername/projectname.git
+   git clone https://github.com/jrwnnnn/sentiment.git
  2. Locate `index.html` and run it on your web browser.
 
 ## Contribute
@@ -37,7 +37,7 @@ If you’d like to work with the project on your own, follow these steps:
 2. **Clone Your Fork**  
    - Open a terminal or Git Bash and run:  
      ```sh
-     git clone https://github.com/your-username/repository-name.git
+     git clone https://github.com/jrwnnnn/sentiment.git
      ```  
 
 3. **Create a New Branch**  
