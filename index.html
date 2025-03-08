@@ -3,35 +3,85 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sentiment</title>
+  <title>after the tone</title>
   <link href="src/output.css" rel="stylesheet">
 </head>
 <body>
-  <section class="flex flex-col min-h-screen bg-[url(/assets/time-splash/evening-1.jpg)] bg-cover bg-no-repeat bg-right">
-    <div class="py-2 grid grid-cols-3 md:grid-cols-3 sm:grid-cols-3 gap-2 lg:mx-[25vw] text-center">
-      <a href="index.html" class="nav-tab nav-focused text-white">Home</a>
-      <a href="" class="nav-tab text-white">Diary</a>
-      <a href="pages/profile.html" class="nav-tab text-white">Profile</a>
-    </div>
+  <section class="flex flex-col min-h-screen bg-[url(/assets/capybara.jpg)] bg-cover bg-no-repeat bg-bottom">
+    <nav class="py-2 grid grid-cols-3 gap-2 md:mx-100 text-center">
+      <a href="index.html" class="nav-tab">Home</a>
+      <a href="../pages/about.html" class="nav-tab">About</a>
+      <a href="" class="nav-tab">Me</a>
+    </nav>
     <div class="flex flex-col items-center justify-center flex-1 text-center px-5">
-      <p class="text-4xl md:text-5xl lg:text-6xl font-bold text-white">Good Evening, Marissa!</p>
-      <p class="text-md md:text-lg text-white mt-2">Track your emotions and see how you are doing over time.</p>
+      <p class="text-4xl md:text-5xl lg:text-6xl font-bold text-black">AFTER THE TONE</p>
+      <p class="text-lg md:text-lg text-black mt-2">For everything you could'nt say out loud. For every messsage you never sent. </p>
     </div>
-    <div class="h-30 bg-gradient-to-b from-transparent to-[#247FD0]"></div>
+    <div class="h-30 bg-gradient-to-b from-transparent to-[#ffff]"></div>
   </section>
-  <section class="min-h-screen bg-[#247FD0] py-10 md:py-20">
-    <div class="grid lg:grid-cols-2 md:grid-cols-1 gap-5 px-5 md:px-[10vw]">
-      <div class="tile">
-        <p class="font-bold text-lg text-[#1C2C45]">Top emotions for the last 30d</p>
-        <p class="text-base text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <img src="/assets/samples/sample-graph1.png" alt="graph1" class="w-full px-15 py-10" />
+  <section class="bg-white py-15 px-4 sm:px-8 lg:px-16">
+    <p class="text-2xl md:text-3xl font-bold text-black text-center pb-10">RECENT ENTRIES</p>
+    <div class="max-w-7xl mx-auto md:mx-50 grid grid-cols-1 gap-4">
+
+      <div class="flex flex-col justify-center border-3 border-black rounded-md bg-amber-400 p-4">
+        <p class="text-black font-bold">To: Glaiza</p>
+        <p class="text-black text-sm italic">Unsent at 03/01/25</p>
+        <p class="text-black mt-2">Sanaol best in canteen</p>
       </div>
-      <div class="tile">
-        <p class="font-bold text-lg text-[#1C2C45]">Smile Score</p>
-        <p class="text-base text-white">Based on your emotions in the last 7 days.</p>
-        <p class="text-6xl text-[#1C2C45] font-bold p-5">89</p>
+      <div class="flex flex-col justify-start border-3 border-black rounded-md bg-blue-400 p-5">
+        <p class="text-black font-bold">Voicemail no. 4</p>
+        <p class="text-black text-sm italic">Recorded on 12/12/2021</p>
+        <audio controls class="mt-2 w-full">
+          <source src="assets/samples/vm4.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
       </div>
+
+      <div class="flex flex-col justify-center border-3 border-black rounded-md bg-gray-400 p-4">
+        <p class="text-black font-bold">To: Jieben</p>
+        <p class="text-black text-sm italic">Unsent at 03/01/25</p>
+        <p class="text-black mt-2">Naka tikim kana ba ng tig-dalawang pisong takoyaki? Dito sa taguig city matatagpuan ang isang tindahan ng abot kayang takoyaki, tatlong klase ang palaman ng takoyaki nila rito meron may gulay, cheese, at ang best seller nila na may palamang hotdog, ate ate, aabot sa dalawang libong pirasong takoyaki nagagawa nila kada araw, piniprito ang takoyaki nila rito at may sawsawan na suka o yung matamis na sauce, mabenta ang tig dalawang pisong takoyaki lalo na sa mga studyante dahil malapit lamang ito sa tatlong eskwelahan, syempre sinubukan din natin ito.</p>
+      </div>
+
+      <div class="flex flex-col justify-start border-3 border-black rounded-md bg-red-400 p-5">
+        <p class="text-black font-bold">Voicemail no. 3</p>
+        <p class="text-black text-sm italic">Recorded on 12/12/2021</p>
+        <audio controls class="mt-2 w-full">
+          <source src="assets/samples/vm3.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+      <div class="flex flex-col justify-center border-3 border-black rounded-md bg-blue-400 p-4">
+        <p class="text-black font-bold">To: Miles</p>
+        <p class="text-black text-sm italic">Unsent at 03/08/25</p>
+        <p class="text-black mt-2">I typed this a hundred times, deleted it a hundred more. I wanted to tell you that I still think about you. I miss your voice. I miss the way you look at me when I drop you off you house. I miss our late night walks. I miss the way you make me feel. I miss you.</p>
+      </div>
+
+      <div class="flex flex-col justify-center border-3 border-black rounded-md bg-yellow-400 p-4">
+        <p class="text-black font-bold">To: Alex</p>
+        <p class="text-black text-sm italic">Unsent at 03/01/25</p>
+        <p class="text-black mt-2">I hope you never stopped looking at sunsets upside down.</p>
+      </div>
+
+      <div class="flex flex-col justify-start border-3 border-black rounded-md bg-black p-5">
+        <p class="text-white font-bold">Voicemail no. 2</p>
+        <p class="text-white text-sm italic">Recorded on 02/16/2023</p>
+        <audio controls class="mt-2 w-full">
+          <source src="assets/samples/vm2.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+      <div class="flex flex-col justify-start border-3 border-black rounded-md bg-gray-400 p-5">
+        <p class="text-black font-bold">Voicemail no. 1</p>
+        <p class="text-black text-sm italic">Recorded on 12/12/2021</p>
+        <audio controls class="mt-2 w-full">
+          <source src="assets/samples/vm1.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+
     </div>
   </section>
+   
 </body>
 </html>
