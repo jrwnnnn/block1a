@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 @import "tailwindcss";
 
 body {
-    font-family:'Lexend', sans-serif;
+    font-family:'Quicksand', sans-serif;
 }
 .nav-tab {
-    @apply p-1 text-center transition ease-in-out hover:border-b-2 hover:border-black;
+    @apply p-1 text-center transition ease-in-out hover:border-b-2 hover:border-white;
 }
 .nav-focused {
     @apply font-bold;
@@ -13,7 +13,4 @@ body {
 .tile {
     @apply p-4 w-[100%] h-max bg-[#4898DF] flex flex-col;
     border-radius: 0.75rem;
-}
-.btn {
-    @apply p-2 bg-black text-white rounded-md;
 }
