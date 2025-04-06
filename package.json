@@ -1,0 +1,25 @@
+{
+  "name": "block1a",
+  "version": "1.0.0",
+  "description": "<!-- PROGRAMMING LANGUAGE ICONS\r HTML: https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/512px-HTML5_logo_and_wordmark.svg.png\r JAVA: https://upload.wikimedia.org/wikipedia/en/thumb/3/30/Java_programming_language_logo.svg/1200px-Java_programming_language_logo.svg.png\r Python: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png\r mySQL: https://upload.wikimedia.org/wikipedia/labs/8/8e/Mysql_logo.png\r -->",
+  "homepage": "https://github.com/jrwnnnn/block1a#readme",
+  "bugs": {
+    "url": "https://github.com/jrwnnnn/block1a/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jrwnnnn/block1a.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "dev": "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.3",
+    "tailwindcss": "^4.1.3"
+  },
+  "devDependencies": {}
+}
