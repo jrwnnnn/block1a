@@ -1,9 +1,0 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
-@import "tailwindcss";
-
-body {
-    font-family:'Lexend', sans-serif;
-}
-.nav-tab {
-    @apply p-1 text-center transition ease-in-out hover:border-b-2 border-black;
-}
