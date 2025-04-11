@@ -6,28 +6,80 @@
   <link href="src/output.css" rel="stylesheet">
 </head>
 <body>
-    <section class="flex flex-col bg-[url(/assets/home_splash.png)] bg-cover bg-center bg-no-repeat h-screen">
-        <nav class="bg-[#1A212B] flex items-center justify-between p-4 px-30">
+    <section class="flex flex-col bg-[url(/assets/home_splash.png)] bg-cover bg-center bg-no-repeat min-h-screen">
+        <nav class="bg-[#1A212B] flex items-center justify-between p-4 md:px-30 px-5">
             <img src="assets/cs1a.png" alt="logo" class="w-20">
-            <div class="grid grid-cols-4 gap-4 p-4 text-center">
+            <div class="grid grid-cols-7 p-4 text-center">
                 <a href="index.html" class="nav-tab">Home</a>
-                <a href="changelog.html" class="nav-tab">Changelog</a>
-                <a href="bluemap.html" class="nav-tab">BlueMap</a>
-                <a href="playpass.html" class="nav-tab">Playpass</a>
+                <a href="404.html" class="nav-tab">Changelog</a>
+                <a href="404.html" class="nav-tab">Rules</a>
+                <a href="pages/bluemap.html" class="nav-tab">BlueMap</a>
+                <a href="404.html" class="nav-tab">Playpass</a>
+                <a href="404.html" class="nav-tab">Help and Support</a>
+                <a href="404.html" class="nav-tab">Me</a>
             </div>
         </nav>
-        <div class="flex flex-col justify-end items-center pb-15 px-30 flex-grow">
-            <p class="text-4xl text-white font-bold">THE OFFICIAL MINECRAFT SERVER OF BSCS-1A!</p>
-            <p class="text-2xl text-white">Available for both Minecraft Java and Bedrock Edition players.</p>
+        <div class="flex flex-col md:items-start md:justify-end justify-center items-center flex-grow text-white pb-20 md:px-30 px-10">
+            <p class="text-6xl text-center font-bold pb-5">HOP IN, BUILD STUFF, HAVE FUN</p>
+            <p class="text-lg text-center">The Official Minecraft Server of BSCS-1A! Available for both Minecraft Java and Bedrock Platform.</p>
+            <button id="copy-button" onclick="copyToClipboard()" class="bg-yellow-500 text-[#2D3748] text-lg font-bold py-2 px-5 rounded-md mt-5 hover:bg-[#2D3748] hover:text-white hover:cursor-pointer transition duration-300 ease-in-out">Join Now</button>
+        </div>        
+    </section>
+    <section class="bg-[#1a202a] md:px-30 px-5 py-10">
+        <div class="grid grid-cols-3 md:gap-10 gap-3">
+            <div class="text-white text-center">
+                <p class="text-yellow-500 md:text-5xl text-3xl font-bold">27</p>
+                <p>Unique players</p>
+            </div>
+            <div class="text-white text-center">
+                <p id="player-count" class="text-yellow-500 md:text-5xl text-3xl font-bold">Loading...</p>
+                <p>Online players</p>
+            </div>
+            <div class="text-white text-center">
+                <p class="text-yellow-500 md:text-5xl text-3xl font-bold">99.8%</p>
+                <p>Server Uptime</p>
+            </div>
         </div>
     </section>
-    <!-- 2D3748 -->
-    <section class="bg-[#1A212B] min-h-screen px-30 py-20">
-        <div class="grid grid-cols-2 gap-5">
-            <img src="assets/bahay-ni-jieben.png" alt="img" class="rounded-md">
-            <img src="assets/shattered-wilds.png" alt="img" class="rounded-md">
+    <section class="bg-[#2D3748] md:px-30 px-10 md:py-20 pt-20">
+        <div class="grid md:grid-cols-2 gap-5 hover:cursor-pointer">
+            <img src="assets/season-end-thumb.jpg" alt="cover" class="rounded-md">
+            <div class="pb-15">
+                <p class="text-blue-400 text-md">Spotlight</p>
+                <p class="text-white md:text-5xl text-2xl font-bold pb-5">Season End Fest</p>
+                <p class="text-white md:text-lg">Season 1 ended with a bang, and now we're starting fresh with a brand new world! Come hang out as we take a trip down memory lane and relive the stories, moments, and chaos we've all shared.</p>
+                <p class="text-gray-400 pt-5">March 15, 2025</p>
+            </div>
         </div>
-        <p class="text-4xl text-white text-center font-bold p-4">JOIN US!</p>
     </section>
+    <section class="bg-[#2D3748] md:px-30 px-10 pb-20">
+        <div class="grid md:grid-cols-3 gap-7.5 hover:cursor-pointer">       
+            <div>
+                <img src="assets/bahay-ni-jieben.png" alt="cover" class="mb-5 rounded-md ">
+                <p class="text-green-500 text-md">Blog</p>
+                <p class="article-title">Screenshot Dump – March Builds Edition</p>
+                <p class="article-subtext">No words, just vibes. Here’s a bunch of screenshots showing off what the community’s been building lately. You might even spot your own creation.</p>
+                <p class="text-gray-400 pt-5">March 15, 2025</p>
+            </div>
+            <div>
+                <img src="assets/shattered-wilds.png" alt="cover" class="mb-5 rounded-md ">
+                <p class="text-green-500 text-md">Blog</p>
+                <p class="article-title">How We Named the Shattered Wilds</p>
+                <p class="article-subtext">It wasn’t just a random name. Here’s the little story behind it, and what this new world means for us and our vibe.</p>
+                <p class="text-gray-400 pt-5">March 15, 2025</p>
+            </div>
+            <div>
+                <img src="assets/wallpaper_minecraft_caves_cliffs(part1)_1920x1080.png" alt="cover" class="mb-5 rounded-md ">
+                <p class="text-orange-500 text-md">Patch Notes</p>
+                <p class="article-title">Patch 2.25.9</p>
+                <p class="article-subtext">You can now @ people in chat—literally. Tag someone and it’ll ping them with a sound. Great for grabbing attention, or just mildly annoying your friends. We also did some minor fixes here and there.</p>
+                <p class="text-gray-400 pt-5">March 15, 2025</p>
+            </div>
+        </div>
+    </section>
+    <section class="bg-[#1A212B] h-[20vh]">
+
+    </section>
+    <script src="script/index.js"></script>
 </body>
 </html>
