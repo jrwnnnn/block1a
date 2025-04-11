@@ -1,4 +1,4 @@
-# Sentiment <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/512px-HTML5_logo_and_wordmark.svg.png" style="height:30px;">
+# Block1A <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/512px-HTML5_logo_and_wordmark.svg.png" style="height:30px;">
 
 <!-- PROGRAMMING LANGUAGE ICONS
 HTML: https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/512px-HTML5_logo_and_wordmark.svg.png
@@ -17,7 +17,7 @@ mySQL: https://upload.wikimedia.org/wikipedia/labs/8/8e/Mysql_logo.png
 </ul>
 
 ## How to use
-Just click [here](https://sentiment-1.netlify.app) or run it locally:
+Just click [here](https://block1a.netlify.app) or run it locally:
 1. Clone this repository:  
    ```sh
    git clone https://github.com/jrwnnnn/sentiment.git
@@ -37,7 +37,7 @@ If you’d like to work with the project on your own, follow these steps:
 2. **Clone Your Fork**  
    - Open a terminal or Git Bash and run:  
      ```sh
-     git clone https://github.com/jrwnnnn/sentiment.git
+     git clone https://github.com/jrwnnnn/block1a.git
      ```  
 
 3. **Create a New Branch**  
