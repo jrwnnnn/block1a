@@ -8,9 +8,20 @@ body {
 .nav-tab {
     @apply text-white;
 }
+/* Home */
 .article-title {
     @apply text-white font-bold text-2xl mb-3;
 }
 .article-subtext {
     @apply text-white ;
 }
+
+/* Rules */
+.focused {
+    @apply text-yellow-500;
+}
+.sidebar a{
+    @apply rounded-md p-2 mb-2 hover:bg-gray-700;
+}
+
+/* Changelog */
