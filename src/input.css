@@ -3,8 +3,13 @@
 
 body {
   font-family: 'Outfit';
-  
 }
+
+.social-icons img {
+    filter: invert(100%);
+}
+  
+
 .nav-tab {
     @apply text-white;
 }
@@ -18,7 +23,7 @@ body {
 @keyframes slide {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
-  }
+}
 
   .animate-slide {
     animation: slide 0.3s ease-out forwards;
