@@ -8,7 +8,6 @@ body {
 .social-icons img {
     filter: invert(100%);
 }
-  
 
 .nav-tab {
     @apply text-white;
@@ -37,4 +36,4 @@ body {
     @apply rounded-md p-2 mb-2 hover:bg-gray-700;
 }
 
-/* Changelog */
+/* blog */
