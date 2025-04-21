@@ -85,7 +85,7 @@
                 <div class="space-y-2">
                     <p class="text-white font-bold">Memory and Garbage Collection</p>
                     <p>
-                        In Februray, we observed frequent GC pauses, some lasting over 150ms, which interrupted gameplay unexpectedly. To solve this, we adjusted our JVM flags and increased allocated memory from 6GB to 8GB. We also tuned how and when GC cycles are triggered. With these changes, average GC pause times dropped from 60ms to just 20ms, and peak pauses rarely cross 50ms anymore. This means no more random “hiccups” while exploring or fighting mobs, and overall memory management has become far more efficient.
+                        In February, we observed frequent GC pauses, some lasting over 150ms, which interrupted gameplay unexpectedly. To solve this, we adjusted our JVM flags and increased allocated memory from 6GB to 8GB. We also tuned how and when GC cycles are triggered. With these changes, average GC pause times dropped from 60ms to just 20ms, and peak pauses rarely cross 50ms anymore. This means no more random “hiccups” while exploring or fighting mobs, and overall memory management has become far more efficient.
                     </p>
                 </div>
                 <img src="https://spark.lucko.me/docs/assets/images/finding-lag-tickmonitor-demo-432333175992bbf2938f6d92f7d9999b.png" alt="TPS Graph" class="rounded-lg">
