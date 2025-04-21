@@ -8,7 +8,7 @@
 </head>
     <body>
         <nav class="bg-[#1A212B] p-4 px-5 md:px-30 flex items-center justify-between">
-            <img src="../assets/cs1a.png" alt="logo" class="w-20 hover:cursor-pointer" onclick="window.location.replace('../index.html')">
+            <img src="../assets/cs1a.png" alt="logo" class="w-20 hover:cursor-pointer" onclick="window.location.replace('../index.php')">
             
             <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
@@ -20,13 +20,13 @@
             
             <div id="nav-links"
                     class="hidden md:grid md:grid-cols-7 absolute md:static top-20 left-0 w-full md:w-auto bg-[#1A212B] text-center md:flex-row md:space-x-4 transition-all duration-300 ease-in-out z-10">
-                <a href="../index.html" class="nav-tab block py-2 md:inline">Home</a>
-                <a href="blog.html" class="nav-tab block py-2 md:inline">Blog</a>
+                <a href="../index.php" class="nav-tab block py-2 md:inline">Home</a>
+                <a href="blog.php" class="nav-tab block py-2 md:inline">Blog</a>
                 <a href="preamble.html" class="nav-tab block py-2 md:inline">Rules</a>
-                <a href="bluemap.html" class="nav-tab block py-2 md:inline">BlueMap</a>
-                <a href="../404.html" class="nav-tab block py-2 md:inline">Playpass</a>
-                <a href="../404.html" class="nav-tab block py-2 md:inline">Help and Support</a>
-                <a href="signup.html" class="nav-tab block py-2 md:inline">Me</a>
+                <a href="bluemap.php" class="nav-tab block py-2 md:inline">BlueMap</a>
+                <a href="../404.php" class="nav-tab block py-2 md:inline">Playpass</a>
+                <a href="../404.php" class="nav-tab block py-2 md:inline">Help and Support</a>
+                <a href="signup.php" class="nav-tab block py-2 md:inline">Me</a>
             </div>
         </nav>
         <section class="flex flex-col items-center justify-center text-white bg-[url(../assets/7BjxfxL.png)] bg-cover bg-center bg-no-repeat min-h-[40vh] px-5">
@@ -34,7 +34,7 @@
             <p class="text-lg text-center mt-5">The Official Blog of Block1A! Stay tuned for updates and events.</p>
         </section>
         <section class="flex items-center justify-center bg-[#2D3748] md:px-30 px-5 pt-5">
-            <button onclick="window.location.replace('../404.html')" class="bg-yellow-500 text-[#2D3748] text-lg font-bold py-2 px-5 rounded-md mt-5 hover:bg-[#1A212B] hover:text-white hover:cursor-pointer transition duration-300 ease-in-out flex-grow">Create Post</button>
+            <button onclick="window.location.replace('../404.php')" class="bg-yellow-500 text-[#2D3748] text-lg font-bold py-2 px-5 rounded-md mt-5 hover:bg-[#1A212B] hover:text-white hover:cursor-pointer transition duration-300 ease-in-out flex-grow">Create Post</button>
         </section>
         <section class="bg-[#2D3748] grid md:grid-cols-3 md:px-30 px-5 py-15 gap-10">
             <div>

@@ -21,7 +21,7 @@ Just click [here](https://block1a.netlify.app) or run it locally:
 1. Clone this repository:  
    ```sh
    git clone https://github.com/jrwnnnn/sentiment.git
- 2. Locate `index.html` and run it on your web browser.
+ 2. Locate `index.php` and run it on your web browser.
 
 ## Contribute
 

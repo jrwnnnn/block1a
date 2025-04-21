@@ -10,8 +10,9 @@ body {
 }
 
 .nav-tab {
-    @apply text-white;
+    @apply text-white hover:text-yellow-500;
 }
+
 /* Home */
 .article-title {
     @apply text-white font-bold text-2xl mb-3;

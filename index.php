@@ -7,9 +7,9 @@
   <title>Block1A - Home</title>
 </head>
 <body>
-    <section class="flex flex-col bg-[url(/assets/home_splash.png)] bg-cover bg-center bg-no-repeat min-h-screen">
+    <section class="flex flex-col bg-[url(/block1a/assets/home_splash.png)] bg-cover bg-center bg-no-repeat min-h-screen">
         <nav class="bg-[#1A212B] p-4 px-5 md:px-30 flex items-center justify-between">
-            <img src="assets/cs1a.png" alt="logo" class="w-20 hover:cursor-pointer" onclick="window.location.replace('index.html')">
+            <img src="assets/cs1a.png" alt="logo" class="w-20 hover:cursor-pointer" onclick="window.location.replace('index.php')">
             
             <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
@@ -21,13 +21,13 @@
           
             <div id="nav-links"
                  class="hidden md:grid md:grid-cols-7 absolute md:static top-20 left-0 w-full md:w-auto bg-[#1A212B] text-center md:flex-row md:space-x-4 transition-all duration-300 ease-in-out z-10">
-              <a href="index.html" class="nav-tab block py-2 md:inline">Home</a>
-              <a href="pages/blog.html" class="nav-tab block py-2 md:inline">Blog</a>
+              <a href="index.php" class="nav-tab block py-2 md:inline">Home</a>
+              <a href="pages/blog.php" class="nav-tab block py-2 md:inline">Blog</a>
               <a href="pages/preamble.html" class="nav-tab block py-2 md:inline">Rules</a>
-              <a href="pages/bluemap.html" class="nav-tab block py-2 md:inline">BlueMap</a>
-              <a href="404.html" class="nav-tab block py-2 md:inline">Playpass</a>
-              <a href="404.html" class="nav-tab block py-2 md:inline">Help and Support</a>
-              <a href="pages/signup.html" class="nav-tab block py-2 md:inline">Me</a>
+              <a href="pages/bluemap.php" class="nav-tab block py-2 md:inline">BlueMap</a>
+              <a href="404.php" class="nav-tab block py-2 md:inline">Playpass</a>
+              <a href="404.php" class="nav-tab block py-2 md:inline">Help and Support</a>
+              <a href="pages/signup.php" class="nav-tab block py-2 md:inline">Me</a>
             </div>
           </nav>
         <div class="flex flex-col md:items-start md:justify-end justify-center items-center flex-grow text-white pb-20 md:px-30 px-10">
@@ -87,7 +87,7 @@
                 <p class="text-gray-400 pt-5">March 15, 2025</p>
             </div>
         </div>
-        <button onclick="window.location.replace('pages/blog.html')" class="bg-yellow-500 text-[#2D3748] text-lg font-bold py-2 px-5 rounded-md mt-10 hover:bg-[#1A212B] hover:text-white hover:cursor-pointer transition duration-300 ease-in-out">View more...</button>
+        <button onclick="window.location.replace('pages/blog.php')" class="bg-yellow-500 text-[#2D3748] text-lg font-bold py-2 px-5 rounded-md mt-10 hover:bg-[#1A212B] hover:text-white hover:cursor-pointer transition duration-300 ease-in-out">View more...</button>
     </section>
     <section class="bg-[#2D3748] md:px-30 px-5 py-7">
         <div class="mb-10">
