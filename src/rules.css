@@ -1,8 +1,0 @@
-@import "tailwindcss";
-
-.focused {
-    @apply text-yellow-500;
-}
-.sidebar a{
-    @apply rounded-md p-2 mb-2 hover:bg-gray-700;
-}
