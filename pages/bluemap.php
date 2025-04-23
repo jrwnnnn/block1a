@@ -40,6 +40,6 @@
         </section>
     </body>
     </html>
-    <script src="script/index.js"></script>
+    <script src="../script/index.js"></script>
 </body>
 </html>
