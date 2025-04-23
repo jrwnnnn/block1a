@@ -3,12 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="src/output.css" rel="stylesheet">
+  <link href="../public/src/output.css" rel="stylesheet">
   <title>Block1A - Home</title>
 </head>
 <body>
     <section class="flex flex-col bg-[url(/block1a/assets/home_splash.png)] bg-cover bg-center bg-no-repeat min-h-screen">
-        <?php include 'includes/navigation.php'; ?>
+        <nav class="bg-[#1A212B] p-4 px-5 md:px-30 flex items-center justify-between">
+            <img src="../public/assets/cs1a.png" alt="logo" class="w-20 hover:cursor-pointer" onclick="window.location.replace('index.php')">
+            
+            <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+                    viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+            
+            <div id="nav-links" class="hidden md:grid md:grid-cols-7 absolute md:static top-20 left-0 w-full md:w-auto bg-[#1A212B] text-center md:flex-row md:space-x-4 transition-all duration-300 ease-in-out z-10">
+                <a href="index.php" class="nav-tab block py-2 md:inline">Home</a>
+                <a href="pages/blog.php" class="nav-tab block py-2 md:inline">Blog</a>
+                <a href="../public/pages/preamble.html" class="nav-tab block py-2 md:inline">Rules</a>
+                <a href="pages/bluemap.php" class="nav-tab block py-2 md:inline">BlueMap</a>
+                <a href="404.php" class="nav-tab block py-2 md:inline">Playpass</a>
+                <a href="404.php" class="nav-tab block py-2 md:inline">Help and Support</a>
+                <a href="pages/signup.php" class="nav-tab block py-2 md:inline">Me</a>
+            </div>
+        </nav>
         <div class="flex flex-col md:items-start md:justify-end justify-center items-center flex-grow text-white pb-20 md:px-30 px-10">
             <p class="text-6xl text-center font-bold pb-5">HOP IN, BUILD STUFF, HAVE FUN</p>
             <p class="text-lg text-center">The Official Minecraft Server of BSCS-1A! Available for both Minecraft Java and Bedrock Platform.</p>
@@ -33,7 +53,7 @@
     </section>
     <section class="bg-[#2D3748] md:px-30 px-5 py-7">
         <div class="grid md:grid-cols-2 gap-5 hover:cursor-pointer">
-            <img src="assets/season-end-thumb.jpg" alt="cover" class="rounded-md">
+            <img src="../public/assets/season-end-thumb.jpg" alt="cover" class="rounded-md">
             <div>
                 <p class="text-blue-400 text-md">Spotlight</p>
                 <p class="text-white md:text-5xl text-2xl font-bold pb-5">Season End Fest</p>
@@ -45,21 +65,21 @@
     <section class="flex flex-col items-end bg-[#2D3748] md:px-30 px-5 py-7">
         <div class="grid md:grid-cols-3 gap-7.5 hover:cursor-pointer">       
             <div>
-                <img src="assets/bahay-ni-jieben.png" alt="cover" class="mb-5 rounded-md ">
+                <img src="../public/../public/assets/bahay-ni-jieben.png" alt="cover" class="mb-5 rounded-md ">
                 <p class="text-green-500 text-md">Blog</p>
                 <p class="article-title">Screenshot Dump – March Builds Edition</p>
                 <p class="article-subtext">No words, just vibes. Here’s a bunch of screenshots showing off what the community’s been building lately. You might even spot your own creation.</p>
                 <p class="text-gray-400 pt-5">March 15, 2025</p>
             </div>
             <div onclick="window.location.replace('articles/perf-report-mar25.html')">
-                <img src="assets/spark.jpg" alt="cover" class="mb-5 rounded-md ">
+                <img src="../public/assets/spark.jpg" alt="cover" class="mb-5 rounded-md ">
                 <p class="text-green-500 text-md">Blog</p>
                 <p class="article-title">Monthly Server Performance Report - March 2025</p>
                 <p class="article-subtext">March 2025 Server Performance Report: A Smooth Month with Fewer Lag Spikes and Optimized Gameplay</p>
                 <p class="text-gray-400 pt-5">March 15, 2025</p>
             </div>
             <div onclick="window.location.replace('articles/patch-2-25-9.html')">
-                <img src="assets/wallpaper_minecraft_caves_cliffs(part1)_1920x1080.png" alt="cover" class="mb-5 rounded-md ">
+                <img src="../public/assets/wallpaper_minecraft_caves_cliffs(part1)_1920x1080.png" alt="cover" class="mb-5 rounded-md ">
                 <p class="text-orange-500 text-md">Patch Notes</p>
                 <p class="article-title">Patch 2.25.9</p>
                 <p class="article-subtext">Auto-planting saplings, fiery creepers, CS1A Bot joins the chat, mention pings, and more in Update 2.25.9.</p>
@@ -76,17 +96,17 @@
       
         <div class="relative overflow-hidden rounded-md w-full">
           <div id="carousel" class="flex transition-transform duration-500 ease-in-out">
-            <img src="assets/q6shntis2cx61.webp" alt="Screenshot 1" class="w-full flex-shrink-0">
-            <img src="assets/rixf6ht2oyaa1.png" alt="Screenshot 2" class="w-full flex-shrink-0">
-            <img src="assets/0kgnyorv6j691.webp" alt="Screenshot 3" class="w-full flex-shrink-0">
+            <img src="../public/assets/q6shntis2cx61.webp" alt="Screenshot 1" class="w-full flex-shrink-0">
+            <img src="../public/assets/rixf6ht2oyaa1.png" alt="Screenshot 2" class="w-full flex-shrink-0">
+            <img src="../public/assets/0kgnyorv6j691.webp" alt="Screenshot 3" class="w-full flex-shrink-0">
           </div>
         </div>
     </section>
     <section class="flex flex-col items-center bg-[#2D3748] md:px-30 px-5 py-7">
-        <img src="assets/cs1aminecrafr.png" class="w-200">
+        <img src="../public/assets/cs1aminecrafr.png" class="w-200">
         <p class="md:text-lg mt-3 text-white text-center"> Whether you’re here to build, explore, or just vibe with friends, welcome to the crew!</p>
     </section>
     <?php include 'includes/footer.php'; ?>
-    <script src="script/index.js"></script>
+    <script src="../public/script/index.js"></script>
 </body>
 </html>
