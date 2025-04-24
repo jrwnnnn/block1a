@@ -2,7 +2,7 @@
 require_once '../includes/Parsedown.php';
 
     $slug = $_GET['slug'] ?? 'patch-2.25.9';
-    $filepath = "../../public/articles/$slug.md";
+    $filepath = "..//articles/$slug.md";
 
     if (!file_exists($filepath)) {
         header("Location: ../404.php");
@@ -30,7 +30,7 @@ require_once '../includes/Parsedown.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../../public/src/output.css" rel="stylesheet">
+    <link href="..//src/output.css" rel="stylesheet">
     <title><?= htmlspecialchars($meta['title']) ?></title>
 </head>
 <body>

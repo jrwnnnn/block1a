@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="../public/src/output.css" rel="stylesheet">
+  <link href="src/output.css" rel="stylesheet">
   <title>Block1A - 404</title>
 </head>
 <body>
   <section class="flex flex-col bg-[#2D3748] bg-cover bg-center bg-no-repeat min-h-screen">
     <nav class="bg-[#1A212B] p-4 px-5 md:px-30 flex items-center justify-between">
-        <img src="../public/assets/cs1a.png" alt="logo" class="w-20 hover:cursor-pointer" onclick="window.location.replace('index.php')">
+        <img src="assets/cs1a.png" alt="logo" class="w-20 hover:cursor-pointer" onclick="window.location.replace('index.php')">
         
         <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
@@ -22,7 +22,7 @@
         <div id="nav-links" class="hidden md:grid md:grid-cols-7 absolute md:static top-20 left-0 w-full md:w-auto bg-[#1A212B] text-center md:flex-row md:space-x-4 transition-all duration-300 ease-in-out z-10">
             <a href="index.php" class="nav-tab block py-2 md:inline">Home</a>
             <a href="pages/blog.php" class="nav-tab block py-2 md:inline">Blog</a>
-            <a href="../public/pages/preamble.html" class="nav-tab block py-2 md:inline">Rules</a>
+            <a href="/pages/preamble.html" class="nav-tab block py-2 md:inline">Rules</a>
             <a href="pages/bluemap.php" class="nav-tab block py-2 md:inline">BlueMap</a>
             <a href="404.php" class="nav-tab block py-2 md:inline">Playpass</a>
             <a href="404.php" class="nav-tab block py-2 md:inline">Help and Support</a>
@@ -30,13 +30,13 @@
         </div>
     </nav>
       <div class="text-white flex flex-col justify-center items-center flex-grow text-center pb-30 md:px-30 px-10">
-        <img src="../public/assets/i-am-steve-minecraft.gif" alt="Steve" class="">
+        <img src="assets/i-am-steve-minecraft.gif" alt="Steve" class="">
         <p class="text-5xl text-center font-bold pb-5 pt-5">I... Am Steve</p>
         <p class="text-lg text-center">Sorry, we're still crafting the page that you are looking for.</p>
         <p class="text-lg text-center">Return to the <a href="index.php" class="text-blue-300">home page</a>.</p>
       </div>
   </section>
   <?php include 'includes/footer.php'; ?>
-  <script src="../public/script/index.js"></script>
+  <script src="script/index.js"></script>
 </body>
 </html>
