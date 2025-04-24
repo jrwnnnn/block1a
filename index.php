@@ -7,7 +7,7 @@
   <title>Block1A - Home</title>
 </head>
 <body>
-    <section class="flex flex-col bg-[url(/block1a/assets/home_splash.png)] bg-cover bg-center bg-no-repeat min-h-screen">
+    <section class="flex flex-col bg-cover bg-center bg-no-repeat min-h-screen" style="background-image: url('assets/home_splash.png')">
         <nav class="bg-[#1A212B] p-4 px-5 md:px-30 flex items-center justify-between">
             <img src="assets/cs1a.png" alt="logo" class="w-20 hover:cursor-pointer" onclick="window.location.replace('index.php')">
             
@@ -79,7 +79,7 @@
                 <p class="text-gray-400 pt-5">March 15, 2025</p>
             </div>
             <div onclick="window.location.replace('pages/article.php?slug=patch-2-25-9')">
-                <img src="assets/wallpaper_minecraft_caves_cliffs(part1)_1920x1080.png" alt="cover" class="mb-5 rounded-md ">
+                <img src="assets/patch-notes-cover.png" alt="cover" class="mb-5 rounded-md ">
                 <p class="text-orange-500 text-md">Patch Notes</p>
                 <p class="article-title">Patch 2.25.9</p>
                 <p class="article-subtext">Auto-planting saplings, fiery creepers, CS1A Bot joins the chat, mention pings, and more in Update 2.25.9.</p>
@@ -103,7 +103,7 @@
         </div>
     </section>
     <section class="flex flex-col items-center bg-[#2D3748] md:px-30 px-5 py-7">
-        <img src="assets/cs1aminecrafr.png" class="w-200">
+        <img src="assets/cs1aminecrafr1.png" class="w-200">
         <p class="md:text-lg mt-3 text-white text-center"> Whether you’re here to build, explore, or just vibe with friends, welcome to the crew!</p>
     </section>
     <?php include 'includes/footer.php'; ?>
