@@ -16,10 +16,10 @@ Enjoy the highlights!
 
 -Jerwin <br><br>
 
-![image](assets/article/season-end-fest-25-recap/2025-03-28_16.08.43.png)
+![image](assets/article/season-end-fest25-recap/2025-03-28_16.08.43.png)
 
-![image](assets/article/season-end-fest-25-recap/2025-03-28_16.08.15.png)
+![image](assets/article/season-end-fest25-recap/2025-03-28_16.08.15.png)
 
-![image](assets/article/season-end-fest-25-recap/2025-03-28_16.07.56.png)
+![image](assets/article/season-end-fest25-recap/2025-03-28_16.07.56.png)
 
-![image](assets/article/season-end-fest-25-recap/2025-03-28_16.08.23.png)
+![image](assets/article/season-end-fest25-recap/2025-03-28_16.08.23.png)

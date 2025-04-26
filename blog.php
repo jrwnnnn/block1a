@@ -29,7 +29,7 @@ $articles = array_slice($articles, 0, 6);
 $articleHTML = '';
 foreach ($articles as $article) {
     $articleHTML .= '
-    <div onclick="window.location.replace(\'article.php?slug=' . htmlspecialchars($article['id']) . '\')" class="hover:cursor-pointer text-white">
+    <div onclick="window.location.href(\'article.php?slug=' . htmlspecialchars($article['id']) . '\')" class="hover:cursor-pointer text-white">
         <img src="https://block1a.onrender.com/assets/' . htmlspecialchars($article['cover']) . '" alt="cover" class="mb-5 rounded-md block transition duration-300 ease-in-out hover:scale-105 hover:shadow-lg aspect-video object-cover ">
         <p class="' . htmlspecialchars($article['tag-col']) . ' text-md">' . htmlspecialchars($article['tag']) . '</p>
         <p class="text-2xl font-bold mb-2">' . htmlspecialchars($article['title']) . '</p>
