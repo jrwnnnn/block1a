@@ -1,6 +1,4 @@
 node_modules/
-src/
-script/
 
 .DS_Store
 Thumbs.db
