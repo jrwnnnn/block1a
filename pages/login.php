@@ -47,8 +47,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
                 <form id="loginForm" class="space-y-4" method="POST" action="../index.php">
                     <div>
-                        <label for="username" class="block text-sm font-medium text-white">Username</label>
-                        <input type="text" id="username" name="username" class="mt-1 block w-full p-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        <label for="login" class="block text-sm font-medium text-white">Username or Email</label>
+                        <input type="text" id="login" name="login" class="mt-1 block w-full p-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                     </div>
                     <div>
                         <label for="password" class="block text-sm font-medium text-white">Password</label>
