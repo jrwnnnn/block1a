@@ -1,3 +1,34 @@
+<?php
+require 'includes/Parsedown.php';
+
+$dir = 'articles/';
+$files = array_diff(scandir($dir), ['..', '.']);
+$articles = [];
+
+foreach ($files as $file) {
+    $content = file_get_contents($dir . $file);
+
+    if (preg_match('/---(.*?)---/s', $content, $matches)) {
+        $frontMatterRaw = trim($matches[1]);
+        $lines = explode("\n", $frontMatterRaw);
+        $meta = [];
+
+        foreach ($lines as $line) {
+            [$key, $value] = explode(':', $line, 2);
+            $meta[trim($key)] = trim($value);
+        }
+
+        if (!isset($meta['spotlight']) || $meta['spotlight'] !== 'true') {
+            $meta['slug'] = $meta['id'] ?? basename($file, '.md');
+            $articles[] = $meta;
+        }
+    }
+}
+
+usort($articles, fn($a, $b) => strtotime($b['date']) - strtotime($a['date']));
+$latestArticles = array_slice($articles, 0, 3);
+?>
+
 <!doctype html>
 <html>
 <head>
@@ -8,27 +39,7 @@
 </head>
 <body>
     <section class="flex flex-col bg-cover bg-center bg-no-repeat min-h-screen" style="background-image: url('assets/home_splash.png')">
-        <nav class="bg-[#1A212B] p-4 px-5 md:px-30 flex items-center justify-between">
-            <img src="assets/cs1a.png" alt="logo" class="w-20 hover:cursor-pointer" onclick="window.location.replace('index.php')">
-            
-            <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
-                    viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M4 6h16M4 12h16M4 18h16"/>
-                </svg>
-            </button>
-            
-            <div id="nav-links" class="hidden md:grid md:grid-cols-7 absolute md:static top-20 left-0 w-full md:w-auto bg-[#1A212B] text-center md:flex-row md:space-x-4 transition-all duration-300 ease-in-out z-10">
-                <a href="index.php" class="nav-tab block py-2 md:inline">Home</a>
-                <a href="pages/blog.php" class="nav-tab block py-2 md:inline">Blog</a>
-                <a href="pages/preamble.html" class="nav-tab block py-2 md:inline">Rules</a>
-                <a href="pages/bluemap.php" class="nav-tab block py-2 md:inline">BlueMap</a>
-                <a href="404.php" class="nav-tab block py-2 md:inline">Playpass</a>
-                <a href="404.php" class="nav-tab block py-2 md:inline">Help and Support</a>
-                <a href="pages/signup.php" class="nav-tab block py-2 md:inline">Me</a>
-            </div>
-        </nav>
+        <?php include 'includes/navigation.php'; ?>
         <div class="flex flex-col md:items-start md:justify-end justify-center items-center flex-grow text-white pb-20 md:px-30 px-10">
             <p class="text-6xl text-center font-bold pb-5">HOP IN, BUILD STUFF, HAVE FUN</p>
             <p class="text-lg text-center">The Official Minecraft Server of BSCS-1A! Available for both Minecraft Java and Bedrock Platform.</p>
@@ -63,28 +74,16 @@
         </div>
     </section>
     <section class="flex flex-col items-end bg-[#2D3748] md:px-30 px-5 py-7">
-        <div class="grid md:grid-cols-3 gap-7.5 hover:cursor-pointer">       
-            <div>
-                <img src="assets/bahay-ni-jieben.png" alt="cover" class="mb-5 rounded-md ">
-                <p class="text-green-500 text-md">Blog</p>
-                <p class="article-title">Screenshot Dump – March Builds Edition</p>
-                <p class="article-subtext">No words, just vibes. Here’s a bunch of screenshots showing off what the community’s been building lately. You might even spot your own creation.</p>
-                <p class="text-gray-400 pt-5">March 15, 2025</p>
-            </div>
-            <div onclick="window.location.replace('articles/perf-report-mar25.html')">
-                <img src="assets/spark.jpg" alt="cover" class="mb-5 rounded-md ">
-                <p class="text-green-500 text-md">Blog</p>
-                <p class="article-title">Monthly Server Performance Report - March 2025</p>
-                <p class="article-subtext">March 2025 Server Performance Report: A Smooth Month with Fewer Lag Spikes and Optimized Gameplay</p>
-                <p class="text-gray-400 pt-5">March 15, 2025</p>
-            </div>
-            <div onclick="window.location.replace('pages/article.php?slug=patch-2-25-9')">
-                <img src="assets/patch-notes-cover.png" alt="cover" class="mb-5 rounded-md ">
-                <p class="text-orange-500 text-md">Patch Notes</p>
-                <p class="article-title">Patch 2.25.9</p>
-                <p class="article-subtext">Auto-planting saplings, fiery creepers, CS1A Bot joins the chat, mention pings, and more in Update 2.25.9.</p>
-                <p class="text-gray-400 pt-5">March 15, 2025</p>
-            </div>
+        <div class="grid md:grid-cols-3 gap-7.5 hover:cursor-pointer">
+            <?php foreach ($latestArticles as $article): ?>
+                <div class="text-white" onclick="window.location.href='pages/article.php?slug=<?= htmlspecialchars($article['id']) ?>'">
+                    <img src="https://block1a.onrender.com/assets/<?= htmlspecialchars($article['cover']) ?>" alt="cover" class="mb-5 rounded-md block transition duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:opacity-95 cursor-pointer">
+                    <p class="<?= htmlspecialchars($article['tag-col']) ?> text-md"><?= htmlspecialchars($article['tag']) ?></p>
+                    <p class="font-bold text-2xl mb-3"><?= htmlspecialchars($article['title']) ?></p>
+                    <p><?= htmlspecialchars($article['subtitle']) ?></p>
+                    <p class="text-gray-400 pt-5"><?= htmlspecialchars($article['date']) ?></p>
+                </div>
+            <?php endforeach; ?>
         </div>
         <button onclick="window.location.replace('pages/blog.php')" class="bg-yellow-500 text-[#2D3748] text-lg font-bold py-2 px-5 rounded-md mt-10 hover:bg-[#1A212B] hover:text-white hover:cursor-pointer transition duration-300 ease-in-out">View more...</button>
     </section>

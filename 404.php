@@ -8,27 +8,7 @@
 </head>
 <body>
   <section class="flex flex-col bg-[#2D3748] bg-cover bg-center bg-no-repeat min-h-screen">
-    <nav class="bg-[#1A212B] p-4 px-5 md:px-30 flex items-center justify-between">
-        <img src="assets/cs1a.png" alt="logo" class="w-20 hover:cursor-pointer" onclick="window.location.replace('index.php')">
-        
-        <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
-                viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M4 6h16M4 12h16M4 18h16"/>
-            </svg>
-        </button>
-        
-        <div id="nav-links" class="hidden md:grid md:grid-cols-7 absolute md:static top-20 left-0 w-full md:w-auto bg-[#1A212B] text-center md:flex-row md:space-x-4 transition-all duration-300 ease-in-out z-10">
-            <a href="index.php" class="nav-tab block py-2 md:inline">Home</a>
-            <a href="pages/blog.php" class="nav-tab block py-2 md:inline">Blog</a>
-            <a href="/pages/preamble.html" class="nav-tab block py-2 md:inline">Rules</a>
-            <a href="pages/bluemap.php" class="nav-tab block py-2 md:inline">BlueMap</a>
-            <a href="404.php" class="nav-tab block py-2 md:inline">Playpass</a>
-            <a href="404.php" class="nav-tab block py-2 md:inline">Help and Support</a>
-            <a href="pages/signup.php" class="nav-tab block py-2 md:inline">Me</a>
-        </div>
-    </nav>
+    <?php include 'includes/navigation.php'; ?>
       <div class="text-white flex flex-col justify-center items-center flex-grow text-center pb-30 md:px-30 px-10">
         <img src="assets/i-am-steve-minecraft.gif" alt="Steve" class="">
         <p class="text-5xl text-center font-bold pb-5 pt-5">I... Am Steve</p>
