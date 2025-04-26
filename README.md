@@ -18,10 +18,10 @@ mySQL: https://upload.wikimedia.org/wikipedia/labs/8/8e/Mysql_logo.png
 </ul>
 
 ## How to use
-Just click [here](https://block1a.netlify.app) or run it locally:
+Just click [here](https://block1a.onrender.com) or run it locally:
 1. Clone this repository:  
    ```sh
-   git clone https://github.com/jrwnnnn/sentiment.git
+   git clone https://github.com/jrwnnnn/bloack1a.git
  2. Locate `index.php` and run it on your web browser.
 
 ## Contribute
