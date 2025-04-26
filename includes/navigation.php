@@ -1,4 +1,4 @@
-<nav class="bg-[#1A212B] p-4 px-5 md:px-30 flex items-center justify-between">
+<nav class="bg-[#1A212B] p-4 px-5 md:px-30 flex items-center justify-between z-999">
     <img src="assets/cs1a.png" alt="logo" class="w-20 hover:cursor-pointer" onclick="window.location.replace('index.php')">
     
     <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
@@ -9,7 +9,7 @@
         </svg>
     </button>
     
-    <div id="nav-links" class="hidden md:grid md:grid-cols-7 absolute md:static top-20 left-0 w-full md:w-auto bg-[#1A212B] text-center md:flex-row md:space-x-4 transition-all duration-300 ease-in-out z-10">
+    <div id="nav-links" class="hidden md:grid md:grid-cols-7 absolute md:static top-19.5 left-0 w-full md:w-auto bg-[#1A212B] text-center md:flex-row md:space-x-4 transition-all duration-300 ease-in-out z-10">
         <a href="index.php" class="nav-tab block py-2 md:inline">Home</a>
         <a href="blog.php" class="nav-tab block py-2 md:inline">Blog</a>
         <a href="rules.php" class="nav-tab block py-2 md:inline">Rules</a>

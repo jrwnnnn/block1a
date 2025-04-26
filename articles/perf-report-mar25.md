@@ -3,7 +3,7 @@ id: perf-report-mar25
 cover: spark.jpg
 title: Monthly Server Performance Report - March 2025
 subtitle: March 2025 Server Performance Report: A Smooth Month with Fewer Lag Spikes and Optimized Gameplay
-date: March 23, 2025
+date: March 8, 2025
 author: Igarashi Ame
 tag: Tech
 tag-col: text-red-500
@@ -22,7 +22,7 @@ Here’s a breakdown of what we’ve achieved. (Warning: It's super technical).
 
  Minecraft server ideally runs at 20 TPS, meaning everything is happening in real time with no delay. When TPS drops, actions like mining, mob movement, redstone circuits, and chunk loading become noticeably laggy. Last month, we saw frequent dips to around 15-16 TPS, and in the worst cases, it went down to 8.5 TPS. After several rounds of profiling and adjustments, our average TPS for March increased to a near-perfect 19.8, with lows rarely falling under 17. This drastic improvement means a lot less rubber-banding, smoother interactions with mobs and items, and more reliable redstone behavior. The percentage of uptime spent below 18 TPS has dropped from 38% in March to under 5% in March—an impressive leap.<br>
 
-![TPS Graph](../assets/graphc1-perf-mar25.jpg)
+![TPS Graph](assets/graphc1-perf-mar25.jpg)
 
 These changes led to a 35–50% drop in average tick durations in affected regions, significantly raising server-wide TPS and ensuring consistent real-time performance.
 
