@@ -14,8 +14,9 @@ body {
 }
 
 /* Home */
+
 .article-title {
-    @apply text-white font-bold text-2xl mb-3;
+    @apply ;
 }
 .article-subtext {
     @apply text-white ;
@@ -30,6 +31,7 @@ body {
   }
 
 /* Rules */
+
 .focused {
     @apply text-yellow-500;
 }
@@ -37,4 +39,8 @@ body {
     @apply rounded-md p-2 mb-2 hover:bg-gray-700;
 }
 
-/* blog */
+/* article */
+
+.article-main img {
+    @apply rounded-lg;
+}

@@ -1,11 +1,11 @@
 <?php
-require_once '../includes/Parsedown.php';
+require_once 'includes/Parsedown.php';
 
     $slug = $_GET['slug'] ?? 'patch-2.25.9';
-    $filepath = "..//articles/$slug.md";
+    $filepath = "articles/$slug.md";
 
     if (!file_exists($filepath)) {
-        header("Location: ../404.php");
+        header("Location: 404.php");
         exit();
     }
 
@@ -30,13 +30,13 @@ require_once '../includes/Parsedown.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="..//src/output.css" rel="stylesheet">
+    <link href="src/output.css" rel="stylesheet">
     <title><?= htmlspecialchars($meta['title']) ?></title>
 </head>
 <body>
     <?php include 'includes/navigation.php'; ?>
     
-    <img src="<?= htmlspecialchars($meta['cover']) ?>" alt="cover" class="w-full max-h-[40vh] object-cover object-center">
+    <img src="https://block1a.onrender.com/assets/<?= htmlspecialchars($meta['cover']) ?>" alt="cover" class="w-full max-h-[40vh] object-cover object-center">
 
     <section class="flex flex-col bg-[#2D3748] space-y-2 md:px-30 px-5 pt-10">
         <p class="md:text-6xl text-4xl text-center font-bold text-white"><?= htmlspecialchars($meta['title']) ?></p>
@@ -51,7 +51,7 @@ require_once '../includes/Parsedown.php';
         <hr class="border-t-2 border-[#4A5568] mt-5">
     </section>
 
-    <div class="bg-[#2D3748] px-5 md:px-90 py-20 text-white prose prose-invert max-w-none">
+    <div class="bg-[#2D3748] px-5 md:px-90 py-20 text-white prose prose-invert max-w-none space-y-5 article-main">
     <?= $parsedBody ?>
 
     </div>

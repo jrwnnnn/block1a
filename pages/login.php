@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="bg-[#1a202a] flex flex-col rounded-md p-8">
                 <div class="flex flex-row items-start justify-between pb-7">
                     <p class="text-white text-2xl font-bold">Login to Your Account</p>
-                    <img src="..//assets/cs1a.png" alt="logo" class="w-20">
+                    <img src="../assets/cs1a.png" alt="logo" class="w-20">
                 </div>
                 <form id="loginForm" class="space-y-4" method="POST" action="../index.php">
                     <div>
