@@ -6,11 +6,11 @@ $sql = "SELECT * FROM data";
 
 $result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        print("<p>" . $row["username"] . "</p>");
-    }
-}
+// if ($result->num_rows > 0) {
+//     while ($row = $result->fetch_assoc()) {
+//         print("<p>" . $row["username"] . "</p>");
+//     }
+// }
 
 require 'includes/Parsedown.php';
 
