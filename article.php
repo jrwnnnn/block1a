@@ -50,14 +50,26 @@ require_once 'includes/Parsedown.php';
         </div>
         <hr class="border-t-2 border-[#4A5568] mt-5">
     </section>
-
     <div class="bg-[#2D3748] px-5 md:px-90 py-20 text-white prose prose-invert max-w-none space-y-5 article-main">
-    <?= $parsedBody ?>
-
+        <?= $parsedBody ?>
     </div>
-
+    <section class="bg-[#2D3748] px-5 md:px-90 pb-20 text-white prose prose-invert max-w-none space-y-5 article-main">
+        <div class="flex gap-4 pt-5" id="reactions">
+            <button class="reaction-button bg-gray-700 hover:bg-gray-500 active:bg-blue-400 text-white px-5 py-2 rounded-full text-lg flex items-center gap-2 transform transition-all duration-200 hover:scale-110 active:scale-125" data-emoji="❤️">
+                ❤️ <span>0</span>
+            </button>
+            <button class="reaction-button bg-gray-700 hover:bg-gray-500 active:bg-blue-400 text-white px-5 py-2 rounded-full text-lg flex items-center gap-2 transform transition-all duration-200 hover:scale-110 active:scale-125" data-emoji="🤘">
+                🤘 <span>0</span>
+            </button>
+            <button class="reaction-button bg-gray-700 hover:bg-gray-500 active:bg-blue-400 text-white px-5 py-2 rounded-full text-lg flex items-center gap-2 transform transition-all duration-200 hover:scale-110 active:scale-125" data-emoji="🎉">
+                🎉 <span>0</span>
+            </button>
+            <button class="reaction-button bg-gray-700 hover:bg-gray-500 active:bg-blue-400 text-white px-5 py-2 rounded-full text-lg flex items-center gap-2 transform transition-all duration-200 hover:scale-110 active:scale-125" data-emoji="👍">
+                👍 <span>0</span>
+            </button>
+        </div>
+    </section>
     <?php include 'includes/footer.php'; ?>
-
     <script src="script/index.js"></script>
 </body>
 </html>
