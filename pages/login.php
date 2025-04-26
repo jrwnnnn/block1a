@@ -1,28 +1,23 @@
 <?php
 session_start();
 
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     include '../connect.php';
 
-
     $login = $_POST['username'];
     $password = $_POST['password'];
-
 
     $sql = "SELECT * FROM data WHERE username = ? OR email = ?";
     $stmt = mysqli_prepare($conn, $sql);
     mysqli_stmt_bind_param($stmt, "ss", $login, $login);
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
-
-
+    
     if ($user = mysqli_fetch_assoc($result)) {
         if (password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
             $_SESSION['email'] = $user['email'];
-
 
             header("Location: ../index.php");
             exit;
@@ -68,6 +63,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </div>
                     <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Login</button>
                 </form>
+                 <div class="mt-4 text-center">
+                     <p class="text-sm text-white">Don't have an account? <a href="signup.php" class="text-blue-500 hover:underline">Sign up</a></p>  
+                 </div>
             </div>
         </section>
     </body>
