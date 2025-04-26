@@ -1,5 +1,5 @@
 <?php
-  $page = $_GET['page'] ?? 'preamble';
+  $page = $_GET['page'] ?? 'home';
   $rules = json_decode(file_get_contents('data/rules.json'), true);
 
   if (!isset($rules[$page])) {

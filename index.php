@@ -76,7 +76,7 @@ $latestArticles = array_slice($articles, 0, 3);
     <section class="flex flex-col items-end bg-[#2D3748] md:px-30 px-5 py-7">
         <div class="grid md:grid-cols-3 gap-7.5 hover:cursor-pointer">
             <?php foreach ($latestArticles as $article): ?>
-                <div class="text-white" onclick="window.location.href='pages/article.php?slug=<?= htmlspecialchars($article['id']) ?>'">
+                <div class="text-white" onclick="window.location.href='article.php?slug=<?= htmlspecialchars($article['id']) ?>'">
                     <img src="https://block1a.onrender.com/assets/<?= htmlspecialchars($article['cover']) ?>" alt="cover" class="mb-5 rounded-md block transition duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:opacity-95 cursor-pointer">
                     <p class="<?= htmlspecialchars($article['tag-col']) ?> text-md"><?= htmlspecialchars($article['tag']) ?></p>
                     <p class="font-bold text-2xl mb-3"><?= htmlspecialchars($article['title']) ?></p>
