@@ -1,4 +1,17 @@
 {
+    "home": {
+        "title": "RULES",
+        "sections": [
+          {
+            "heading": "",
+            "paragraphs": [
+              "Welcome to the CS1A Minecraft Server! This document contains the official rules and constitution that govern all gameplay and conduct on the server.  Welcome to the CS1A Minecraft Server! This document contains the official rules and constitution that govern all gameplay and conduct on the server.  ",
+              "This page is not a complete list of every rule or situation. The Council reserves the right to evaluate each case individually and apply appropriate actions based on context and server guidelines.",
+              "You can access this document in-game anytime by typing /rules. Violations may lead to punishments, with serious or repeated offenses handled strictly by the Council. Extreme cases, especially those involving chat abuse, may be reported to Mojang and/or Xbox Live Player Safety."
+            ]
+          }
+        ]
+      },
     "preamble": {
       "title": "PREAMBLE",
       "sections": [

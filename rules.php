@@ -1,5 +1,5 @@
 <?php
-  $page = $_GET['page'] ?? 'declaration_of_principles';
+  $page = $_GET['page'] ?? 'preamble';
   $rules = json_decode(file_get_contents('data/rules.json'), true);
 
   if (!isset($rules[$page])) {
@@ -34,9 +34,9 @@
           <?php endforeach; ?>
         </div>
       </div>
-      <div class="md:p-5">
+      <div class="md:p-5 mt-5">
         <hr class="md:hidden block border-gray-500 mb-10">
-        <p class="md:text-6xl text-3xl font-bold mb-10"><?= htmlspecialchars($current['title']) ?></p>
+        <p class="md:text-6xl text-5xl font-bold mb-10"><?= htmlspecialchars($current['title']) ?></p>
 
         <?php foreach ($current['sections'] as $i => $section): ?>
           <p id="sec<?= $i+1 ?>" class="text-2xl font-bold mb-10"><?= htmlspecialchars($section['heading']) ?></p>

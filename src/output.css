@@ -239,6 +239,9 @@
   .mx-5 {
     margin-inline: calc(var(--spacing) * 5);
   }
+  .my-5 {
+    margin-block: calc(var(--spacing) * 5);
+  }
   .my-7 {
     margin-block: calc(var(--spacing) * 7);
   }
@@ -760,6 +763,11 @@
   .md\:mx-0 {
     @media (width >= 48rem) {
       margin-inline: calc(var(--spacing) * 0);
+    }
+  }
+  .md\:mt-5 {
+    @media (width >= 48rem) {
+      margin-top: calc(var(--spacing) * 5);
     }
   }
   .md\:grid {
