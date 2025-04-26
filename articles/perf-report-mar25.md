@@ -3,7 +3,7 @@ id: perf-report-mar25
 cover: spark.jpg
 title: Monthly Server Performance Report - March 2025
 subtitle: March 2025 Server Performance Report: A Smooth Month with Fewer Lag Spikes and Optimized Gameplay
-date: March 23, 2025
+date: March 8, 2025
 author: Igarashi Ame
 tag: Tech
 tag-col: text-red-500
