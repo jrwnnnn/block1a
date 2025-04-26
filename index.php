@@ -98,7 +98,7 @@ $latestArticles = array_slice($latestArticles, 0, 3);
                 </div>
             <?php endforeach; ?>
         </div>
-        <button onclick="window.location.href('blog.php')" class="bg-yellow-500 text-[#2D3748] text-lg font-bold py-2 px-5 rounded-md mt-10 hover:bg-[#1A212B] hover:text-white hover:cursor-pointer transition duration-300 ease-in-out">View more...</button>
+        <button onclick="window.location.href='blog.php';" class="bg-yellow-500 text-[#2D3748] text-lg font-bold py-2 px-5 rounded-md mt-10 hover:bg-[#1A212B] hover:text-white hover:cursor-pointer transition duration-300 ease-in-out">View more...</button>
     </section>
     <section class="bg-[#2D3748] md:px-30 px-5 py-7">
         <div class="mb-10">
