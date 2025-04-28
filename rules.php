@@ -36,7 +36,7 @@
       </div>
       <div class="md:p-5 mt-5">
         <hr class="md:hidden block border-gray-500 mb-10">
-        <p class="md:text-6xl text-5xl font-bold mb-10"><?= htmlspecialchars($current['title']) ?></p>
+        <p class="md:text-6xl text-5xl font-bold mb-10 break-words"><?= htmlspecialchars($current['title']) ?></p>
 
         <?php foreach ($current['sections'] as $i => $section): ?>
           <p id="sec<?= $i+1 ?>" class="text-2xl font-bold mb-10"><?= htmlspecialchars($section['heading']) ?></p>
