@@ -2,7 +2,7 @@
 id: season-end-fest25-recap
 cover: article/season-end-fest25-recap/2025-03-28_15.39.41.png
 title: Season End Fest 2025
-subtitle: A look back at the builds, unforgettable moments, and all the chaos we shared before we dive into a fresh start.
+subtitle: Recap of the epic Season End Fest — the chaos, the fun, and the unforgettable moments!
 date: March 30, 2025
 author: Jerwin
 tag: Event
