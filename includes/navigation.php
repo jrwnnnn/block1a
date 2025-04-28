@@ -14,7 +14,7 @@
         <a href="blog.php" class="nav-tab block py-2 md:inline">Blog</a>
         <a href="rules.php" class="nav-tab block py-2 md:inline">Rules</a>
         <a href="bluemap.php" class="nav-tab block py-2 md:inline">BlueMap</a>
-        <a href="faq.php" class="nav-tab block py-2 md:inline">Help and Support</a>
+        <a href="help-and-support.php" class="nav-tab block py-2 md:inline">Help and Support</a>
         <a href="pages/signup.php" class="nav-tab block py-2 md:inline">Me</a>
     </div>
 </nav>

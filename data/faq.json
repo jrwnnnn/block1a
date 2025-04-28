@@ -1,23 +1,73 @@
 {
-  "pageTitle": "Block1A - Joining the Server",
-  "mainTopic": "Joining the Server",
-  "description": "Here’s everything you need to know about joining our Minecraft server.",
-  "mainContent": "<p>This page explains how to connect to our Minecraft server. Please follow the steps carefully!</p>",
-  "subTopics": [
+  "faqs": [
     {
-      "title": "How di I join the server?",
-      "content": "<p>First, you'll need a Minecraft account and the latest version of the game. Go to the <a href='https://www.minecraft.net'>official Minecraft website</a> to download it.</p>"
+      "mainTopic": "Getting Started",
+      "description": "This section covers the basics of getting started with our Minecraft server.",
+      "subTopics": [
+        {
+          "title": "How do I join the server?",
+          "content": "<p>To join the server on Minecraft: Java Edition, follow these steps:</p><ol class=\"ml-5 text-white\"><li>1. Open Minecraft Launcher</li><li>2. Log in with your Mojang or Microsoft account.</li><li>3. Select <span class=\"font-bold\">\"Minecraft: Java Edition\"</span></li><li>4. Make sure it’s updated to version <span class=\"font-bold\">1.21.5 release</span>.</li><li>5. Click <span class=\"font-bold\">\"Multiplayer\"</span>. If a warning appears, click <span class=\"font-bold\">\"Proceed\"</span>.</li><li>6. Click <span class=\"font-bold\">\"Add Server\"</span></li><li>7. Enter the server name (any name you like).</li><li>8. Enter <code class=\"bg-gray-800 text-yellow-400 px-1 rounded\">cs1a.minecra.fr</code> as the Server Address.</li><li>9. Click <span class=\"font-bold\">\"Done\"</span></li><li>10. The server will appear in your list.</li><li>11. Select the server and click <span class=\"font-bold\">\"Join Server\"</span></li><li>12. Wait for it to connect.</li></ol><div class=\"px-4 my-5\" style=\"border-left: 4px solid #ECC94B;\"><p class=\"text-white mb-2\"><span class=\"text-white font-bold\">See: </span> <span class=\"text-blue-400 hover:underline\">Common Issues and Troubleshooting</span></p></div>"
+        },
+        {
+          "title": "How do I join the server on Bedrock Edition?",
+          "content": "<p>To join the server on Minecraft: Bedrock Edition, follow these steps:</p><ol class=\"ml-5 text-white\"><li>1. Open Minecraft on your device (Windows, mobile, console, etc.).</li><li>2. On the main menu, select <span class=\"font-bold\">\"Play\"</span>.</li><li>3. At the top of the screen, you’ll see several tabs. Click on the <span class=\"font-bold\">\"Servers\"</span> tab.</li><li>4. Click <span class=\"font-bold\">\"Add Server\"</span>.</li><li>5. Enter the server details:</li><ul class=\"ml-5 text-white\"><li>Server Name: Enter any name you prefer.</li><li>Server Address (IP): <code class=\"bg-gray-800 text-yellow-400 px-1 rounded\">cs1a.minecra.fr</code></li></ul><li>6. Click <span class=\"font-bold\">\"Save\"</span> to add the server to your list.</li><li>7. Now select the server and click <span class=\"font-bold\">\"Join Server\"</span>.</li></ol><p>Once connected, you’ll be in the server’s world and can start playing.</p>"
+        },        
+        {
+          "title": "How can I get Minecraft?",
+            "content": "<p>To get Minecraft: Java Edition:</p><ol class=\"ml-5 text-white\"><li>1. Go to the official website: <a href='https://minecraft.net' class='text-blue-400 hover:underline'>minecraft.net</a></li><li>2. Click <span class=\"font-bold\">\"Get Minecraft\"</span>. Choose <span class=\"font-bold\">\"Computer\"</span> > <span class=\"font-bold\">\"Java Edition\"</span>.</li><li>3. Sign up or log in. You need a Microsoft account to buy/download it.</li><li>4. Buy Minecraft.</li><li>5. Download the Minecraft Launcher.</li><li>6. Install it after buying.</li><li>7. Log in and play!</li></ol><p><strong>Note:</strong> If you already have Xbox Game Pass for PC, Minecraft Java is included for free.</p><p>To get Minecraft: Bedrock Edition:</p><p><strong>On PC (Windows 10/11):</strong></p><ol class=\"ml-5 text-white\"><li>1. Open <a href='https://www.microsoft.com/store/apps/9NBLGGH2JHXJ' class='text-blue-400 hover:underline'>Microsoft Store</a>.</li><li>2. Search for <span class=\"font-bold\">\"Minecraft\"</span>.</li><li>3. Buy <span class=\"font-bold\">\"Minecraft for Windows\"</span> (this is Bedrock).</li><li>4. Download and install it.</li></ol><p><strong>On Mobile (Android/iOS):</strong></p><ol class=\"ml-5 text-white\"><li>1. Open Google Play Store or Apple App Store.</li><li>2. Search <span class=\"font-bold\">\"Minecraft\"</span>.</li><li>3. Buy it and download.</li></ol><p><strong>On Consoles (Switch, PlayStation, Xbox):</strong></p><ol class=\"ml-5 text-white\"><li>1. Go to the console’s store (eShop, PS Store, Xbox Store).</li><li>2. Search <span class=\"font-bold\">\"Minecraft\"</span>.</li><li>3. Buy and install.</li></ol><div class=\"px-4 my-5\" style=\"border-left: 4px solid #ECC94B;\"><p class=\"text-white mb-2\"><span class=\"text-white font-bold\">Note:</span> Buying the Minecraft Java & Bedrock Bundle on PC gives you both editions!</p></div>"
+        },
+        {
+          "title": "What version of Minecraft do I need?",
+            "content": "<p>You need to have the correct version of Minecraft to join the server:</p><ul class=\"list-disc ml-5 text-white\"><li><strong>Java Edition:</strong> Version <span class=\"font-bold\">1.21.5 release</span> is required. Make sure your launcher is updated.</li><li><strong>Bedrock Edition:</strong> Ensure your game is updated to the latest version available for your platform.</li></ul></p>"
+        }
+      ],
+      "relatedArticles": [
+        {"title": "How to Set Up a Minecraft Server", "link": "article1.php"}
+      ]
     },
     {
-      "title": "How to Get Minecraft?",
-      "content": "<p>If you don’t have Minecraft yet, simply follow the <strong>official download</strong> link to get started. You can choose from Java Edition or Bedrock Edition.</p><img src='images/minecraft-download.jpg' alt='Minecraft Download'>"
+      "mainTopic": "Common Connection Issues",
+      "description": "This section addresses common issues players may encounter when trying to connect to the Minecraft server and provides troubleshooting steps.",
+      "subTopics": [
+        {
+          "title": "No Griefing",
+          "content": "<p>Destroying or modifying other players' builds without permission is prohibited.</p>"
+        },
+        {
+          "title": "Respect Players",
+          "content": "<p>Harassment, bullying, or any form of hate speech will not be tolerated.</p>"
+        }
+      ],
+      "relatedArticles": [
+        {"title": "Reporting Players", "link": "report.php"},
+        {"title": "Appealing Bans", "link": "appeal.php"}
+      ]
+    },
+    {
+      "mainTopic": "Fairplay",
+      "description": "This section outlines the rules and guidelines to ensure a fair and enjoyable experience for all players on the server.",
+      "subTopics": [
+        {
+          "title": "What are the rules?",
+          "content": "<p>To ensure everyone has a fun and fair gameplay experience, we made a set of rules or the “Server Constitution” as we call them in place. Please take a moment to familiarize them.</p><p>For the full list of the server rules, you can go <a href=\"rules.php\" class=\"text-blue-400 hover:underline\">here</a>.</p>"
+        },
+        {
+          "title": "I've been banned/muted — what now?",
+          "content": "<p><strong>Ban:</strong> If you are banned, you will not be able to join the server. Bans are typically issued for severe violations of the server rules, such as cheating, harassment, or griefing.<p><strong>Muted:</strong> If you have been muted by the moderators, you should wait until the allotted mute time passes. If the mute is unreasonable, you can contact help and support for further assistance.</p><div class=\"px-4 my-5\" style=\"border-left: 4px solid #ECC94B;\"><p class=\"text-white\"><span class=\"text-white font-bold\">See: </span> <a href=\"rules.php\" class=\"text-blue-400 hover:underline\">Rules</a></p></div>"
+        },
+        {
+          "title": "Ban Appeals",
+          "content": "<p>If you believe the ban was issued in error or would like to appeal, you can open a <a href=\"contact.php\" class=\"text-blue-400 hover:underline\">support ticket</a> and provide the necessary details, including your username and the reason for the appeal. Appeals are reviewed on a case-by-case basis, and decisions are final.</p>"
+        },
+        {
+          "title": "Someone griefed my base!",
+          "content": "<p>If someone griefed your base, you can send a <a href=\"contact.php\" class=\"text-blue-400 hover:underline\">support ticket</a> so an admin help you return your property before it was griefed, and the admins and moderators shall look for the person who griefed your base, rest assured your items and builds shall be safe in our hands.</p>"
+        }
+      ],
+      "relatedArticles": [
+        {"title": "Reporting Players", "link": "report.php"},
+        {"title": "Appealing Bans", "link": "appeal.php"}
+      ]
     }
-  ],
-  "relatedArticles": [
-    {"title": "How to Set Up a Minecraft Server", "link": "article1.php"},
-    {"title": "Troubleshooting Connection Issues", "link": "article2.php"},
-    {"title": "Top Plugins for Minecraft Servers", "link": "article3.php"},
-    {"title": "Minecraft Server Rules and Guidelines", "link": "article4.php"},
-    {"title": "Keeping Your Server Safe", "link": "article5.php"}
   ]
 }

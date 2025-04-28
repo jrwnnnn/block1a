@@ -1,83 +1,102 @@
+<?php
+    $requestedTopic = $_GET['topic'] ?? '';
+
+    $data = json_decode(file_get_contents('data/faq.json'), true);
+    $faqs = $data['faqs'] ?? [];
+
+    $matchedTopic = null;
+
+    foreach ($faqs as $faq) {
+        $slug = strtolower(str_replace(' ', '-', $faq['mainTopic']));
+        if ($slug === $requestedTopic) {
+            $matchedTopic = $faq;
+            break;
+        }
+    }
+
+    if (!$matchedTopic) {
+        header("Location: 404.php");
+        echo "Page not found.";
+        exit;
+}
+
+    $mainTopic = $matchedTopic['mainTopic'];
+    $description = $matchedTopic['description'];
+    $subTopics = $matchedTopic['subTopics'];
+    $relatedArticles = $matchedTopic['relatedArticles'];
+?>
+
 <!doctype html>
 <html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="src/output.css" rel="stylesheet">
-    <title>Block1A - Help and Support</title>
+    <title>Block1A - <?php echo htmlspecialchars($mainTopic); ?></title>
 </head>
-    <body>
+<body>
     <?php include 'includes/navigation.php'; ?>
-        <section class="flex flex-col items-center justify-center text-white bg-cover bg-center bg-no-repeat min-h-[40vh] px-5" style="background-image: url('assets/bahay-ni-jieben.png')">
-            <p class="md:text-6xl text-4xl text-yellow-500 font-bold text-center">Welcome to the Help and Support!</p>
-            <p class="text-lg text-center mt-5">Need a hand? You're at the right place!</p>
-        </section>
-        <section class="bg-[#2D3748] grid md:grid-cols-2 md:px-30 px-5 py-15 gap-10">
-            <div class="flex flex-col md:flex-row items-start bg-[#1A212B] p-5 rounded-md shadow-lg text-white">
-                <img src="assets/faq.png" alt="faq" class="w-10 md:mx-5 mb-5" style="filter: invert(100%);">
-                <div class="flex flex-col space-y-2">
-                    <p class="text-2xl font-bold mb-5">Frequently Asked Questions</p>
-                    <div class="flex flex-col space-y-2 mb-5">
-                        <a href="https://block1a.onrender.com/faq.php#faq1" class="text-blue-500 hover:underline">How do I join?</a>
-                        <a href="https://block1a.onrender.com/faq.php#faq1" class="text-blue-500 hover:underline">How do I join on bedrock?</a>
-                        <a href="https://block1a.onrender.com/faq.php#faq1" class="text-blue-500 hover:underline">Can I play on a bedrock client?</a>
-                        <a href="https://block1a.onrender.com/faq.php#faq1" class="text-blue-500 hover:underline">What are the versions you support?</a>
-                        <a href="https://block1a.onrender.com/faq.php#faq1" class="text-blue-500 hover:underline">Do I need a Minecraft License to join?</a>
-                    </div>
-                </div>
+    <section class="flex md:flex-row flex-col gap-5 bg-[#2D3748] pt-10 pb-20 md:px-30 px-10">
+        <div class="text-white flex-grow">
+            <p class="text-5xl font-bold"><?php echo htmlspecialchars($mainTopic); ?></p>
+
+            <div class="bg-[#1A212B] px-8 py-5 rounded-lg my-5">
+                <p class="text-lg text-white font-bold mb-2">Table of Contents</p>
+                <ul class="text-white list-disc ml-5">
+                    <?php foreach ($subTopics as $sub): ?>
+                        <li><a href="#<?php echo urlencode(strtolower(str_replace(' ', '-', $sub['title']))); ?>" class="text-blue-400 hover:underline"><?php echo htmlspecialchars($sub['title']); ?></a></li>
+                    <?php endforeach; ?>
+                </ul>
             </div>
-            <div class="flex items-start bg-[#1A212B] p-5 rounded-md shadow-lg text-white">
-                <img src="assets/technical-support.png" alt="technical" class="w-10 mx-5" style="filter: invert(100%);">
-                <div class="flex flex-col space-y-2">
-                    <p class="text-2xl font-bold mb-5">Technical</p>
-                    <div class="flex flex-col space-y-2 mb-5">
-                        <a href="https://block1a.onrender.com/faq.php#faq1" class="text-blue-500 hover:underline">Connection lost</a>
-                        <a href="https://block1a.onrender.com/faq.php#faq1" class="text-blue-500 hover:underline">Unable to connect to world</a>
-                        <a href="https://block1a.onrender.com/faq.php#faq1" class="text-blue-500 hover:underline">VPN or Proxy Detected</a>
-                        <a href="https://block1a.onrender.com/faq.php#faq1" class="text-blue-500 hover:underline">We couldn't validate your login</a>
-                        <a href="https://block1a.onrender.com/faq.php#faq1" class="text-blue-500 hover:underline">Maintenance Mode</a>
-                        <a href="https://block1a.onrender.com/faq.php#faq1" class="text-blue-500 hover:underline">Outdated client</a>
-                        <a href="https://block1a.onrender.com/faq.php#faq1" class="text-blue-500 hover:underline">Invalid IP Address</a>
-                    </div>
+
+            <p class="text-white pb-5"><?php echo htmlspecialchars($description); ?></p>
+
+            <!-- <div class="px-4 my-5" style="border-left: 4px solid #ECC94B;">
+                <p class="text-white"><span class="text-white font-bold">See: </span> <span class="text-blue-400 hover:underline">Common Issues and Troubleshooting</p>
+            </div> -->
+
+            <?php foreach ($subTopics as $sub): ?>
+                <p id="<?php echo urlencode(strtolower(str_replace(' ', '-', $sub['title']))); ?>" class="text-2xl text-white font-bold py-4"><?php echo htmlspecialchars($sub['title']); ?></p>
+                <div class="text-white py-5 prose prose-invert max-w-none space-y-3">
+                    <?php echo $sub['content']; ?>
                 </div>
-            </div>
-            <div class="flex items-start bg-[#1A212B] p-5 rounded-md shadow-lg text-white">
-                <img src="assets/auction.png" alt="fairplay" class="w-10 mx-5" style="filter: invert(100%);">
-                <div class="flex flex-col space-y-2">
-                    <p class="text-2xl font-bold mb-5">Fairplay</p>
-                    <div class="flex flex-col space-y-2 mb-5">
-                        <a href="https://block1a.onrender.com/faq.php#faq1" class="text-blue-500 hover:underline">What are the rules?</a>
-                        <a href="https://block1a.onrender.com/faq.php#faq1" class="text-blue-500 hover:underline">I've been banned/muted/jailed</a>
-                        <a href="https://block1a.onrender.com/faq.php#faq1" class="text-blue-500 hover:underline">Someone griefed my base</a>
-                        <a href="https://block1a.onrender.com/faq.php#faq1" class="text-blue-500 hover:underline">How do I report rulebreakers?</a>
-                    </div>
+            <?php endforeach; ?>
+
+            <div class="flex justify-between items-center bg-[#1A212B] px-8 py-3 rounded-lg my-5">
+                <p class="text-lg text-white font-bold">Is this article helpful?</p>
+                <div id="feedback-section">
+                    <button id="helpful-yes" class="bg-green-500 text-white text-lg font-bold py-1 px-5 rounded-md hover:cursor-pointer mr-3">Yes</button>
+                    <button id="helpful-no" class="bg-red-500 text-white text-lg font-bold py-1 px-5 rounded-md hover:cursor-pointer">No</button>
+
                 </div>
+                <p id="feedback-thankyou" class="text-gray-500 hidden">Thank you for your feedback!</p>
             </div>
-            <div class="flex items-start bg-[#1A212B] p-5 rounded-md shadow-lg text-white">
-                <img src="assets/sword.png" alt="sword" class="w-10 mx-5" style="filter: invert(100%);">
-                <div class="flex flex-col space-y-2">
-                    <p class="text-2xl font-bold mb-5">Gameplay</p>
-                    <div class="flex flex-col space-y-2 mb-5">
-                        <a href="https://block1a.onrender.com/faq.php#faq1" class="text-blue-500 hover:underline">How do I use /tpa?</a>
-                        <a href="https://block1a.onrender.com/faq.php#faq1" class="text-blue-500 hover:underline">How do I use /skin?</a>
-                        <a href="https://block1a.onrender.com/faq.php#faq1" class="text-blue-500 hover:underline">What is the shattered wilds?</a>
-                        <a href="https://block1a.onrender.com/faq.php#faq1" class="text-blue-500 hover:underline">Why can't I sleep?</a>
-                        <a href="https://block1a.onrender.com/faq.php#faq1" class="text-blue-500 hover:underline"></a>
-                    </div>
-                </div>
+
+            <script>
+                document.getElementById('helpful-yes').addEventListener('click', function() {
+                    document.getElementById('feedback-section').style.display = 'none';
+                    document.getElementById('feedback-thankyou').classList.remove('hidden');
+                });
+
+                document.getElementById('helpful-no').addEventListener('click', function() {
+                    document.getElementById('feedback-section').style.display = 'none';
+                    document.getElementById('feedback-thankyou').classList.remove('hidden');
+                });
+            </script>
+        </div>
+
+        <div class="min-w-[25vw]">
+            <div class="bg-[#1A212B] px-8 py-5 rounded-lg">
+                <p class="text-lg text-white font-bold mb-2">Related Articles</p>
+                <ul class="text-white list-disc ml-5">
+                    <?php foreach ($relatedArticles as $article): ?>
+                        <li><a href="<?php echo htmlspecialchars($article['link']); ?>" class="text-blue-400 hover:underline"><?php echo htmlspecialchars($article['title']); ?></a></li>
+                    <?php endforeach; ?>
+                </ul>
             </div>
-        </section>
-        <section class="bg-[#2D3748] md:px-30 px-5 pb-20 gap-10">
-            <div class="flex md:flex-row flex-col justify-between items-center bg-[#1A212B] py-5 px-10 rounded-md shadow-lg text-white">
-                <div>
-                    <p class="text-2xl font-bold">Still need help?</p>
-                    <p class="text-lg">Can't find the answer to your question? Contact our support.</p>
-                </div>
-                <button onclick="window.location.href='blog.php';" class="bg-yellow-500 text-[#2D3748] text-lg font-bold py-2 px-5 md:mt-0 mt-10 rounded-md hover:bg-[#3a4d60] hover:text-white hover:cursor-pointer transition duration-300 ease-in-out">Contact us</button>
-            </div>
-            <img src="assets/wp6206419.webp" alt="faq" class="w-full mt-20 max-h-[40vh] object-cover object-center">
-        </section>
-        <?php include 'includes/footer.php'; ?>
-        <script src="script/index.js"></script>
-    </body>
+        </div>
+    </section>
+    <?php include 'includes/footer.php'; ?>
+    <script src="script/index.js"></script>
+</body>
 </html>
