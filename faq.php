@@ -62,12 +62,11 @@
                 </div>
             <?php endforeach; ?>
 
-            <div class="flex justify-between items-center bg-[#1A212B] px-8 py-3 rounded-lg my-5">
+            <div class="flex md:flex-row flex-col justify-between items-center bg-[#1A212B] px-8 py-3 rounded-lg my-5">
                 <p class="text-lg text-white font-bold">Is this article helpful?</p>
-                <div id="feedback-section">
+                <div id="feedback-section" class="mt-3 md:mt-0">
                     <button id="helpful-yes" class="bg-green-500 text-white text-lg font-bold py-1 px-5 rounded-md hover:cursor-pointer mr-3">Yes</button>
                     <button id="helpful-no" class="bg-red-500 text-white text-lg font-bold py-1 px-5 rounded-md hover:cursor-pointer">No</button>
-
                 </div>
                 <p id="feedback-thankyou" class="text-gray-500 hidden">Thank you for your feedback!</p>
             </div>

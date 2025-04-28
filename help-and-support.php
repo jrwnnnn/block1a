@@ -12,7 +12,7 @@
             <p class="md:text-6xl text-4xl text-yellow-500 font-bold text-center">Welcome to the Help and Support!</p>
             <p class="text-lg text-center mt-5">Need a hand? You're at the right place!</p>
         </section>
-        <section class="bg-[#2D3748] grid md:grid-cols-2 md:px-30 px-5 py-15 gap-10">
+        <section class="bg-[#2D3748] grid md:grid-cols-2 md:px-30 px-5 pt-15 pb-5 gap-10">
             <div class="flex flex-col md:flex-row items-start bg-[#1A212B] p-5 rounded-md shadow-lg text-white">
                 <img src="assets/faq.png" alt="faq" class="w-10 md:mx-5 mb-5" style="filter: invert(100%);">
                 <div class="flex flex-col space-y-2">
@@ -68,7 +68,7 @@
                 </div>
             </div>
         </section>
-        <section class="bg-[#2D3748] md:px-30 px-5 pb-20 gap-10">
+        <section class="bg-[#2D3748] md:px-30 px-5 pb-20 pt-5">
             <div class="flex md:flex-row flex-col justify-between items-center bg-[#1A212B] py-5 px-10 rounded-md shadow-lg text-white">
                 <div>
                     <p class="text-2xl font-bold">Still need help?</p>
