@@ -75,6 +75,7 @@
                 </div>
                 <button onclick="window.location.href='blog.php';" class="bg-yellow-500 text-[#2D3748] text-lg font-bold py-2 px-5 md:mt-0 mt-10 rounded-md hover:bg-[#3a4d60] hover:text-white hover:cursor-pointer transition duration-300 ease-in-out">Contact us</button>
             </div>
+            <img src="assets/wp6206419.webp" alt="faq" class="w-full mt-20 max-h-[40vh] object-cover object-center">
         </section>
         <?php include 'includes/footer.php'; ?>
         <script src="script/index.js"></script>

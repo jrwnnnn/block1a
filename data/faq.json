@@ -1,0 +1,23 @@
+{
+  "pageTitle": "Block1A - Joining the Server",
+  "mainTopic": "Joining the Server",
+  "description": "Here’s everything you need to know about joining our Minecraft server.",
+  "mainContent": "<p>This page explains how to connect to our Minecraft server. Please follow the steps carefully!</p>",
+  "subTopics": [
+    {
+      "title": "How di I join the server?",
+      "content": "<p>First, you'll need a Minecraft account and the latest version of the game. Go to the <a href='https://www.minecraft.net'>official Minecraft website</a> to download it.</p>"
+    },
+    {
+      "title": "How to Get Minecraft?",
+      "content": "<p>If you don’t have Minecraft yet, simply follow the <strong>official download</strong> link to get started. You can choose from Java Edition or Bedrock Edition.</p><img src='images/minecraft-download.jpg' alt='Minecraft Download'>"
+    }
+  ],
+  "relatedArticles": [
+    {"title": "How to Set Up a Minecraft Server", "link": "article1.php"},
+    {"title": "Troubleshooting Connection Issues", "link": "article2.php"},
+    {"title": "Top Plugins for Minecraft Servers", "link": "article3.php"},
+    {"title": "Minecraft Server Rules and Guidelines", "link": "article4.php"},
+    {"title": "Keeping Your Server Safe", "link": "article5.php"}
+  ]
+}
