@@ -1,9 +1,12 @@
 <?php
 
-require_once __DIR__ . '/vendor/autoload.php';
-if (file_exists(__DIR__ . '/.env')) {
-    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-    $dotenv->load();
+if ($_SERVER['SERVER_NAME'] === 'localhost' || $_SERVER['REMOTE_ADDR'] === '127.0.0.1') {
+    require_once __DIR__ . '/vendor/autoload.php';
+
+    if (file_exists(__DIR__ . '/.env')) {
+        $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+        $dotenv->load();
+    }
 }
 
 $host = $_ENV['DB_HOST'] ?? 'localhost';
