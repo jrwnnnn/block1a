@@ -26,7 +26,7 @@
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['email'] = $user['email']; 
                 
-                header("Location: ../index.php");
+                header("Location: ../profile.php");
                 exit;
             } else {
                 $error_message = "Incorrect password. Please try again.";

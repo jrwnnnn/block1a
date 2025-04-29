@@ -1,34 +1,44 @@
 <?php
-    session_start();
-    require 'includes/Parsedown.php';
+session_start();
+require 'includes/Parsedown.php';
 
-    $dir = 'articles/';
-    $files = array_diff(scandir($dir), ['..', '.']);
-    $articles = [];
+$dir = 'articles/';
+$files = array_diff(scandir($dir), ['..', '.']);
 
-    foreach ($files as $file) {
-        $content = file_get_contents($dir . $file);
+$spotlightArticles = [];
+$latestArticles = [];
 
-        if (preg_match('/---(.*?)---/s', $content, $matches)) {
-            $frontMatterRaw = trim($matches[1]);
-            $lines = explode("\n", $frontMatterRaw);
-            $meta = [];
+foreach ($files as $file) {
+    $content = file_get_contents($dir . $file);
 
-            foreach ($lines as $line) {
+    if (preg_match('/---(.*?)---/s', $content, $matches)) {
+        $frontMatterRaw = trim($matches[1]);
+        $lines = explode("\n", $frontMatterRaw);
+        $meta = [];
+
+        foreach ($lines as $line) {
+            if (strpos($line, ':') !== false) {
                 [$key, $value] = explode(':', $line, 2);
                 $meta[trim($key)] = trim($value);
             }
+        }
 
-            if (!isset($meta['spotlight']) || $meta['spotlight'] !== 'true') {
-                $meta['slug'] = $meta['id'] ?? basename($file, '.md');
-                $articles[] = $meta;
-            }
+        $meta['slug'] = $meta['id'] ?? basename($file, '.md');
+
+        if (!empty($meta['spotlight']) && $meta['spotlight'] === 'true') {
+            $spotlightArticles[] = $meta;
+        } else {
+            $latestArticles[] = $meta;
         }
     }
+}
 
-    usort($articles, fn($a, $b) => strtotime($b['date']) - strtotime($a['date']));
-    $latestArticles = array_slice($articles, 0, 3);
+// Sort both lists by date
+usort($spotlightArticles, fn($a, $b) => strtotime($b['date']) - strtotime($a['date']));
+usort($latestArticles, fn($a, $b) => strtotime($b['date']) - strtotime($a['date']));
 
+$latestSpotlight = $spotlightArticles[0] ?? null;
+$latestArticles = array_slice($latestArticles, 0, 3);
 ?>
 
 <!doctype html>
@@ -64,22 +74,24 @@
             </div>
         </div>
     </section>
+    <?php if ($latestSpotlight): ?>
     <section class="bg-[#2D3748] md:px-30 px-5 py-7">
-        <div class="grid md:grid-cols-2 gap-5 hover:cursor-pointer">
-            <img src="assets/season-end-thumb.jpg" alt="cover" class="rounded-md">
+        <div class="grid md:grid-cols-2 gap-5 hover:cursor-pointer" onclick="window.location.href='article.php?slug=<?= htmlspecialchars($latestSpotlight['slug']) ?>'">
+            <img src="https://block1a.onrender.com/assets/<?= htmlspecialchars($latestSpotlight['cover']) ?>" alt="cover" class="rounded-md transition duration-300 ease-in-out hover:scale-101 hover:shadow-lg">
             <div>
                 <p class="text-blue-400 text-md">Spotlight</p>
-                <p class="text-white md:text-5xl text-2xl font-bold pb-5">Season End Fest</p>
-                <p class="text-white md:text-lg">Season 1 ended with a bang, and now we're starting fresh with a brand new world! Come hang out as we take a trip down memory lane and relive the stories, moments, and chaos we've all shared.</p>
-                <p class="text-gray-400 pt-5">March 15, 2025</p>
+                <p class="text-white md:text-5xl text-2xl font-bold pb-5"><?= htmlspecialchars($latestSpotlight['title']) ?></p>
+                <p class="text-white md:text-lg"><?= htmlspecialchars($latestSpotlight['subtitle']) ?></p>
+                <p class="text-gray-400 pt-5"><?= htmlspecialchars($latestSpotlight['date']) ?></p>
             </div>
         </div>
     </section>
+    <?php endif; ?>
     <section class="flex flex-col items-end bg-[#2D3748] md:px-30 px-5 py-7">
         <div class="grid md:grid-cols-3 gap-7.5 hover:cursor-pointer">
             <?php foreach ($latestArticles as $article): ?>
-                <div class="text-white" onclick="window.location.href='pages/article.php?slug=<?= htmlspecialchars($article['id']) ?>'">
-                    <img src="https://block1a.onrender.com/assets/<?= htmlspecialchars($article['cover']) ?>" alt="cover" class="mb-5 rounded-md block transition duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:opacity-95 cursor-pointer">
+                <div class="text-white" onclick="window.location.href='article.php?slug=<?= htmlspecialchars($article['id']) ?>'">
+                    <img src="https://block1a.onrender.com/assets/<?= htmlspecialchars($article['cover']) ?>" alt="cover" class="mb-5 rounded-md block transition duration-300 ease-in-out hover:scale-105 hover:shadow-lg cursor-pointer aspect-video object-cover">
                     <p class="<?= htmlspecialchars($article['tag-col']) ?> text-md"><?= htmlspecialchars($article['tag']) ?></p>
                     <p class="font-bold text-2xl mb-3"><?= htmlspecialchars($article['title']) ?></p>
                     <p><?= htmlspecialchars($article['subtitle']) ?></p>
@@ -87,7 +99,7 @@
                 </div>
             <?php endforeach; ?>
         </div>
-        <button onclick="window.location.replace('pages/blog.php')" class="bg-yellow-500 text-[#2D3748] text-lg font-bold py-2 px-5 rounded-md mt-10 hover:bg-[#1A212B] hover:text-white hover:cursor-pointer transition duration-300 ease-in-out">View more...</button>
+        <button onclick="window.location.href='blog.php';" class="bg-yellow-500 text-[#2D3748] text-lg font-bold py-2 px-5 rounded-md mt-10 hover:bg-[#1A212B] hover:text-white hover:cursor-pointer transition duration-300 ease-in-out">View more...</button>
     </section>
     <section class="bg-[#2D3748] md:px-30 px-5 py-7">
         <div class="mb-10">
