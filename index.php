@@ -2,7 +2,7 @@
 
 include "connect.php";
 
-$sql = "SELECT * FROM data";
+$sql = "SELECT * FROM profiles";
 
 $result = $conn->query($sql);
 
