@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once 'includes/Parsedown.php';
 
     $slug = $_GET['slug'] ?? 'patch-2.25.9';

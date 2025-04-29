@@ -16,6 +16,7 @@
 
     if (!$matchedTopic) {
         header("Location: 404.php");
+        echo "Page not found.";
         exit;
 }
 
