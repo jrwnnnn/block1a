@@ -1,45 +1,33 @@
 <?php
+    session_start();
+    require 'includes/Parsedown.php';
 
-include "connect.php";
+    $dir = 'articles/';
+    $files = array_diff(scandir($dir), ['..', '.']);
+    $articles = [];
 
-$sql = "SELECT * FROM profiles";
+    foreach ($files as $file) {
+        $content = file_get_contents($dir . $file);
 
-$result = $conn->query($sql);
+        if (preg_match('/---(.*?)---/s', $content, $matches)) {
+            $frontMatterRaw = trim($matches[1]);
+            $lines = explode("\n", $frontMatterRaw);
+            $meta = [];
 
-// if ($result->num_rows > 0) {
-//     while ($row = $result->fetch_assoc()) {
-//         print("<p>" . $row["username"] . "</p>");
-//     }
-// }
+            foreach ($lines as $line) {
+                [$key, $value] = explode(':', $line, 2);
+                $meta[trim($key)] = trim($value);
+            }
 
-require 'includes/Parsedown.php';
-
-$dir = 'articles/';
-$files = array_diff(scandir($dir), ['..', '.']);
-$articles = [];
-
-foreach ($files as $file) {
-    $content = file_get_contents($dir . $file);
-
-    if (preg_match('/---(.*?)---/s', $content, $matches)) {
-        $frontMatterRaw = trim($matches[1]);
-        $lines = explode("\n", $frontMatterRaw);
-        $meta = [];
-
-        foreach ($lines as $line) {
-            [$key, $value] = explode(':', $line, 2);
-            $meta[trim($key)] = trim($value);
-        }
-
-        if (!isset($meta['spotlight']) || $meta['spotlight'] !== 'true') {
-            $meta['slug'] = $meta['id'] ?? basename($file, '.md');
-            $articles[] = $meta;
+            if (!isset($meta['spotlight']) || $meta['spotlight'] !== 'true') {
+                $meta['slug'] = $meta['id'] ?? basename($file, '.md');
+                $articles[] = $meta;
+            }
         }
     }
-}
 
-usort($articles, fn($a, $b) => strtotime($b['date']) - strtotime($a['date']));
-$latestArticles = array_slice($articles, 0, 3);
+    usort($articles, fn($a, $b) => strtotime($b['date']) - strtotime($a['date']));
+    $latestArticles = array_slice($articles, 0, 3);
 
 ?>
 

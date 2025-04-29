@@ -1,3 +1,15 @@
+<?php
+
+$grid7 = "Login"; // Default value
+
+if (isset($_SESSION['user_id'])) {
+    $grid7 = "Profile";
+    $grid7_link = "profile.php";
+} else {
+    $grid7_link = "pages/login.php";
+}
+?>
+
 <nav class="bg-[#1A212B] p-4 px-5 md:px-30 flex items-center justify-between">
     <img src="assets/cs1a.png" alt="logo" class="w-20 hover:cursor-pointer" onclick="window.location.replace('index.php')">
     
@@ -16,6 +28,6 @@
         <a href="bluemap.php" class="nav-tab block py-2 md:inline">BlueMap</a>
         <a href="404.php" class="nav-tab block py-2 md:inline">Playpass</a>
         <a href="404.php" class="nav-tab block py-2 md:inline">Help and Support</a>
-        <a href="pages/signup.php" class="nav-tab block py-2 md:inline">Me</a>
+        <a href="<?php echo $grid7_link; ?>" class="nav-tab block py-2 md:inline"><?php echo $grid7; ?></a>
     </div>
 </nav>

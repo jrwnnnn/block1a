@@ -1,4 +1,5 @@
 <?php
+  session_start();
   $page = $_GET['page'] ?? 'preamble';
   $rules = json_decode(file_get_contents('data/rules.json'), true);
 
