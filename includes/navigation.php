@@ -21,7 +21,7 @@ if (isset($_SESSION['user_id'])) {
         </svg>
     </button>
     
-    <div id="nav-links" class="hidden md:grid md:grid-cols-6 absolute md:static top-19.5 left-0 w-full md:w-auto bg-[#1A212B] text-center md:flex-row md:space-x-4 transition-all duration-300 ease-in-out z-10">
+    <div id="nav-links" class="hidden md:grid md:grid-cols-7 absolute md:static top-20 left-0 w-full md:w-auto bg-[#1A212B] text-center md:flex-row md:space-x-4 transition-all duration-300 ease-in-out z-10">
         <a href="index.php" class="nav-tab block py-2 md:inline">Home</a>
         <a href="blog.php" class="nav-tab block py-2 md:inline">Blog</a>
         <a href="rules.php" class="nav-tab block py-2 md:inline">Rules</a>

@@ -7,5 +7,4 @@ debug.php
 
 *.log
 *.env
-
 *.sql
