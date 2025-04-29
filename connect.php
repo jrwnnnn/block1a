@@ -1,11 +1,11 @@
 <?php
 
-$host = getenv('DB_HOST') ?: '127.0.0.1';
-$user = getenv('DB_USER') ?: 'root';
-$pass = getenv('DB_PASS') ?: '';
-$name = getenv('DB_NAME') ?: 'test';
+$host = getenv('DB_HOST');
+$user = getenv('DB_USER');
+$pass = getenv('DB_PASS');
+$name = getenv('DB_NAME');
 
-$conn = new mysqli($host, $user, $pass, $name, (int)$port);
+$conn = new mysqli($host, $user, $pass, $name);
 
 if ($conn->connect_error) {
     http_response_code(500);
