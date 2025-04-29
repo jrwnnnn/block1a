@@ -1,4 +1,5 @@
 <?php
+    session_start();
     $requestedTopic = $_GET['topic'] ?? '';
 
     $data = json_decode(file_get_contents('data/faq.json'), true);

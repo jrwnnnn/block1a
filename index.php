@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'includes/Parsedown.php';
 
 $dir = 'articles/';
