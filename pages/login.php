@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $login = $_POST['username'];
     $password = $_POST['password'];
 
-    $sql = "SELECT * FROM data WHERE username = ? OR email = ?";
+    $sql = "SELECT * FROM profiles WHERE username = ? OR email = ?";
     $stmt = mysqli_prepare($conn, $sql);
     mysqli_stmt_bind_param($stmt, "ss", $login, $login);
     mysqli_stmt_execute($stmt);

@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
 
-    $email_check_sql = "SELECT * FROM data WHERE email = ?";
+    $email_check_sql = "SELECT * FROM profiles WHERE email = ?";
     $email_stmt = mysqli_prepare($conn, $email_check_sql);
     mysqli_stmt_bind_param($email_stmt, "s", $email);
     mysqli_stmt_execute($email_stmt);
@@ -38,8 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $has_error = true;
     }
 
-
-    $username_check_sql = "SELECT * FROM data WHERE username = ?";
+  
+    $username_check_sql = "SELECT * FROM profiles WHERE username = ?";
     $username_stmt = mysqli_prepare($conn, $username_check_sql);
     mysqli_stmt_bind_param($username_stmt, "s", $username);
     mysqli_stmt_execute($username_stmt);
@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (!$has_error) {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-        $insert_sql = "INSERT INTO data (email, username, password) VALUES (?, ?, ?)";
+        $insert_sql = "INSERT INTO profiles (email, username, password) VALUES (?, ?, ?)";
         $stmt = mysqli_prepare($conn, $insert_sql);
         mysqli_stmt_bind_param($stmt, "sss", $email, $username, $hashed_password);
 
