@@ -31,7 +31,7 @@ $articleHTML = '';
 foreach ($articles as $article) {
     $articleHTML .= '
     <div onclick="window.location.href=\'article.php?slug=' . htmlspecialchars($article['id']) . '\'" class="hover:cursor-pointer text-white">
-        <img src="https://block1a.onrender.com/assets/' . htmlspecialchars($article['cover']) . '" alt="cover" class="mb-5 rounded-md block transition duration-300 ease-in-out hover:scale-105 hover:shadow-lg aspect-video object-cover ">
+        <img src="' . htmlspecialchars($article['cover']) . '" alt="cover" class="mb-5 rounded-md block transition duration-300 ease-in-out hover:scale-105 hover:shadow-lg aspect-video object-cover ">
         <p class="' . htmlspecialchars($article['tag-col']) . ' text-md">' . htmlspecialchars($article['tag']) . '</p>
         <p class="text-2xl font-bold mb-2">' . htmlspecialchars($article['title']) . '</p>
         <p>' . htmlspecialchars($article['subtitle']) . '</p>
@@ -51,7 +51,7 @@ foreach ($articles as $article) {
 </head>
     <body>
     <?php include 'includes/navigation.php'; ?>
-        <section class="flex flex-col items-center justify-center text-white bg-cover bg-center bg-no-repeat min-h-[40vh] px-5" style="background-image: url('assets/7BjxfxL.png')">
+        <section class="flex flex-col items-center justify-center text-white bg-cover bg-center bg-no-repeat min-h-[40vh] px-5" style="background-image: url('assets/blog-hero.webp')">
             <p class="text-6xl text-yellow-500 font-bold">Blog</p>
             <p class="text-lg text-center mt-5">The Official Blog of Block1A! Stay tuned for updates and events.</p>
         </section>
@@ -59,6 +59,6 @@ foreach ($articles as $article) {
             <?= $articleHTML ?>
         </section>
         <?php include 'includes/footer.php'; ?>
-        <script src="script/index.js"></script>
+        
     </body>
 </html>

@@ -37,7 +37,7 @@ require_once 'includes/Parsedown.php';
 <body>
     <?php include 'includes/navigation.php'; ?>
     
-    <img src="https://block1a.onrender.com/assets/<?= htmlspecialchars($meta['cover']) ?>" alt="cover" class="w-full max-h-[40vh] object-cover object-center">
+    <img src="<?= htmlspecialchars($meta['cover']) ?>" alt="cover" class="w-full max-h-[40vh] object-cover object-center">
 
     <section class="flex flex-col bg-[#2D3748] space-y-2 md:px-30 px-5 pt-10">
         <p class="md:text-6xl text-4xl text-center font-bold text-white"><?= htmlspecialchars($meta['title']) ?></p>
@@ -52,13 +52,11 @@ require_once 'includes/Parsedown.php';
         <hr class="border-t-2 border-[#4A5568] mt-5">
     </section>
 
-    <div class="bg-[#2D3748] px-5 md:px-90 py-20 text-white prose prose-invert max-w-none space-y-5 article-main">
+    <div class="bg-[#2D3748] px-5 md:px-[25vw] py-20 text-white markdown">
     <?= $parsedBody ?>
 
     </div>
 
     <?php include 'includes/footer.php'; ?>
-
-    <script src="script/index.js"></script>
 </body>
 </html>

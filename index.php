@@ -33,7 +33,6 @@ foreach ($files as $file) {
     }
 }
 
-// Sort both lists by date
 usort($spotlightArticles, fn($a, $b) => strtotime($b['date']) - strtotime($a['date']));
 usort($latestArticles, fn($a, $b) => strtotime($b['date']) - strtotime($a['date']));
 
@@ -77,7 +76,7 @@ $latestArticles = array_slice($latestArticles, 0, 3);
     <?php if ($latestSpotlight): ?>
     <section class="bg-[#2D3748] md:px-30 px-5 py-7">
         <div class="grid md:grid-cols-2 gap-5 hover:cursor-pointer" onclick="window.location.href='article.php?slug=<?= htmlspecialchars($latestSpotlight['slug']) ?>'">
-            <img src="https://block1a.onrender.com/assets/<?= htmlspecialchars($latestSpotlight['cover']) ?>" alt="cover" class="rounded-md transition duration-300 ease-in-out hover:scale-101 hover:shadow-lg">
+            <img src="<?= htmlspecialchars($latestSpotlight['cover']) ?>" alt="cover" class="rounded-md transition duration-300 ease-in-out hover:scale-101 hover:shadow-lg">
             <div>
                 <p class="text-blue-400 text-md">Spotlight</p>
                 <p class="text-white md:text-5xl text-2xl font-bold pb-5"><?= htmlspecialchars($latestSpotlight['title']) ?></p>
@@ -91,7 +90,7 @@ $latestArticles = array_slice($latestArticles, 0, 3);
         <div class="grid md:grid-cols-3 gap-7.5 hover:cursor-pointer">
             <?php foreach ($latestArticles as $article): ?>
                 <div class="text-white" onclick="window.location.href='article.php?slug=<?= htmlspecialchars($article['id']) ?>'">
-                    <img src="https://block1a.onrender.com/assets/<?= htmlspecialchars($article['cover']) ?>" alt="cover" class="mb-5 rounded-md block transition duration-300 ease-in-out hover:scale-105 hover:shadow-lg cursor-pointer aspect-video object-cover">
+                    <img src="<?= htmlspecialchars($article['cover']) ?>" alt="cover" class="mb-5 rounded-md block transition duration-300 ease-in-out hover:scale-105 hover:shadow-lg cursor-pointer aspect-video object-cover">
                     <p class="<?= htmlspecialchars($article['tag-col']) ?> text-md"><?= htmlspecialchars($article['tag']) ?></p>
                     <p class="font-bold text-2xl mb-3"><?= htmlspecialchars($article['title']) ?></p>
                     <p><?= htmlspecialchars($article['subtitle']) ?></p>
@@ -109,9 +108,9 @@ $latestArticles = array_slice($latestArticles, 0, 3);
       
         <div class="relative overflow-hidden rounded-md w-full">
           <div id="carousel" class="flex transition-transform duration-500 ease-in-out">
-            <img src="assets/q6shntis2cx61.webp" alt="Screenshot 1" class="w-full flex-shrink-0">
-            <img src="assets/rixf6ht2oyaa1.png" alt="Screenshot 2" class="w-full flex-shrink-0">
-            <img src="assets/0kgnyorv6j691.webp" alt="Screenshot 3" class="w-full flex-shrink-0">
+            <img src="assets/carousel-1.webp" alt="Screenshot 1" class="w-full flex-shrink-0">
+            <img src="assets/carousel-2.webp" alt="Screenshot 2" class="w-full flex-shrink-0">
+            <img src="assets/carousel-3.webp" alt="Screenshot 3" class="w-full flex-shrink-0">
           </div>
         </div>
     </section>

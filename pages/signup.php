@@ -93,8 +93,34 @@
         <link href="../src/output.css" rel="stylesheet">
         <title>Block1A - Signup</title>
     </head>
-    <body class="bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center min-h-screen px-5 md:px-30" style="background-image: url('../assets/2login-bg.jpg')">
-        <div class="bg-[#1a202a] flex flex-col rounded-md p-8 w-full max-w-md">
+    <body>
+        <section class="bg-[url('../assets/auth-background.webp')] bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center min-h-screen md:px-30 px-5">
+            <div class="bg-[#1a202a] flex flex-col rounded-md p-8 w-full max-w-md">
+                <div class="flex flex-row items-start justify-between pb-7">
+                    <p class="text-white text-2xl font-bold">Create an Account</p>
+                    <img src="../assets/cs1a.png" alt="logo" class="w-20">
+                </div>
+                <?php if ($success_message): ?>
+        <div class="bg-green-600 text-white p-3 mb-4 rounded-md text-center font-semibold">
+            <?= $success_message ?>
+        </div>
+        <?php endif; ?>
+                <form id="loginForm" class="space-y-4" method="POST" action="signup.php">
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-white">Email</label>
+                        <input type="email" id="email" name="email" value="<?= htmlspecialchars($_POST['email'] ?? '') ?>"
+                        class="mt-1 block w-full p-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        <?php if ($email_error): ?>
+            <p class="text-red-600 text-sm mt-1 p-2 rounded"><?= $email_error ?></p>
+            <?php endif; ?>
+                    </div>
+                    <div>
+                        <label for="username" class="block text-sm font-medium text-white">Username</label>
+                        <input type="username" id="username" name="username" value="<?= htmlspecialchars($_POST['username'] ?? '') ?>"
+                        class="mt-1 block w-full p-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        <?php if ($username_error): ?>
+            <p class="text-red-600 text-sm mt-1 p-2 rounded"><?= $username_error ?></p>
+            <?php endif; ?>
 
             <div class="flex flex-row items-start justify-between pb-7">
                 <p class="text-white text-2xl font-bold">Create an Account</p>
