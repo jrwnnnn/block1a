@@ -66,24 +66,24 @@
                         <label for="password" class="block text-sm font-medium text-white">Password</label>
                         <input type="password" id="password" name="password" class="mt-1 block w-full p-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                     </div>
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center">
-                            <input id="rememberMe" name="rememberMe" type="checkbox" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-600 rounded">
-                            <label for="rememberMe" class="ml-2 block text-sm text-white">Remember me</label>
-                        </div>
+                    <div class="flex items-center gap-2 pb-5 text-white text-sm">
+                        <input type="checkbox" id="showPassword" class="" style="width: 16px; height: 16px; cursor: pointer;">
+                        <label for="showPassword">Show Password</label>
+                    </div>
+                    <div class="flex items-center justify-start">
                         <a href="#" class="text-sm text-blue-500 hover:underline">Forgot password?</a>
                     </div>
                     <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
                         Login
                     </button>
                 </form>
-                <div class="mt-4 text-center">
-                    <p class="text-sm text-white">
-                        Don't have an account?
-                        <a href="signup.php" class="text-blue-500 hover:underline">Sign up</a>
+                <div class="mt-5 text-center">
+                    <p class="text-sm text-white">Don't have an account?
+                    <a href="signup.php" class="text-blue-500 hover:underline">Sign up</a>
                     </p>
                 </div>
             </div>
         </section>
+        <script src="../script/login.js"></script>
     </body>
 </html>
