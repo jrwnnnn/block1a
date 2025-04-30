@@ -20,6 +20,6 @@ session_start();
       <iframe src="https://bluecolored.de/bluemap/#acrana:302:1778:0.81:113.91:0.78:67" class="w-full h-full z-100" onload="document.getElementById('loading').style.display='none';"></iframe>
     </div>
   </section>
-  <script src="script/index.js"></script>
+  
 </body>
 </html>

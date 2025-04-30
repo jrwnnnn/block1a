@@ -33,7 +33,6 @@ foreach ($files as $file) {
     }
 }
 
-// Sort both lists by date
 usort($spotlightArticles, fn($a, $b) => strtotime($b['date']) - strtotime($a['date']));
 usort($latestArticles, fn($a, $b) => strtotime($b['date']) - strtotime($a['date']));
 

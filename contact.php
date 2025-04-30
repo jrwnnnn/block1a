@@ -19,7 +19,7 @@ session_start();
         <p class="text-lg">You can also contact us in-game using the <code class="bg-gray-800 text-gray-200 px-2 py-1 rounded">/helpop</code> command.</p>
         <img src="assets/panda.png" alt="panda" class="w-full mt-20 max-h-[40vh] object-cover object-center">
     </section>
-  <script src="script/index.js"></script>
+  
     <?php include 'includes/footer.php'; ?>
 </body>
 </html>

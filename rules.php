@@ -60,6 +60,6 @@
     </div>
   </div>
   <?php include 'includes/footer.php'; ?>
-  <script src="script/index.js"></script>
+  
 </body>
 </html>

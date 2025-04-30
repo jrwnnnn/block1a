@@ -10,16 +10,6 @@ function copyToClipboard() {
     document.getElementById('player-count').innerText = data.players.online;
   });
 
-  const toggle = document.getElementById('menu-toggle');
-  const links = document.getElementById('nav-links');
-
-  toggle.addEventListener('click', () => {
-    links.classList.toggle('hidden');
-    links.classList.toggle('flex');
-    links.classList.toggle('flex-col');
-    links.classList.toggle('animate-slide');
-  });
-
   const carousel = document.getElementById('carousel');
     const total = carousel.children.length;
     let index = 0;
