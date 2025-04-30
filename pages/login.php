@@ -9,7 +9,7 @@
     $error_message = '';
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        include '../connect.php';
+        include '../functions/connect.php';
 
         $login = $_POST['login'];
         $password = $_POST['password'];

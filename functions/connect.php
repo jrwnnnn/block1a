@@ -1,7 +1,7 @@
 <?php
 
-$autoloader = __DIR__ . '/vendor/autoload.php';
-$dotenvPath = __DIR__;
+$autoloader = __DIR__ . '/../vendor/autoload.php';
+$dotenvPath = __DIR__ . '/..';
 $dotenvFile = $dotenvPath . '/.env';
 
 if (file_exists($autoloader)) {
@@ -16,7 +16,7 @@ if (file_exists($autoloader)) {
         $pass = $_ENV['DB_PASS'];
         $name = $_ENV['DB_NAME'];
     } else {
-        die(json_encode(['error' => '.env file not found']));
+        die(json_encode(['error' => '[DOTENV] .env file not found']));
     }
 } else {
     $host = getenv('DB_HOST');
@@ -26,7 +26,7 @@ if (file_exists($autoloader)) {
 }
 
 if (!$host || !$user || !$pass || !$name) {
-    die(json_encode(['error' => 'Database environment variables are missing']));
+    die(json_encode(['error' => '[SERVER] Database environment variables are missing']));
 }
 
 $conn = new mysqli($host, $user, $pass, $name);

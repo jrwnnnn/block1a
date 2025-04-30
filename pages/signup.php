@@ -13,7 +13,7 @@ $success_message = '';
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    include '../connect.php';
+    include '../functions/connect.php';
 
     $email = trim($_POST['email']);
     $username = trim($_POST['username']);
