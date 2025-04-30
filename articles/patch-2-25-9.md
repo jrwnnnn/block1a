@@ -1,6 +1,6 @@
 ---
 id: patch-2-25-9
-cover: https://block1a.onrender.com/assets/patch-notes-cover.png
+cover: https://block1a.onrender.com/assets/patch-notes-cover.webp
 title: Patch 2.25.9
 subtitle: Auto-planting saplings, fiery creepers, CS1A Bot joins the chat, mention pings, and more.
 date: February 23, 2025

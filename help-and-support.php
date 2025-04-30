@@ -12,7 +12,7 @@ session_start();
 </head>
     <body>
     <?php include 'includes/navigation.php'; ?>
-        <section class="flex flex-col items-center justify-center text-white bg-cover bg-center bg-no-repeat min-h-[40vh] px-5" style="background-image: url('assets/bahay-ni-jieben.png')">
+        <section class="flex flex-col items-center justify-center text-white bg-cover bg-center bg-no-repeat min-h-[40vh] px-5" style="background-image: url('assets/bahay-ni-jieben.webp')">
             <p class="md:text-6xl text-4xl text-yellow-500 font-bold text-center">Welcome to the Help and Support!</p>
             <p class="text-lg text-center mt-5">Need a hand? You're at the right place!</p>
         </section>

@@ -49,7 +49,7 @@ $latestArticles = array_slice($latestArticles, 0, 3);
   <title>Block1A - Home</title>
 </head>
 <body>
-    <section class="flex flex-col bg-cover bg-center bg-no-repeat min-h-screen" style="background-image: url('assets/home_splash.png')">
+    <section class="flex flex-col bg-cover bg-center bg-no-repeat min-h-screen" style="background-image: url('assets/home_splash.webp')">
         <?php include 'includes/navigation.php'; ?>
         <div class="flex flex-col md:items-start md:justify-end justify-center items-center flex-grow text-white pb-20 md:px-30 px-10">
             <p class="text-6xl text-center font-bold pb-5">HOP IN, BUILD STUFF, HAVE FUN</p>
