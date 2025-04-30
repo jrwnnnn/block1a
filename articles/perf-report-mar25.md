@@ -1,6 +1,6 @@
 ---
 id: perf-report-mar25
-cover: https://block1a.onrender.com/assets/spark.jpg
+cover: https://block1a.onrender.com/assets/spark.webp
 title: Monthly Server Performance Report - March 2025
 subtitle: A Smooth Month with Fewer Lag Spikes and Optimized Gameplay
 date: March 8, 2025
