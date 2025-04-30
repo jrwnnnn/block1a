@@ -76,7 +76,7 @@ $latestArticles = array_slice($latestArticles, 0, 3);
     <?php if ($latestSpotlight): ?>
     <section class="bg-[#2D3748] md:px-30 px-5 py-7">
         <div class="grid md:grid-cols-2 gap-5 hover:cursor-pointer" onclick="window.location.href='article.php?slug=<?= htmlspecialchars($latestSpotlight['slug']) ?>'">
-            <img src="https://block1a.onrender.com/assets/<?= htmlspecialchars($latestSpotlight['cover']) ?>" alt="cover" class="rounded-md transition duration-300 ease-in-out hover:scale-101 hover:shadow-lg">
+            <img src="<?= htmlspecialchars($latestSpotlight['cover']) ?>" alt="cover" class="rounded-md transition duration-300 ease-in-out hover:scale-101 hover:shadow-lg">
             <div>
                 <p class="text-blue-400 text-md">Spotlight</p>
                 <p class="text-white md:text-5xl text-2xl font-bold pb-5"><?= htmlspecialchars($latestSpotlight['title']) ?></p>
@@ -90,7 +90,7 @@ $latestArticles = array_slice($latestArticles, 0, 3);
         <div class="grid md:grid-cols-3 gap-7.5 hover:cursor-pointer">
             <?php foreach ($latestArticles as $article): ?>
                 <div class="text-white" onclick="window.location.href='article.php?slug=<?= htmlspecialchars($article['id']) ?>'">
-                    <img src="https://block1a.onrender.com/assets/<?= htmlspecialchars($article['cover']) ?>" alt="cover" class="mb-5 rounded-md block transition duration-300 ease-in-out hover:scale-105 hover:shadow-lg cursor-pointer aspect-video object-cover">
+                    <img src="<?= htmlspecialchars($article['cover']) ?>" alt="cover" class="mb-5 rounded-md block transition duration-300 ease-in-out hover:scale-105 hover:shadow-lg cursor-pointer aspect-video object-cover">
                     <p class="<?= htmlspecialchars($article['tag-col']) ?> text-md"><?= htmlspecialchars($article['tag']) ?></p>
                     <p class="font-bold text-2xl mb-3"><?= htmlspecialchars($article['title']) ?></p>
                     <p><?= htmlspecialchars($article['subtitle']) ?></p>
