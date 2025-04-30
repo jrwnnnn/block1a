@@ -46,7 +46,7 @@
         <title>Block1A - Login</title>
     </head>
     <body>
-        <section class="bg-[url('../assets/2login-bg.jpg')] bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center min-h-screen px-5 md:px-30">
+        <section class="bg-[url('../assets/auth-background.webp')] bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center min-h-screen px-5 md:px-30">
             <div class="bg-[#1a202a] flex flex-col rounded-md p-8 w-full max-w-md">
                 <div class="flex items-start justify-between pb-7">
                     <p class="text-white text-2xl font-bold">Login to Your Account</p>

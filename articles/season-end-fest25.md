@@ -1,6 +1,6 @@
 ---
 id: season-end-fest25
-cover: https://block1a.onrender.com/assets/season-end-thumb.jpg
+cover: https://i.imgur.com/Dkz4RTu.jpeg
 title: Season End Fest 2025
 subtitle: A look back at the builds, unforgettable moments, and all the chaos we shared before we dive into a fresh start.
 date: March 24, 2025
@@ -16,7 +16,7 @@ We’ve had our share of laughs, fails, wild builds, and unforgettable moments. 
 
 To celebrate everything, we’re hosting the Season End Fest - from March 27- 28, we are having a mini event to look back at our favorite moments, showcase our proudest builds, and just chill before the new season kicks off. Expect some throwback screenshots, mini games, and maybe a surprise or two.
 
-![IMG](assets/season-end-thumb.jpg)
+![Season End Fest](https://i.imgur.com/Dkz4RTu.jpeg)
 
 So before we jump into the new world and start from scratch, let’s take a night or two to appreciate the chaos, the memories, and the friendships we’ve made along the way.
 

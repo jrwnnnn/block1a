@@ -1,6 +1,6 @@
 ---
 id: season-end-fest25-recap
-cover: https://block1a.onrender.com/assets/article/season-end-fest25-recap/2025-03-28_15.39.41.png
+cover: https://i.imgur.com/jezvDt4.png
 title: Season End Fest 2025
 subtitle: Recap of the epic Season End Fest — the chaos, the fun, and the unforgettable moments!
 date: March 30, 2025
@@ -16,10 +16,10 @@ Enjoy the highlights!
 
 -Jerwin
 
-![image](assets/article/season-end-fest25-recap/2025-03-28_16.08.43.png)
+![image](https://i.imgur.com/741zEIC.png)
 
-![image](assets/article/season-end-fest25-recap/2025-03-28_16.08.15.png)
+![image](https://i.imgur.com/mcFoqt1.png)
 
-![image](assets/article/season-end-fest25-recap/2025-03-28_16.07.56.png)
+![image](https://i.imgur.com/bUMLIW2.png)
 
-![image](assets/article/season-end-fest25-recap/2025-03-28_16.08.23.png)
+![image](https://i.imgur.com/AhqtJWz.png)

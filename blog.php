@@ -51,7 +51,7 @@ foreach ($articles as $article) {
 </head>
     <body>
     <?php include 'includes/navigation.php'; ?>
-        <section class="flex flex-col items-center justify-center text-white bg-cover bg-center bg-no-repeat min-h-[40vh] px-5" style="background-image: url('assets/7BjxfxL.png')">
+        <section class="flex flex-col items-center justify-center text-white bg-cover bg-center bg-no-repeat min-h-[40vh] px-5" style="background-image: url('assets/blog-hero.webp')">
             <p class="text-6xl text-yellow-500 font-bold">Blog</p>
             <p class="text-lg text-center mt-5">The Official Blog of Block1A! Stay tuned for updates and events.</p>
         </section>

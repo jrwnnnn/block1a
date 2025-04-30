@@ -108,9 +108,9 @@ $latestArticles = array_slice($latestArticles, 0, 3);
       
         <div class="relative overflow-hidden rounded-md w-full">
           <div id="carousel" class="flex transition-transform duration-500 ease-in-out">
-            <img src="assets/q6shntis2cx61.webp" alt="Screenshot 1" class="w-full flex-shrink-0">
-            <img src="assets/rixf6ht2oyaa1.png" alt="Screenshot 2" class="w-full flex-shrink-0">
-            <img src="assets/0kgnyorv6j691.webp" alt="Screenshot 3" class="w-full flex-shrink-0">
+            <img src="assets/carousel-1.webp" alt="Screenshot 1" class="w-full flex-shrink-0">
+            <img src="assets/carousel-2.webp" alt="Screenshot 2" class="w-full flex-shrink-0">
+            <img src="assets/carousel-3.webp" alt="Screenshot 3" class="w-full flex-shrink-0">
           </div>
         </div>
     </section>

@@ -31,7 +31,7 @@ session_start();
                 </div>
             </div>
             <div class="flex flex-col md:flex-row items-start bg-[#1A212B] p-5 rounded-md shadow-lg text-white">
-                <img src="assets/technical-support.png" alt="technical" class="w-10 md:mx-5 mb-5" style="filter: invert(100%);">
+                <img src="assets/technical.png" alt="technical" class="w-10 md:mx-5 mb-5" style="filter: invert(100%);">
                 <div class="flex flex-col space-y-2">
                     <p class="text-2xl font-bold mb-5">Technical</p>
                     <div class="flex flex-col space-y-2 mb-5">
@@ -46,7 +46,7 @@ session_start();
                 </div>
             </div>
             <div class="flex flex-col md:flex-row items-start bg-[#1A212B] p-5 rounded-md shadow-lg text-white">
-                <img src="assets/auction.png" alt="fairplay" class="w-10 md:mx-5 mb-5" style="filter: invert(100%);">
+                <img src="assets/fairplay.png" alt="fairplay" class="w-10 md:mx-5 mb-5" style="filter: invert(100%);">
                 <div class="flex flex-col space-y-2">
                     <p class="text-2xl font-bold mb-5">Fairplay</p>
                     <div class="flex flex-col space-y-2 mb-5">
@@ -59,7 +59,7 @@ session_start();
                 </div>
             </div>
             <div class="flex flex-col md:flex-row items-start bg-[#1A212B] p-5 rounded-md shadow-lg text-white">
-                <img src="assets/sword.png" alt="gameplay" class="w-10 md:mx-5 mb-5" style="filter: invert(100%);">
+                <img src="assets/gameplay.png" alt="gameplay" class="w-10 md:mx-5 mb-5" style="filter: invert(100%);">
                 <div class="flex flex-col space-y-2">
                     <p class="text-2xl font-bold mb-5">Gameplay</p>
                     <div class="flex flex-col space-y-2 mb-5">
@@ -80,7 +80,7 @@ session_start();
                 </div>
                 <button onclick="window.location.href='contact.php';" class="bg-yellow-500 text-[#2D3748] text-lg font-bold py-2 px-5 md:mt-0 mt-10 rounded-md hover:bg-[#3a4d60] hover:text-white hover:cursor-pointer transition duration-300 ease-in-out">Contact us</button>
             </div>
-            <img src="assets/wp6206419.webp" alt="faq" class="w-full mt-20 max-h-[40vh] object-cover object-center">
+            <img src="assets/buzzy-bees.webp" alt="faq" class="w-full mt-20 max-h-[40vh] object-cover object-center">
         </section>
         <?php include 'includes/footer.php'; ?>
         

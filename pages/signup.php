@@ -89,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Block1A - Signup</title>
     </head>
     <body>
-        <section class="bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center min-h-screen md:px-30 px-5" style="background-image: url('../assets/2login-bg.jpg')">
+        <section class="bg-[url('../assets/auth-background.webp')] bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center min-h-screen md:px-30 px-5">
             <div class="bg-[#1a202a] flex flex-col rounded-md p-8 w-full max-w-md">
                 <div class="flex flex-row items-start justify-between pb-7">
                     <p class="text-white text-2xl font-bold">Create an Account</p>

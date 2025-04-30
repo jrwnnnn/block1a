@@ -17,7 +17,7 @@ session_start();
         <p class="text-lg">To report a player, or to ask a generic question about our server, join our <a href="https://discord.gg/" class="text-blue-500 underline">Discord</a>!</p>
         <p class="text-lg">You can email our support team at <a href="mailto:support@block1a.com" class="text-blue-500 underline">support@block1a.com</a>, we aim to reply within 24 hours.</p>
         <p class="text-lg">You can also contact us in-game using the <code class="bg-gray-800 text-gray-200 px-2 py-1 rounded">/helpop</code> command.</p>
-        <img src="assets/panda.png" alt="panda" class="w-full mt-20 max-h-[40vh] object-cover object-center">
+        <img src="assets/panda-and-cat.webp" alt="panda" class="w-full mt-20 max-h-[40vh] object-cover object-center">
     </section>
   
     <?php include 'includes/footer.php'; ?>
