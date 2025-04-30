@@ -93,6 +93,14 @@
         <link href="../src/output.css" rel="stylesheet">
         <title>Block1A - Signup</title>
     </head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B7NV3W2G0Q"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-B7NV3W2G0Q');
+    </script>
     <body>
         <section class="bg-[url('../assets/auth-background.webp')] bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center min-h-screen md:px-30 px-5">
             <div class="bg-[#1a202a] flex flex-col rounded-md p-8 w-full max-w-md">
