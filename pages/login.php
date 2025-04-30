@@ -6,10 +6,14 @@
         exit();
     }
     
-    $error_message = '';
+    $user_error = '';
+    $password_error = '';
+    $success_message = '';
+
+    $has_error = false;
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        include '../connect.php';
+        include '../functions/connect.php';
 
         $login = $_POST['login'];
         $password = $_POST['password'];
@@ -26,13 +30,19 @@
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['email'] = $user['email']; 
                 
-                header("Location: ../profile.php");
-                exit;
+                $success_message = "Welcome back " . htmlspecialchars($user['username']) . "!";
+                echo "<script>
+                    setTimeout(function() {
+                        window.location.href = '../profile.php';
+                    }, 2000);
+                </script>";
             } else {
-                $error_message = "Incorrect password. Please try again.";
+                $password_error = "Incorrect password. Please try again.";
+                $has_error = true;
             }
         } else {
-            $error_message = "User not found. Please try again.";
+            $user_error = "Email not found. Please try again.";
+            $has_error = true;
         }
     }
 ?>
@@ -52,38 +62,50 @@
                     <p class="text-white text-2xl font-bold">Login to Your Account</p>
                     <img src="../assets/cs1a.png" alt="logo" class="w-20">
                 </div>
+
                 <form id="loginForm" class="space-y-4" method="POST" action="login.php">
-                    <?php if (!empty($error_message)): ?>
+                    <?php if (!empty($password_error)): ?>
                         <div class="bg-red-600 text-white p-3 rounded-md text-center font-semibold">
-                            <?= htmlspecialchars($error_message) ?>
+                            <?= htmlspecialchars($password_error) ?>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (!empty($user_error)): ?>
+                        <div class="bg-red-600 text-white p-3 rounded-md text-center font-semibold">
+                            <?= htmlspecialchars($user_error) ?>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (!empty($success_message)): ?>
+                        <div class="bg-green-600 text-white p-3 rounded-md text-center font-semibold">
+                            <?= htmlspecialchars($success_message) ?>
                         </div>
                     <?php endif; ?>
                     <div>
-                        <label for="login" class="block text-sm font-medium text-white">Username or Email</label>
-                        <input type="text" id="login" name="login" class="mt-1 block w-full p-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        <label for="login" class="block text-sm font-medium text-white">Email</label>
+                        <input type="email" id="login" name="login" class="mt-1 block w-full p-3 py-2 bg-gray-800 text-white border <?= $has_error ? 'border-red-500' : 'border-gray-600' ?> rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                     </div>
                     <div>
                         <label for="password" class="block text-sm font-medium text-white">Password</label>
-                        <input type="password" id="password" name="password" class="mt-1 block w-full p-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        <input type="password" id="password" name="password" class="mt-1 block w-full p-3 py-2 bg-gray-800 text-white border <?= $has_error ? 'border-red-500' : 'border-gray-600' ?> rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                     </div>
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center">
-                            <input id="rememberMe" name="rememberMe" type="checkbox" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-600 rounded">
-                            <label for="rememberMe" class="ml-2 block text-sm text-white">Remember me</label>
+                    <div class="flex items-center justify-between pb-5">
+                        <div class="flex items-center gap-2 text-white text-sm">
+                            <input type="checkbox" id="showPassword" class="" style="width: 16px; height: 16px; cursor: pointer;">
+                            <label for="showPassword">Show Password</label>
                         </div>
-                        <a href="#" class="text-sm text-blue-500 hover:underline">Forgot password?</a>
+                        <a href="../contact.php" class="text-sm text-blue-500 hover:underline">Forgot password?</a>
                     </div>
-                    <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500" <?= !empty($success_message) ? 'disabled' : '' ?>>
                         Login
                     </button>
                 </form>
-                <div class="mt-4 text-center">
-                    <p class="text-sm text-white">
-                        Don't have an account?
-                        <a href="signup.php" class="text-blue-500 hover:underline">Sign up</a>
+
+                <div class="mt-5 text-center">
+                    <p class="text-sm text-white">Don't have an account?
+                    <a href="signup.php" class="text-blue-500 hover:underline">Sign up</a>
                     </p>
                 </div>
             </div>
         </section>
+        <script src="../script/login.js"></script>
     </body>
 </html>

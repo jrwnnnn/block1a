@@ -51,41 +51,13 @@
                         <label for="confirm_password" class="block text-white font-bold mb-2">Confirm Password</label>
                         <input type="password" id="confirm_password" name="confirm_password" class="bg-gray-800 w-full px-3 py-2 border-white border-2 rounded-lg focus:outline-none focus:border-blue-500 text-white" placeholder="Confirm your new password" required>
                     </div>
-                    <div class="mb-4">
-                        <label for="profile_picture" class="block text-gray-300 font-semibold mb-2">Profile Picture</label>
-                        <button type="button" onclick="document.getElementById('profile_picture').click()" id="upload_button" class="bg-gray-800 text-white py-5 w-full rounded-lg outline-2 outline-offset-2 outline-dashed hover:cursor-pointer hover:bg-gray-700">Upload Picture</button>
-                        <input type="file" id="profile_picture" name="profile_picture" class="hidden" accept="image/*" onchange="handleFileUpload(this)">
-                        <p id="file_status" class="mt-3"></p>
-                    </div>
-                    <script>
-                        function handleFileUpload(input) {
-                            const file = input.files[0];
-                            const fileStatus = document.getElementById('file_status');
-                            const uploadButton = document.getElementById('upload_button');
-
-                            if (file) {
-                                if (file.size > 5 * 1024 * 1024) {
-                                    fileStatus.textContent = "File size exceeds 5MB. Please upload a smaller file.";
-                                    fileStatus.style.color = "gray";
-                                    input.value = ""; 
-                                } else {
-                                    fileStatus.textContent = `Selected: ${file.name}`;
-                                    fileStatus.style.color = "gray";
-                                    uploadButton.textContent = "Change Picture";
-                                }
-                            } else {
-                                fileStatus.textContent = "";
-                                uploadButton.textContent = "Upload Picture";
-                            }
-                        }
-                    </script>
                     <div class="text-center pt-5">
                         <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Update Profile</button>
                     </div>
                 </form>
             </section>
             <section class="bg-[#2D3748] md:px-30 px-5 py-10 flex justify-center">
-                <form action="functions/logout.php" method="POST">
+                <form action="functions/logout.php" method="POST" onsubmit="return confirm('Are you sure you want to logout?');">
                     <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600">Logout</button>
                 </form>
             </section>
