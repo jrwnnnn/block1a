@@ -131,7 +131,7 @@
                     <label for="showPassword">Show Password</label>
                 </div>
                 <a href="login.php" class="text-sm text-blue-500 hover:underline">Already have an account?</a>
-                <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 mt-3 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Signup</button>
+                <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 mt-3 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 <?= !empty($success_message) ? 'disabled' : '' ?>">Signup</button>
             </form>
         </div>
         <script src="../script/signup.js"></script>

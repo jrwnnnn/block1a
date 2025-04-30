@@ -13,3 +13,4 @@ document.getElementById('showPassword').addEventListener('change', function () {
     pass.type = type;
     confirm.type = type;
 });
+
