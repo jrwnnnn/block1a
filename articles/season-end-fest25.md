@@ -1,6 +1,6 @@
 ---
 id: season-end-fest25
-cover: season-end-thumb.jpg
+cover: https://block1a.onrender.com/assets/season-end-thumb.jpg
 title: Season End Fest 2025
 subtitle: A look back at the builds, unforgettable moments, and all the chaos we shared before we dive into a fresh start.
 date: March 24, 2025
