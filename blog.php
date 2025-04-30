@@ -59,6 +59,6 @@ foreach ($articles as $article) {
             <?= $articleHTML ?>
         </section>
         <?php include 'includes/footer.php'; ?>
-        <script src="script/index.js"></script>
+        
     </body>
 </html>

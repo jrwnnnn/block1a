@@ -83,6 +83,6 @@ session_start();
             <img src="assets/wp6206419.webp" alt="faq" class="w-full mt-20 max-h-[40vh] object-cover object-center">
         </section>
         <?php include 'includes/footer.php'; ?>
-        <script src="script/index.js"></script>
+        
     </body>
 </html>
