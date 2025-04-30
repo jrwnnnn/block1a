@@ -42,30 +42,23 @@ foreach ($articles as $article) {
 ?>
 
 <!doctype html>
-    <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="src/output.css" rel="stylesheet">
-        <title>Block1A - Blog</title>
-    </head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B7NV3W2G0Q"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-B7NV3W2G0Q');
-    </script>
-        <body>
-            <?php include 'includes/navigation.php'; ?>
-            <section class="flex flex-col items-center justify-center text-white bg-cover bg-center bg-no-repeat min-h-[40vh] px-5" style="background-image: url('assets/blog-hero.webp')">
-                <p class="text-6xl text-yellow-500 font-bold">Blog</p>
-                <p class="text-lg text-center mt-5">The Official Blog of Block1A! Stay tuned for updates and events.</p>
-            </section>
-            <section class="bg-[#2D3748] grid md:grid-cols-3 md:px-30 px-5 py-15 gap-10">
-                <?= $articleHTML ?>
-            </section>
-            <?php include 'includes/footer.php'; ?>
-        </body>
-    </html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="src/output.css" rel="stylesheet">
+    <title>Block1A - Blog</title>
+</head>
+    <body>
+    <?php include 'includes/navigation.php'; ?>
+        <section class="flex flex-col items-center justify-center text-white bg-cover bg-center bg-no-repeat min-h-[40vh] px-5" style="background-image: url('assets/blog-hero.webp')">
+            <p class="text-6xl text-yellow-500 font-bold">Blog</p>
+            <p class="text-lg text-center mt-5">The Official Blog of Block1A! Stay tuned for updates and events.</p>
+        </section>
+        <section class="bg-[#2D3748] grid md:grid-cols-3 md:px-30 px-5 py-15 gap-10">
+            <?= $articleHTML ?>
+        </section>
+        <?php include 'includes/footer.php'; ?>
+        
+    </body>
+</html>
