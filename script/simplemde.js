@@ -1,11 +1,6 @@
 const simplemde = new SimpleMDE({
   element: document.getElementById("editor"),
-  spellChecker: false,
-  autosave: {
-    enabled: true,
-    uniqueId: "blogEditor",
-    delay: 1000,
-  },
+  spellChecker: true,
   toolbar: [
     "bold", "italic", "strikethrough", "heading", "|", 
     "quote", "code", "|", 
@@ -16,6 +11,19 @@ const simplemde = new SimpleMDE({
   status: false,
   previewRender: function(plainText) {
     return SimpleMDE.prototype.markdown(plainText);
+  }
+});
+
+let isDirty = false;
+
+simplemde.codemirror.on("change", () => {
+  isDirty = true;
+});
+
+window.addEventListener("beforeunload", function (e) {
+  if (isDirty) {
+    e.preventDefault();
+    e.returnValue = '';
   }
 });
 
@@ -39,17 +47,19 @@ document.getElementById('postForm').addEventListener('submit', async (e) => {
     content: simplemde.value()
   };
 
-  const res = await fetch('../functions/save-article.php', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
-  });
-
   if (!simplemde.value().trim()) {
     alert("Content cannot be empty.");
     return;
   }
 
+  const res = await fetch('../functions/create-article.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  });
+
   const result = await res.text();
   alert(result);
+  isDirty = false;
+  window.location.href = '../index.php';
 });

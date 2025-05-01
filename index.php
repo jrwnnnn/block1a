@@ -1,44 +1,22 @@
 <?php
-session_start();
-require 'includes/Parsedown.php';
+    session_start();
+    include 'functions/connect.php';
 
-$dir = 'articles/';
-$files = array_diff(scandir($dir), ['..', '.']);
+    $spotlightStmt = $conn->prepare("SELECT * FROM articles WHERE spotlight = 1 ORDER BY date_posted DESC LIMIT 1");
+    $spotlightStmt->execute();
+    $spotlightResult = $spotlightStmt->get_result();
+    $spotlightPost = $spotlightResult->fetch_assoc();
+    $spotlightStmt->close();
 
-$spotlightArticles = [];
-$latestArticles = [];
+    $nonSpotlightStmt = $conn->prepare("SELECT * FROM articles WHERE spotlight = 0 ORDER BY date_posted DESC LIMIT 3");
+    $nonSpotlightStmt->execute();
+    $nonSpotlightResult = $nonSpotlightStmt->get_result();
+    $nonSpotlightPosts = $nonSpotlightResult->fetch_all(MYSQLI_ASSOC);
+    $nonSpotlightStmt->close();
 
-foreach ($files as $file) {
-    $content = file_get_contents($dir . $file);
-
-    if (preg_match('/---(.*?)---/s', $content, $matches)) {
-        $frontMatterRaw = trim($matches[1]);
-        $lines = explode("\n", $frontMatterRaw);
-        $meta = [];
-
-        foreach ($lines as $line) {
-            if (strpos($line, ':') !== false) {
-                [$key, $value] = explode(':', $line, 2);
-                $meta[trim($key)] = trim($value);
-            }
-        }
-
-        $meta['slug'] = $meta['id'] ?? basename($file, '.md');
-
-        if (!empty($meta['spotlight']) && $meta['spotlight'] === 'true') {
-            $spotlightArticles[] = $meta;
-        } else {
-            $latestArticles[] = $meta;
-        }
-    }
-}
-
-usort($spotlightArticles, fn($a, $b) => strtotime($b['date']) - strtotime($a['date']));
-usort($latestArticles, fn($a, $b) => strtotime($b['date']) - strtotime($a['date']));
-
-$latestSpotlight = $spotlightArticles[0] ?? null;
-$latestArticles = array_slice($latestArticles, 0, 3);
+    $conn->close();
 ?>
+
 
 <!doctype html>
 <html>
@@ -73,32 +51,46 @@ $latestArticles = array_slice($latestArticles, 0, 3);
             </div>
         </div>
     </section>
-    <?php if ($latestSpotlight): ?>
     <section class="bg-[#2D3748] md:px-30 px-5 py-7">
-        <div class="grid md:grid-cols-2 gap-5 hover:cursor-pointer" onclick="window.location.href='article.php?slug=<?= htmlspecialchars($latestSpotlight['slug']) ?>'">
-            <img src="<?= htmlspecialchars($latestSpotlight['cover']) ?>" alt="cover" class="rounded-md transition duration-300 ease-in-out hover:scale-101 hover:shadow-lg">
-            <div>
-                <p class="text-blue-400 text-md">Spotlight</p>
-                <p class="text-white md:text-5xl text-2xl font-bold pb-5"><?= htmlspecialchars($latestSpotlight['title']) ?></p>
-                <p class="text-white md:text-lg"><?= htmlspecialchars($latestSpotlight['subtitle']) ?></p>
-                <p class="text-gray-400 pt-5"><?= htmlspecialchars($latestSpotlight['date']) ?></p>
-            </div>
+    <?php if ($spotlightPost): ?>
+    <div onclick="window.location.href='news/article.php?id=<?= htmlspecialchars($spotlightPost['id']) ?>'" class="grid grid-cols-2 gap-5 cursor-pointer">
+        <div class="aspect-auto w-full overflow-hidden rounded-md">
+            <img src="<?= htmlspecialchars($spotlightPost['cover']) ?>" class="h-full w-full object-cover transition ease-in-out duration-500 hover:scale-105">
         </div>
+        <div>
+            <p class="text-blue-400 text-md">Spotlight</p>  
+            <p class="text-white md:text-5xl text-2xl font-bold pb-5"><?= htmlspecialchars($spotlightPost['title']) ?></p>
+            <p class="text-white md:text-lg"><?= htmlspecialchars($spotlightPost['subtitle']) ?></p>
+            <p class="text-gray-400 pt-5"><?= htmlspecialchars($spotlightPost['date_posted']) ?></p>
+        </div>
+    </div>
+<?php endif; ?>
+
     </section>
-    <?php endif; ?>
     <section class="flex flex-col items-end bg-[#2D3748] md:px-30 px-5 py-7">
         <div class="grid md:grid-cols-3 gap-7.5 hover:cursor-pointer">
-            <?php foreach ($latestArticles as $article): ?>
-                <div class="text-white" onclick="window.location.href='article.php?slug=<?= htmlspecialchars($article['id']) ?>'">
-                    <img src="<?= htmlspecialchars($article['cover']) ?>" alt="cover" class="mb-5 rounded-md block transition duration-300 ease-in-out hover:scale-105 hover:shadow-lg cursor-pointer aspect-video object-cover">
-                    <p class="<?= htmlspecialchars($article['tag-col']) ?> text-md"><?= htmlspecialchars($article['tag']) ?></p>
-                    <p class="font-bold text-2xl mb-3"><?= htmlspecialchars($article['title']) ?></p>
-                    <p><?= htmlspecialchars($article['subtitle']) ?></p>
-                    <p class="text-gray-400 pt-5"><?= htmlspecialchars($article['date']) ?></p>
+            <?php foreach ($nonSpotlightPosts  as $post): ?>
+                <?php
+                    $tagColor = match ($post['tag']) {
+                        'server_updates' => 'text-red-500',
+                        'event' => 'text-blue-500',
+                        'game_updates' => 'text-green-500',
+                        'tech' => 'text-red-500',
+                        default => 'text-white',
+                    };
+                ?>
+                <div onclick="window.location.href='news/article.php?id=<?= $post['id'] ?>'" class="hover:cursor-pointer text-white">
+                <div class="aspect-video w-full overflow-hidden rounded-md mb-4">
+                    <img src="<?= htmlspecialchars($post['cover']) ?>" class="h-full w-full object-cover transition ease-in-out duration-500 hover:scale-105">
+                </div>
+                    <p class="text-md <?= $tagColor ?> capitalize"><?= htmlspecialchars(str_replace('_', ' ', $post['tag'])) ?></p>
+                    <p class="text-2xl font-bold mb-2"><?= htmlspecialchars($post['title']) ?></p>
+                    <p><?= htmlspecialchars($post['subtitle']) ?></p>
+                    <p class="text-gray-400 pt-5 text-sm"><?= htmlspecialchars($post['date_posted']) ?></p>
                 </div>
             <?php endforeach; ?>
         </div>
-        <button onclick="window.location.href='blog.php';" class="bg-yellow-500 text-[#2D3748] text-lg font-bold py-2 px-5 rounded-md mt-10 hover:bg-[#1A212B] hover:text-white hover:cursor-pointer transition duration-300 ease-in-out">View more...</button>
+        <button onclick="window.location.href='news.php';" class="bg-yellow-500 text-[#2D3748] text-lg font-bold py-2 px-5 rounded-md mt-10 hover:bg-[#1A212B] hover:text-white hover:cursor-pointer transition duration-300 ease-in-out">View more...</button>
     </section>
     <section class="bg-[#2D3748] md:px-30 px-5 py-7">
         <div class="mb-10">

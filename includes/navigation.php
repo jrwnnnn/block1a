@@ -32,7 +32,7 @@ function navLink($href, $label, $current_page, $activePages = []) {
     <div id="nav-links" class="hidden md:grid md:grid-cols-6 absolute md:static top-19.5 left-0 w-full md:w-auto bg-[#1A212B] text-center md:flex-row md:space-x-4 transition-all duration-300 ease-in-out z-10">
         <?php
         echo navLink("index.php", "Home", $current_page, ["index.php"]);
-        echo navLink("blog.php", "Blog", $current_page, ["blog.php", "article.php"]);
+        echo navLink("news.php", "News", $current_page, ["news.php", "article.php", "editor.php"]);
         echo navLink("rules.php", "Rules", $current_page, ["rules.php"]);
         echo navLink("bluemap.php", "BlueMap", $current_page, ["bluemap.php"]);
         echo navLink("help-and-support.php", "Help and Support", $current_page, ["help-and-support.php", "faq.php", "contact.php"]);

@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!doctype html>
     <html>
     <head>
@@ -20,6 +24,7 @@
                         <option value="server_updates">Server Updates</option>
                         <option value="event">Event</option>
                         <option value="game_updates">Game Updates</option>
+                        <option value="game_updates">Tech</option>
                     </select>
                 </div>
                 <textarea id="editor"></textarea>

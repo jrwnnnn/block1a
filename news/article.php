@@ -13,13 +13,16 @@
 
     if ($post['tag'] == 'server_updates') {
         $post['tag'] = 'Server Updates';
-        $tagColor = 'text-red-500';
+        $tagColor = 'text-orange-500';
     } elseif ($post['tag'] == 'event') {
         $post['tag'] = 'Event';
         $tagColor = 'text-blue-500';
     } elseif ($post['tag'] == 'game_updates') {
         $post['tag'] = 'Game Updates';
         $tagColor = 'text-green-500';
+    } elseif ($post['tag'] == 'tech') {
+        $post['tag'] = 'Tech';
+        $tagColor = 'text-red-500';
     } else {
         $post['tag'] = 'Unknown Tag';
         $tagColor = 'text-white';
@@ -60,7 +63,7 @@
         <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
         <script>
             const content = <?= json_encode($post['content']) ?>;
-            document.querySelector('#markdown').innerHTML = marked.parse(content);
+            document.querySelector('#content').innerHTML = marked.parse(content);
         </script>
     </body>
     </html>
