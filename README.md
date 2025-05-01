@@ -6,7 +6,8 @@ JAVA: https://upload.wikimedia.org/wikipedia/en/thumb/3/30/Java_programming_lang
 Python: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png
 PHP : https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/1067px-PHP-logo.svg.png?20180502235434
 mySQL: https://upload.wikimedia.org/wikipedia/labs/8/8e/Mysql_logo.png
---
+
+--->
 
 **Programmed and published on GitHub by Group 8 members:** <br>
 <ul>
