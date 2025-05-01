@@ -1,0 +1,31 @@
+  .CodeMirror, .editor-toolbar, .editor-preview, .editor-statusbar {
+    background: #1e2939 !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: .5rem !important;
+  }
+  .editor-toolbar {
+    opacity: 100 !important;
+  }
+  .editor-toolbar a {
+    color: #ffffff !important;
+  }
+  .editor-toolbar a:hover {
+    color: #1e2939 !important;
+  }
+  .editor-toolbar a.active {
+    color: #1e2939 !important;
+    background: #ffffff !important;
+  }
+  .editor-toolbar.disabled-for-preview a:not(.no-disable) {
+    background: #1e2939 !important;
+    color: #878787 !important;
+  }
+  .CodeMirror div.CodeMirror-cursor {
+    border-left: 2px solid #ffffff !important;
+    margin-left: 1px !important;
+  }
+  .CodeMirror .CodeMirror-selected {
+    background: #0055aa !important;
+    color: #fff !important;
+  }
