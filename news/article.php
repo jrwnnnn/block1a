@@ -45,6 +45,9 @@
     </head>
     <body>
         <?php include 'includes/navigation.php'; ?>
+        <div class="flex items-center gap-2 fixed bottom-5 right-5 p-4 bg-yellow-500 hover:bg-yellow-300 hover:cursor-pointer rounded-md z-10" onclick="window.location.href='editor.php?action=edit&id=<?= htmlspecialchars($post['id']) ?>';">
+            <img src="https://cdn-icons-png.flaticon.com/128/9356/9356210.png" class="w-5">
+        </div>
         <img src="<?= htmlspecialchars($post['cover']) ?>" alt="cover" class="w-full max-h-[40vh] object-cover object-center">
         <section class="flex flex-col bg-[#2D3748] space-y-2 md:px-30 px-5 pt-10">
             <p class="md:text-6xl text-4xl text-center font-bold text-white"><?= htmlspecialchars($post['title']) ?></p>
@@ -58,7 +61,7 @@
             </div>
             <hr class="border-t-2 border-[#4A5568] mt-5">
         </section>
-        <div id="content" class="bg-[#2D3748] px-5 md:px-[25vw] py-20 text-white markdown"></div>
+        <div id="content" class="bg-[#2D3748] md:px-[25vw] px-5 py-20 text-white markdown"></div>
         <?php include 'includes/footer.php'; ?>
         <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
         <script>

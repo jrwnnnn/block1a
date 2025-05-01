@@ -45,21 +45,7 @@
         <?php include 'includes/footer.php'; ?>
         <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
         <script src="../script/simplemde.js"></script>
-        <script>
-            const coverInput = document.getElementById("cover");
-            const coverPreview = document.getElementById("coverPreview");
-
-            coverInput.addEventListener("input", () => {
-                const url = coverInput.value.trim();
-                if (url) {
-                    coverPreview.src = url;
-                    coverPreview.classList.remove("hidden");
-                } else {
-                    coverPreview.src = "";
-                    coverPreview.classList.add("hidden");
-                }
-            });
-        </script>
+        <script src="../script/editor.js"></script>
     </body>
     </html>
 

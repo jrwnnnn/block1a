@@ -25,9 +25,9 @@
             <p class="text-lg text-center mt-5">Stay updated with the latest news, updates, and events happening in our community.</p>
         </section>
         <?php if (isset($_SESSION['user_id'])): ?>
-            <section class="flex bg-[#2D3748] px-5 md:px-30 py-2">
-                <button onclick="window.location.href='news/editor.php';" class="flex-grow bg-yellow-500 text-[#2D3748] text-lg font-bold py-2 px-5 mt-5 rounded-md hover:bg-[#1A212B] hover:text-white hover:cursor-pointer transition duration-300 ease-in-out">Create Post</button>
-            </section>
+        <div class="fixed bottom-5 right-5 p-4 bg-yellow-500 hover:bg-yellow-300 hover:cursor-pointer rounded-md z-10" onclick="window.location.href='news/editor.php?action=create';">
+            <img src="https://cdn-icons-png.flaticon.com/128/3524/3524388.png" class="w-5">
+        </div>
         <?php endif; ?>
         <section class="bg-[#2D3748] grid md:grid-cols-3 px-5 md:px-30 py-20 gap-10">
             <?php foreach ($posts as $post): ?>
