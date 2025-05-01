@@ -4,7 +4,7 @@
   include 'connect.php';
 
   if (!isset($_SESSION['username'])) {
-    echo "Not logged in.";
+    header('Location: ../index.php');
     exit;
   }
 

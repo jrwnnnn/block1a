@@ -53,7 +53,7 @@
     </section>
     <section class="bg-[#2D3748] md:px-30 px-5 py-7">
     <?php if ($spotlightPost): ?>
-    <div onclick="window.location.href='news/article.php?id=<?= htmlspecialchars($spotlightPost['id']) ?>'" class="grid grid-cols-2 gap-5 cursor-pointer">
+    <div onclick="window.location.href='news/article.php?id=<?= htmlspecialchars($spotlightPost['id']) ?>'" class="grid md:grid-cols-2 gap-5 cursor-pointer">
         <div class="aspect-auto w-full overflow-hidden rounded-md">
             <img src="<?= htmlspecialchars($spotlightPost['cover']) ?>" class="h-full w-full object-cover transition ease-in-out duration-500 hover:scale-105">
         </div>
