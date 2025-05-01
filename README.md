@@ -18,64 +18,101 @@ mySQL: https://upload.wikimedia.org/wikipedia/labs/8/8e/Mysql_logo.png
 <li>Reyes, Jieben A.
 </ul>
 
-## Block1A Collaboration Guide (Using GitHub Desktop + VS Code)
+# Block1A <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/1067px-PHP-logo.svg.png?" style="height:30px;">
 
-#### 1. Login to GitHub Desktop
+**Programmed and published on GitHub by Group 8 members:**  
+- Baldestamon, Mark Jerwin M.  
+- Estopia, Debbie Anne O.  
+- Pinera, Roxane B.  
+- Nm3  
+- Reyes, Jieben A.  
 
-- Open GitHub Desktop.
-- If you're not logged in yet, **sign in with your GitHub account**.
-- This is required to access the private repository.
+---
 
-#### 2. Clone the Repository
+## How to Use
 
-1. Click **File > Clone Repository**.
-2. Go to the **URL** tab.
-3. Paste this link:  
-   `https://github.com/jrwnnnn/block1a.git`
-4. Choose a local folder where you want to save the project.
-5. Click **Clone**.
+Click [here](https://block1a.onrender.com) to use the web app online, or run it locally:
 
-#### 3. Open the Project in VS Code
+### Run It Locally
 
-- In GitHub Desktop, click **"Open in Visual Studio Code"**  
-  or  
-- Manually open the folder in VS Code.
+1. **Clone the repository**
+   ```sh
+   git clone https://github.com/jrwnnnn/block1a.git
+   cd block1a
+   ```
 
-#### 4. Create a New Branch
+2. **Install Composer** (Skip if already installed)  
+   - [Download Composer](https://getcomposer.org/download/)  
+   - Or install via terminal (Linux/macOS):
+     ```sh
+     curl -sS https://getcomposer.org/installer | php
+     sudo mv composer.phar /usr/local/bin/composer
+     ```
 
-1. In GitHub Desktop, click the **Current Branch** dropdown.
-2. Click **New Branch**.
-3. Name your branch (example: `add-navbar`, `fix-footer-links`).
-4. Click **Create Branch**.
+3. **Install dependencies**
+   ```sh
+   composer install
+   ```
 
-#### 5. Make Your Changes
+4. **Set up environment variables**
+   - Create a `.env` file:
+     ```sh
+     cp .env.example .env
+     ```
+   - Edit `.env` and set your local DB config:
+     ```
+     DB_HOST=localhost
+     DB_NAME=block1a
+     DB_USER=root
+     DB_PASS=
+     ```
 
-- Code and edit in VS Code.
-- Save your files.
+5. **Link `.env` in PHP**
+   - In your PHP file (like `index.php`), make sure you include:
+     ```php
+     require_once __DIR__ . '/vendor/autoload.php';
 
-#### 6. Commit Your Changes
+     $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+     $dotenv->load();
+     ```
 
-1. Go back to GitHub Desktop.
-2. Write a short summary of what you did.
-3. Click **Commit to [branch name]**.
+6. **Run the project**
+   ```sh
+   php -S localhost:8000
+   ```
+   - Open `http://localhost:8000/index.php` in your browser.
 
-#### 7. Push Your Branch to GitHub
+## Contribute
 
-- Click **Push origin** to upload your branch.
+This repository is maintained by a select group of contributors. Only the said members are authorized to submit pull requests and merge changes. But you are still welcome to **experiment** by forking the repository.
 
-#### 8. Open a Pull Request
+### How to Fork and Experiment
 
-1. After pushing, click **Create Pull Request**.
-2. GitHub will open in your browser.
-3. Add a clear **title** and short **description**.
-4. Click **Create Pull Request**.
+1. **Fork the Repository**
+   - Click the **Fork** button at the top-right of this repository.  
+   - This will create a copy under your GitHub account.
 
-#### 9. Stay Updated with Main
+2. **Clone Your Fork**
+   ```sh
+   git clone https://github.com/YOUR_USERNAME/block1a.git
+   cd block1a
+   ```
 
-- To sync the latest updates from `main`:
-  - Click **Fetch origin**, then **Pull origin**.
+3. **Create a New Branch**
+   ```sh
+   git checkout -b my-experiment
+   ```
 
-#### Live Collaboration
+4. **Make Changes and Commit**
+   ```sh
+   git add .
+   git commit -m "My experimental changes"
+   ```
 
-If you want to code at the same time, ask Jerwin for a **Live Share** link.
+5. **Push to Your Fork**
+   ```sh
+   git push origin my-experiment
+   ```
+
+Now you can experiment freely without affecting the main project.
 
