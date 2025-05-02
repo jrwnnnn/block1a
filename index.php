@@ -61,7 +61,8 @@
             <p class="text-blue-400">Spotlight</p>  
             <p class="text-white md:text-5xl text-2xl font-bold pb-5"><?= htmlspecialchars($spotlightPost['title']) ?></p>
             <p class="text-white md:text-lg"><?= htmlspecialchars($spotlightPost['subtitle']) ?></p>
-            <p class="text-gray-400 pt-5"><?= htmlspecialchars($spotlightPost['date_posted']) ?></p>
+            <p class="text-gray-400 pt-5"><?= date("F d, Y", strtotime($spotlightPost['date_posted'])) ?></p>
+
         </div>
     </div>
 <?php endif; ?>
@@ -86,7 +87,7 @@
                     <p class="<?= $tagColor ?> capitalize"><?= htmlspecialchars(str_replace('_', ' ', $post['tag'])) ?></p>
                     <p class="text-2xl font-bold mb-2"><?= htmlspecialchars($post['title']) ?></p>
                     <p><?= htmlspecialchars($post['subtitle']) ?></p>
-                    <p class="text-gray-400 pt-5 text-sm"><?= htmlspecialchars($post['date_posted']) ?></p>
+                    <p class="text-gray-400 pt-5 text-sm"><?= date("F d, Y", strtotime($post['date_posted'])) ?></p>
                 </div>
             <?php endforeach; ?>
         </div>

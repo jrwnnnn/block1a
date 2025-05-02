@@ -43,7 +43,7 @@
     <!-- <img src="" id="coverPreview" alt="cover" class="w-full max-h-[40vh] object-cover object-center"> -->
 
     <section class="flex flex-col md:px-30 px-5 py-10 pb-20 text-white bg-[#2D3748]">
-        <form id="postForm" class="space-y-4" action="../functions/submit_article.php" method="POST">
+        <form id="postForm" class="space-y-4" action="../functions/submit-article.php" method="POST">
             <input type="hidden" name="action" value="<?= $action ?>">
             <input type="hidden" name="id" value="<?= $article ? $article['id'] : '' ?>">
 

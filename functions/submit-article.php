@@ -47,7 +47,7 @@
         $spotlight = isset($data['spotlight']) ? 1 : 0;
         $content = $data['content'];
         $author = $_SESSION['username'];
-        $date_posted = date("F j, Y");
+        $date_posted = date("Y-m-d");
 
         if ($action == 'create') {
 
@@ -61,7 +61,7 @@
 
         } elseif ($action == 'edit') {
             
-            $last_edited = date("F j, Y");
+            $last_edited = date("Y-m-d");
 
             $stmt = $conn->prepare("UPDATE articles SET title = ?, subtitle = ?, cover = ?, tag = ?, spotlight = ?, content = ?, last_edited = ? WHERE id = ?");
             $stmt->bind_param("ssssisss", $title, $subtitle, $cover, $tag, $spotlight, $content, $last_edited, $id);

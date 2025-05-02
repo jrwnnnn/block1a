@@ -47,7 +47,7 @@
                     <p class="<?= $tagColor ?> capitalize"><?= htmlspecialchars(str_replace('_', ' ', $post['tag'])) ?></p>
                     <p class="text-2xl font-bold mb-2"><?= htmlspecialchars($post['title']) ?></p>
                     <p><?= htmlspecialchars($post['subtitle']) ?></p>
-                    <p class="text-gray-400 pt-5 text-sm"><?= htmlspecialchars($post['date_posted']) ?></p>
+                    <p class="text-gray-400 pt-5 text-sm"><?= date("F d, Y", strtotime($post['date_posted'])) ?></p>
                 </div>
             <?php endforeach; ?>
         </section>
