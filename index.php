@@ -31,8 +31,8 @@
         <?php include 'includes/navigation.php'; ?>
         <div class="flex flex-col md:items-start md:justify-end justify-center items-center flex-grow text-white pb-20 md:px-30 px-10">
             <p class="md:text-6xl text-5xl text-center font-bold pb-5 md:pt-0 pt-9">HOP IN, BUILD STUFF, HAVE FUN</p>
-            <p class="md:text-2xl text-center">The Official Minecraft Server of BSCS-1A! Available for both Minecraft Java and Bedrock Platform.</p>
-            <button id="copy-button" onclick="copyToClipboard()" class="bg-yellow-500 text-[#2D3748] md:text-lg font-bold py-2 px-5 rounded-md mt-5 hover:bg-[#2D3748] hover:text-white hover:cursor-pointer transition duration-300 ease-in-out">Copy IP : cs1a.minecra.fr</button>
+            <p class="md:text-lg text-center">The Official Minecraft Server of BSCS-1A! Available for both Minecraft Java and Bedrock Platform.</p>
+            <button id="copy-button" onclick="copyToClipboard()" class="bg-yellow-500 text-black md:text-lg font-bold py-2 px-5 rounded-md mt-5 hover:bg-[#2D3748] hover:text-white hover:cursor-pointer transition duration-300 ease-in-out">Copy IP : cs1a.minecra.fr</button>
         </div>        
     </section>
     <section class="bg-[#1a202a] md:px-30 px-5 py-5">
@@ -51,23 +51,22 @@
             </div>
         </div>
     </section>
-    <section class="bg-[#2D3748] md:px-30 px-5 py-7">
-    <?php if ($spotlightPost): ?>
-        <div onclick="window.location.href='news/article.php?id=<?= htmlspecialchars($spotlightPost['id']) ?>'" class="grid md:grid-cols-2 gap-7.5 cursor-pointer">
-            <div class="aspect-auto w-full overflow-hidden rounded-md">
-                <img src="<?= htmlspecialchars($spotlightPost['cover']) ?>" class="h-full w-full object-cover transition ease-in-out duration-500 hover:scale-105">
+    <section class="relative bg-[#2D3748] text-white">
+        <?php if ($spotlightPost): ?>
+            <div class="relative">
+                <img src="<?= htmlspecialchars($spotlightPost['cover']) ?>" class="w-full max-h-[70vh] object-cover object-top brightness-75">
+                <div class="absolute inset-0 flex flex-col justify-center items-start md:px-30 px-5 py-10">
+                    <p class="text-blue-400 text-lg tracking-widest">Spotlight</p>
+                    <p class="md:text-5xl text-3xl font-bold pb-5"><?= htmlspecialchars($spotlightPost['title']) ?></p>
+                    <p class="md:text-lg text-base"><?= htmlspecialchars($spotlightPost['subtitle']) ?></p>
+                    <button id="copy-button" onclick="window.location.href='news/article.php?id=<?= $spotlightPost['id'] ?>'" class="bg-blue-500 text-white md:text-lg font-bold py-2 px-5 rounded-md mt-5 hover:bg-white hover:text-black hover:cursor-pointer transition duration-300 ease-in-out">Read</button>
+                </div>
             </div>
-            <div>
-                <p class="text-blue-400">Spotlight</p>  
-                <p class="text-white md:text-5xl text-2xl font-bold pb-5"><?= htmlspecialchars($spotlightPost['title']) ?></p>
-                <p class="text-white md:text-lg"><?= htmlspecialchars($spotlightPost['subtitle']) ?></p>
-                <p class="text-gray-400 pt-5"><?= date("F d, Y", strtotime($spotlightPost['date_posted'])) ?></p>
-            </div>
-        </div>
-    <?php endif; ?>
+        <?php endif; ?>
     </section>
-    <section class="flex flex-col items-end bg-[#2D3748] md:px-30 px-5 py-7">
-        <div class="grid md:grid-cols-3 gap-3 hover:cursor-pointer">
+    <section class="flex flex-col bg-white md:px-30 px-5 py-10">
+        <p class="text-black md:text-5xl text-3xl font-bold mb-7">News</p>
+        <div class="grid md:grid-cols-3 gap-7.5 hover:cursor-pointer">
             <?php foreach ($nonSpotlightPosts  as $post): ?>
                 <?php
                     $tagColor = match ($post['tag']) {
@@ -78,29 +77,22 @@
                         default => 'text-white',
                     };
                 ?>
-                <div onclick="window.location.href='news/article.php?id=<?= $post['id'] ?>'" class="hover:cursor-pointer text-white md:p-4">
-                <div class="aspect-video w-full overflow-hidden rounded-md mb-4">
-                    <img src="<?= htmlspecialchars($post['cover']) ?>" class="h-full w-full object-cover transition ease-in-out duration-500 hover:scale-105">
-                </div>
+                <div onclick="window.location.href='news/article.php?id=<?= $post['id'] ?>'" class="hover:cursor-pointer text-black">
+                    <div class="aspect-video w-full overflow-hidden rounded-md mb-4">
+                        <img src="<?= htmlspecialchars($post['cover']) ?>" class="h-full w-full object-cover transition ease-in-out duration-500 hover:scale-105">
+                    </div>
                     <p class="<?= $tagColor ?> capitalize"><?= htmlspecialchars(str_replace('_', ' ', $post['tag'])) ?></p>
                     <p class="text-2xl font-bold mb-2"><?= htmlspecialchars($post['title']) ?></p>
                     <p><?= htmlspecialchars($post['subtitle']) ?></p>
-                    <p class="text-gray-400 pt-5 text-sm"><?= date("F d, Y", strtotime($post['date_posted'])) ?></p>
+                    <p class="text-gray-600 pt-5 text-sm"><?= date("F d, Y", strtotime($post['date_posted'])) ?></p>
                 </div>
             <?php endforeach; ?>
         </div>
-        <a href="news.php" class="text-yellow-500 hover:text-yellow-300 tracking-widest mt-5 flex items-center">
+        <a href="news.php" class="text-blue-500 hover:text-blue-700 tracking-widest mt-5">
             See all news
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-            </svg>
         </a>
     </section>
-    <section class="bg-[#2D3748] md:px-30 px-5 py-7">
-        <div class="mb-10">
-          <p class="md:text-6xl text-4xl text-yellow-500 font-bold mb-5">The Server</p>
-          <p class="text-white">This server kicked off on December 10, 2024, right before Christmas break. It started as a chill place for just 7 of us, playing for fun on Aternos. Since then, things have grown — we’ve moved to a premium server for smoother gameplay and more cool stuff to do. It’s still the same cozy vibe, just better performance and more space to hang out.</p>
-        </div>
+    <section class="grid md:grid-cols-2 gap-7.5 bg-[#2D3748] md:px-30 px-5 py-10">
         <div class="relative overflow-hidden rounded-md w-full">
           <div id="carousel" class="flex transition-transform duration-500 ease-in-out">
             <img src="assets/carousel-1.webp" alt="Screenshot 1" class="w-full flex-shrink-0">
@@ -109,6 +101,10 @@
             <img src="assets/carousel-4.webp" alt="Screenshot 4" class="w-full flex-shrink-0">
             <img src="assets/carousel-5.webp" alt="Screenshot 5" class="w-full flex-shrink-0">
           </div>
+        </div>
+        <div>
+          <p class="md:text-6xl text-4xl text-yellow-500 font-bold mb-7">The Server</p>
+          <p class="text-white md:text-lg">This server kicked off on December 10, 2024, right before Christmas break. It started as a chill place for just 7 of us, playing for fun on Aternos. Since then, things have grown — we’ve moved to a premium server for smoother gameplay and more cool stuff to do. It’s still the same cozy vibe, just better performance and more space to hang out.</p>
         </div>
     </section>
     <section class="flex flex-col items-center bg-[#2D3748] md:px-30 px-5 py-7">
