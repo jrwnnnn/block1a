@@ -53,20 +53,18 @@
     </section>
     <section class="bg-[#2D3748] md:px-30 px-5 py-7">
     <?php if ($spotlightPost): ?>
-    <div onclick="window.location.href='news/article.php?id=<?= htmlspecialchars($spotlightPost['id']) ?>'" class="grid md:grid-cols-2 gap-7.5 cursor-pointer">
-        <div class="aspect-auto w-full overflow-hidden rounded-md">
-            <img src="<?= htmlspecialchars($spotlightPost['cover']) ?>" class="h-full w-full object-cover transition ease-in-out duration-500 hover:scale-105">
+        <div onclick="window.location.href='news/article.php?id=<?= htmlspecialchars($spotlightPost['id']) ?>'" class="grid md:grid-cols-2 gap-7.5 cursor-pointer">
+            <div class="aspect-auto w-full overflow-hidden rounded-md">
+                <img src="<?= htmlspecialchars($spotlightPost['cover']) ?>" class="h-full w-full object-cover transition ease-in-out duration-500 hover:scale-105">
+            </div>
+            <div>
+                <p class="text-blue-400">Spotlight</p>  
+                <p class="text-white md:text-5xl text-2xl font-bold pb-5"><?= htmlspecialchars($spotlightPost['title']) ?></p>
+                <p class="text-white md:text-lg"><?= htmlspecialchars($spotlightPost['subtitle']) ?></p>
+                <p class="text-gray-400 pt-5"><?= date("F d, Y", strtotime($spotlightPost['date_posted'])) ?></p>
+            </div>
         </div>
-        <div>
-            <p class="text-blue-400">Spotlight</p>  
-            <p class="text-white md:text-5xl text-2xl font-bold pb-5"><?= htmlspecialchars($spotlightPost['title']) ?></p>
-            <p class="text-white md:text-lg"><?= htmlspecialchars($spotlightPost['subtitle']) ?></p>
-            <p class="text-gray-400 pt-5"><?= date("F d, Y", strtotime($spotlightPost['date_posted'])) ?></p>
-
-        </div>
-    </div>
-<?php endif; ?>
-
+    <?php endif; ?>
     </section>
     <section class="flex flex-col items-end bg-[#2D3748] md:px-30 px-5 py-7">
         <div class="grid md:grid-cols-3 gap-3 hover:cursor-pointer">
@@ -103,12 +101,13 @@
           <p class="md:text-6xl text-4xl text-yellow-500 font-bold mb-5">The Server</p>
           <p class="text-white">This server kicked off on December 10, 2024, right before Christmas break. It started as a chill place for just 7 of us, playing for fun on Aternos. Since then, things have grown — we’ve moved to a premium server for smoother gameplay and more cool stuff to do. It’s still the same cozy vibe, just better performance and more space to hang out.</p>
         </div>
-      
         <div class="relative overflow-hidden rounded-md w-full">
           <div id="carousel" class="flex transition-transform duration-500 ease-in-out">
             <img src="assets/carousel-1.webp" alt="Screenshot 1" class="w-full flex-shrink-0">
             <img src="assets/carousel-2.webp" alt="Screenshot 2" class="w-full flex-shrink-0">
             <img src="assets/carousel-3.webp" alt="Screenshot 3" class="w-full flex-shrink-0">
+            <img src="assets/carousel-4.webp" alt="Screenshot 4" class="w-full flex-shrink-0">
+            <img src="assets/carousel-5.webp" alt="Screenshot 5" class="w-full flex-shrink-0">
           </div>
         </div>
     </section>

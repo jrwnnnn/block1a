@@ -38,17 +38,19 @@
     <link href="../src/simplemde.css" rel="stylesheet">
     <title>Block1A - Editor</title>
 </head>
-<body class="min-h-screen flex flex-col">
+<body class="min-h-screen">
     <?php include 'includes/navigation.php'; ?>
     <!-- <img src="" id="coverPreview" alt="cover" class="w-full max-h-[40vh] object-cover object-center"> -->
-
+    <div id="loading" class="invisible fixed inset-0 flex flex-col items-center justify-center z-99" style="background-color: rgba(0, 0, 0, 0.75);">
+        <img src="../assets/panda-roll.gif" alt="Loading" class="w-30 h-30">
+    </div>
     <section class="flex flex-col md:px-30 px-5 py-10 pb-20 text-white bg-[#2D3748]">
-        <form id="postForm" class="space-y-4" action="../functions/submit-article.php" method="POST">
+        <form id="postForm" class="space-y-4" onsubmit="formLoading(); return false;">
             <input type="hidden" name="action" value="<?= $action ?>">
             <input type="hidden" name="id" value="<?= $article ? $article['id'] : '' ?>">
 
             <input type="text" name="title" placeholder="Title" class="text-white md:text-6xl text-4xl font-bold w-full focus:outline-none" value="<?= $article ? htmlspecialchars($article['title']) : '' ?>" required autocomplete="off">
-            <textarea type="text" name="subtitle" placeholder="Subtitle" class="text-white md:text-2xl text-lg w-full focus:outline-none" value="<?= $article ? htmlspecialchars($article['subtitle']) : '' ?>" required autocomplete="off"></textarea >
+            <textarea type="text" name="subtitle" placeholder="Subtitle" class="text-white md:text-2xl text-lg w-full focus:outline-none" required autocomplete="off"><?= $article ? htmlspecialchars($article['subtitle']) : '' ?></textarea >
 
             <div class="flex md:flex-row flex-col gap-3">
                 <input type="text" name="cover" placeholder="Cover Image URL" class="bg-gray-800 px-3 py-2 rounded-lg focus:outline-none text-white" value="<?= $article ? htmlspecialchars($article['cover']) : '' ?>" required autocomplete="off">
@@ -67,7 +69,7 @@
             </div>
             <textarea name="content" id="editor"><?= $article ? htmlspecialchars($article['content']) : '' ?></textarea>
             <div class="flex items-start justify-between gap-3">
-                <button type="submit" class="bg-yellow-500 text-black md:text-lg font-bold py-2 px-5 rounded-md hover:bg-yellow-300 hover:cursor-pointer transition duration-300 ease-in-out">
+                <button type="submit" class="bg-yellow-500 text-black md:text-lg font-bold py-2 px-5 rounded-md hover:bg-yellow-300 hover:cursor-pointer transition duration-300 ease-in-out" onclick="loadingLong()">
                     <?= $action == 'edit' ? 'Update Article' : 'Post Article' ?>
                 </button>
 
@@ -80,5 +82,6 @@
     <?php include 'includes/footer.php'; ?>
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
     <script src="../script/simplemde.js"></script>
+    <script src="../script/editor.js"></script>
 </body>
 </html>
