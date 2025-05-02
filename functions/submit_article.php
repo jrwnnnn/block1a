@@ -60,7 +60,6 @@
         $stmt->close();
 
         header("Location: ../news/article.php?id=$id");
-        $article_id = ''; 
 
     } elseif ($action == 'edit') {
         $last_edited = date("F j, Y");
@@ -71,15 +70,8 @@
         $stmt->close();
 
         header("Location: ../news/article.php?id=$id");
-        $article_id = '';
     } else {
         echo "Invalid action";
     }
     $conn->close();
-
-    if (empty($article_id)) {
-        header('Location: ../news.php');
-        exit;
-    }
-
 ?>

@@ -57,7 +57,7 @@
                 </form>
             </section>
             <section class="bg-[#2D3748] md:px-30 px-5 py-10 flex justify-center">
-                <form action="functions/logout.php" method="POST" onsubmit="return confirm('Are you sure you want to logout?');">
+                <form action="functions/logout.php" method="POST">
                     <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600">Logout</button>
                 </form>
             </section>
