@@ -17,7 +17,7 @@
     <body>
         <?php include 'includes/navigation.php'; ?>
             <section class="bg-[#2D3748] md:px-30 px-5 py-10 flex flex-col items-center">
-                <img src="https://mc-heads.net/avatar/<?php echo htmlspecialchars($_SESSION['username'], ENT_QUOTES, 'UTF-8');?>" class="object-cover md:w-30 w-20 aspect-square" alt="pfp">
+                <img src="https://mc-heads.net/avatar/<?php echo htmlspecialchars($_SESSION['username'], ENT_QUOTES, 'UTF-8');?>" class="object-cover md:w-30 w-20 aspect-square" alt="avatar">
                 <p class="text-white md:text-4xl text-2xl font-bold pt-5"><?php echo htmlspecialchars($_SESSION['username'], ENT_QUOTES, 'UTF-8');?></p>
                 <div class="py-2 flex flex-col items-center">
                     <p class="text-gray-400 flex items-center">ID: 54636479 

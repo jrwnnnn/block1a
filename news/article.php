@@ -70,9 +70,11 @@
             <hr class="border-t-2 border-[#4A5568] mt-5">
         </section>
         <div id="content" class="bg-[#2D3748] md:px-[25vw] px-5 py-20 text-white markdown"></div>
-        <div class="flex justify-center items-flex-end bg-[#2D3748] md:px-30 px-5 pb-5">
-            <p class="text-gray-500 text-center italic">Last edited on <?= htmlspecialchars($post['last_edited']) ?></p>
-        </div>
+        <?php if (!$post['last_edited'] == NULL): ?>
+            <div class="flex justify-center items-flex-end bg-[#2D3748] md:px-30 px-5 pb-5">
+                <p class="text-gray-500 text-center italic">Last edited on <?= htmlspecialchars($post['last_edited']) ?></p>
+            </div>
+        <?php endif; ?>
         <?php include 'includes/footer.php'; ?>
         <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
         <script>
