@@ -1,23 +1,31 @@
 <?php
-session_start();
-include '../functions/connect.php';
+    session_start();
 
-$action = $_GET['action'] ?? 'create';
-$article_id = $_GET['id'] ?? null;
+    if (isset($_SESSION['permission_level']) && $_SESSION['permission_level'] == 1) {
+        include '../functions/connect.php';
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+    
+        $action = $_GET['action'] ?? 'create';
+        $article_id = $_GET['id'] ?? null;
 
-if ($action == 'edit' && $article_id) {
-    // Fetch article data for editing
-    $stmt = $conn->prepare("SELECT * FROM articles WHERE id = ?");
-    $stmt->bind_param("s", $article_id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $article = $result->fetch_assoc();
-    $stmt->close();
-} else {
-    $article = null;
-}
+        if ($action == 'edit' && $article_id) {
+            $stmt = $conn->prepare("SELECT * FROM articles WHERE id = ?");
+            $stmt->bind_param("s", $article_id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $article = $result->fetch_assoc();
+            $stmt->close();
+        } else {
+            $article = null;
+        }
+    } else {
+        header('Location: ../news.php');
+        exit;
+    }
 
-$conn->close();
+    $conn->close();
 ?>
 
 <!doctype html>
@@ -51,17 +59,14 @@ $conn->close();
                     <option value="tech" <?= $article && $article['tag'] == 'tech' ? 'selected' : '' ?>>Tech</option>
                 </select>
             </div>
-
             <textarea name="content" id="editor"><?= $article ? htmlspecialchars($article['content']) : '' ?></textarea>
-
             <div class="flex items-start justify-between gap-3">
                 <button type="submit" class="bg-yellow-500 text-[#2D3748] text-lg font-bold py-2 px-5 rounded-md hover:bg-[#1A212B] hover:text-white hover:cursor-pointer transition duration-300 ease-in-out">
                     <?= $action == 'edit' ? 'Update Article' : 'Post Article' ?>
                 </button>
 
                 <label for="spotlight" class="flex items-center gap-2 text-white">
-                    <input type="checkbox" name="spotlight" id="spotlight" class="w-4 h-4 text-blue-500 focus:ring focus:ring-blue-300 rounded" <?= $article && $article['spotlight'] == 1 ? 'checked' : '' ?>>
-                    Spotlight
+                    <input type="checkbox" name="spotlight" id="spotlight" class="w-4 h-4 text-blue-500 focus:ring focus:ring-blue-300 rounded" <?= $article && $article['spotlight'] == 1 ? 'checked' : '' ?>>Spotlight
                 </label>
             </div>
         </form>

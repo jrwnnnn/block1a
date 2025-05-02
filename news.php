@@ -24,10 +24,10 @@
             <p class="text-6xl text-yellow-500 font-bold">News</p>
             <p class="text-lg text-center mt-5">Stay updated with the latest news, updates, and events happening in our community.</p>
         </section>
-        <?php if (isset($_SESSION['user_id'])): ?>
-        <div class="fixed bottom-5 right-5 p-4 bg-yellow-500 hover:bg-yellow-300 hover:cursor-pointer rounded-md z-10" onclick="window.location.href='news/editor.php?action=create';">
-            <img src="https://cdn-icons-png.flaticon.com/128/3524/3524388.png" class="w-5">
-        </div>
+        <?php if (isset($_SESSION['permission_level']) && $_SESSION['permission_level'] == 1): ?>
+            <div class="fixed bottom-5 right-5 md:p-4 p-3 bg-yellow-500 hover:bg-yellow-300 hover:cursor-pointer rounded-md z-10" onclick="window.location.href='news/editor.php?action=create';">
+                <img src="https://cdn-icons-png.flaticon.com/128/3524/3524388.png" class="w-5">
+            </div>
         <?php endif; ?>
         <section class="bg-[#2D3748] grid md:grid-cols-3 px-5 md:px-30 py-20 gap-10">
             <?php foreach ($posts as $post): ?>
