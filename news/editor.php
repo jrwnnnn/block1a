@@ -47,21 +47,27 @@
             <input type="hidden" name="action" value="<?= $action ?>">
             <input type="hidden" name="id" value="<?= $article ? $article['id'] : '' ?>">
 
-            <input type="text" name="title" placeholder="Title" class="text-white text-6xl font-bold w-full focus:outline-none" value="<?= $article ? htmlspecialchars($article['title']) : '' ?>" required autocomplete="off">
-            <input type="text" name="subtitle" placeholder="Subtitle" class="text-white text-2xl w-full focus:outline-none" value="<?= $article ? htmlspecialchars($article['subtitle']) : '' ?>" required autocomplete="off">
+            <input type="text" name="title" placeholder="Title" class="text-white md:text-6xl text-4xl font-bold w-full focus:outline-none" value="<?= $article ? htmlspecialchars($article['title']) : '' ?>" required autocomplete="off">
+            <textarea type="text" name="subtitle" placeholder="Subtitle" class="text-white md:text-2xl text-lg w-full focus:outline-none" value="<?= $article ? htmlspecialchars($article['subtitle']) : '' ?>" required autocomplete="off"></textarea >
 
-            <div class="flex gap-3">
-                <input type="text" name="cover" placeholder="Cover Image URL" class="bg-gray-800 px-3 rounded-lg focus:outline-none text-white" value="<?= $article ? htmlspecialchars($article['cover']) : '' ?>" required autocomplete="off">
-                <select name="tag" class="bg-gray-800 px-3 py-2 rounded-lg focus:outline-none text-white">
-                    <option value="server_updates" <?= $article && $article['tag'] == 'server_updates' ? 'selected' : '' ?>>Server Updates</option>
-                    <option value="event" <?= $article && $article['tag'] == 'event' ? 'selected' : '' ?>>Event</option>
-                    <option value="game_updates" <?= $article && $article['tag'] == 'game_updates' ? 'selected' : '' ?>>Game Updates</option>
-                    <option value="tech" <?= $article && $article['tag'] == 'tech' ? 'selected' : '' ?>>Tech</option>
-                </select>
+            <div class="flex md:flex-row flex-col gap-3">
+                <input type="text" name="cover" placeholder="Cover Image URL" class="bg-gray-800 px-3 py-2 rounded-lg focus:outline-none text-white" value="<?= $article ? htmlspecialchars($article['cover']) : '' ?>" required autocomplete="off">
+                <div class="flex gap-3">
+                    <select name="tag" class="md:w-auto md:order flex-grow bg-gray-800 px-3 py-2 rounded-lg focus:outline-none text-white">
+                        <option value="server_updates" <?= $article && $article['tag'] == 'server_updates' ? 'selected' : '' ?>>Server Updates</option>
+                        <option value="event" <?= $article && $article['tag'] == 'event' ? 'selected' : '' ?>>Event</option>
+                        <option value="game_updates" <?= $article && $article['tag'] == 'game_updates' ? 'selected' : '' ?>>Game Updates</option>
+                        <option value="tech" <?= $article && $article['tag'] == 'tech' ? 'selected' : '' ?>>Tech</option>
+                    </select>
+                    <div class="flex gap-3 px-3 py-2 bg-gray-800 rounded-md">
+                        <img src="https://mc-heads.net/avatar/<?php echo htmlspecialchars($_SESSION['username'], ENT_QUOTES, 'UTF-8');?>" alt="avatar" class="w-5 aspect-square rounded">
+                        <p class="text-white"><?= $_SESSION['username'] ?></p>
+                    </div>
+                </div>
             </div>
             <textarea name="content" id="editor"><?= $article ? htmlspecialchars($article['content']) : '' ?></textarea>
             <div class="flex items-start justify-between gap-3">
-                <button type="submit" class="bg-yellow-500 text-[#2D3748] text-lg font-bold py-2 px-5 rounded-md hover:bg-[#1A212B] hover:text-white hover:cursor-pointer transition duration-300 ease-in-out">
+                <button type="submit" class="bg-yellow-500 text-black md:text-lg font-bold py-2 px-5 rounded-md hover:bg-yellow-300 hover:cursor-pointer transition duration-300 ease-in-out">
                     <?= $action == 'edit' ? 'Update Article' : 'Post Article' ?>
                 </button>
 

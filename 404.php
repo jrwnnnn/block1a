@@ -15,9 +15,9 @@ session_start();
     <?php include 'includes/navigation.php'; ?>
       <div class="text-white flex flex-col justify-center items-center flex-grow text-center pb-30 md:px-30 px-10">
         <img src="assets/i-am-steve-minecraft.gif" alt="Steve" class="">
-        <p class="text-5xl text-center font-bold pb-5 pt-5">I... Am Steve</p>
-        <p class="text-lg text-center">Sorry, we're still crafting the page that you are looking for.</p>
-        <p class="text-lg text-center">Return to the <a href="index.php" class="text-blue-300">home page</a>.</p>
+        <p class="md:text-6xl text-4xl text-center font-bold pt-5">404</p>
+        <p class="md:text-lg text-center">That page is non existent.</p>
+        <p class="md:text-lg text-center">Return to the <a href="index.php" class="text-blue-300">home page</a>.</p>
       </div>
   </section>
   <?php include 'includes/footer.php'; ?>

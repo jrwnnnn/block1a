@@ -21,8 +21,8 @@
     <body>
         <?php include 'includes/navigation.php'; ?>
         <section class="flex flex-col items-center justify-center text-white bg-cover bg-center bg-no-repeat min-h-[40vh] px-5" style="background-image: url('assets/blog-hero.webp')">
-            <p class="text-6xl text-yellow-500 font-bold">News</p>
-            <p class="text-lg text-center mt-5">Stay updated with the latest news, updates, and events happening in our community.</p>
+            <p class="md:text-6xl text-4xl text-yellow-500 font-bold">News</p>
+            <p class="md:text-lg text-center mt-5">Stay updated with the latest news, updates, and events happening in our community.</p>
         </section>
         <?php if (isset($_SESSION['permission_level']) && $_SESSION['permission_level'] == 1): ?>
             <div class="fixed bottom-5 right-5 md:p-4 p-3 bg-yellow-500 hover:bg-yellow-300 hover:cursor-pointer rounded-md z-10" onclick="window.location.href='news/editor.php?action=create';">
@@ -44,7 +44,7 @@
                     <div class="aspect-video w-full overflow-hidden rounded-md mb-4">
                         <img src="<?= htmlspecialchars($post['cover']) ?>" class="h-full w-full object-cover transition ease-in-out duration-500 hover:scale-105">
                     </div>
-                    <p class="text-md <?= $tagColor ?> capitalize"><?= htmlspecialchars(str_replace('_', ' ', $post['tag'])) ?></p>
+                    <p class="<?= $tagColor ?> capitalize"><?= htmlspecialchars(str_replace('_', ' ', $post['tag'])) ?></p>
                     <p class="text-2xl font-bold mb-2"><?= htmlspecialchars($post['title']) ?></p>
                     <p><?= htmlspecialchars($post['subtitle']) ?></p>
                     <p class="text-gray-400 pt-5 text-sm"><?= htmlspecialchars($post['date_posted']) ?></p>
