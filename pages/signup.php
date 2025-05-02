@@ -100,65 +100,40 @@
                     <p class="text-white text-2xl font-bold">Create an Account</p>
                     <img src="../assets/cs1a.png" alt="logo" class="w-20">
                 </div>
+
                 <?php if ($success_message): ?>
-        <div class="bg-green-600 text-white p-3 mb-4 rounded-md text-center font-semibold">
-            <?= $success_message ?>
-        </div>
-        <?php endif; ?>
-                <form id="loginForm" class="space-y-4" method="POST" action="signup.php">
+                    <div class="bg-green-600 text-white p-3 mb-4 rounded-md text-center font-semibold"><?= $success_message ?></div>
+                <?php endif; ?>
+
+                <form id="signupForm" class="space-y-4" method="POST" action="signup.php">
                     <div>
-                        <label for="email" class="block text-sm font-medium text-white">Email</label>
+                        <label for="email" class="block text-sm font-medium text-white">Email <span class="text-red-500"><?= $email_error ?></span></label>
                         <input type="email" id="email" name="email" value="<?= htmlspecialchars($_POST['email'] ?? '') ?>"
-                        class="mt-1 block w-full p-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                        <?php if ($email_error): ?>
-            <p class="text-red-600 text-sm mt-1 p-2 rounded"><?= $email_error ?></p>
-            <?php endif; ?>
+                            class="mt-1 block w-full p-3 py-2 bg-gray-800 text-white border <?= $email_error ? 'border-red-500' : 'border-gray-600' ?> rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                     </div>
                     <div>
-                        <label for="username" class="block text-sm font-medium text-white">Username</label>
-                        <input type="username" id="username" name="username" value="<?= htmlspecialchars($_POST['username'] ?? '') ?>"
-                        class="mt-1 block w-full p-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                        <?php if ($username_error): ?>
-            <p class="text-red-600 text-sm mt-1 p-2 rounded"><?= $username_error ?></p>
-            <?php endif; ?>
-
-            <div class="flex flex-row items-start justify-between pb-7">
-                <p class="text-white text-2xl font-bold">Create an Account</p>
-                <img src="../assets/cs1a.png" alt="logo" class="w-20">
+                        <label for="username" class="block text-sm font-medium text-white">Username <span class="text-red-500"><?= $username_error ?></label>
+                        <input type="text" id="username" name="username" value="<?= htmlspecialchars($_POST['username'] ?? '') ?>"
+                            class="mt-1 block w-full p-3 py-2 bg-gray-800 text-white border <?= $username_error ? 'border-red-500' : 'border-gray-600' ?> rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-white">Password <span class="text-red-500"><?= $password_error ?></label>
+                        <input type="password" id="password" name="password" value="<?= htmlspecialchars($_POST['password'] ?? '') ?>"
+                            class="mt-1 block w-full p-3 py-2 bg-gray-800 text-white border <?= $password_error ? 'border-red-500' : 'border-gray-600' ?> rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    <div>
+                        <label for="confirm_password" class="block text-sm font-medium text-white">Confirm Password <span class="text-red-500"><?= $password_error ?></label>
+                        <input type="password" id="confirm_password" name="confirm_password"
+                            class="mt-1 block w-full p-3 py-2 bg-gray-800 text-white border <?= $password_error ? 'border-red-500' : 'border-gray-600' ?> rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    <div class="flex items-center gap-2 pb-5 text-white text-sm">
+                        <input type="checkbox" id="showPassword" class="accent-blue-500 hover:cursor-pointer" style="width: 16px; height: 16px;">
+                        <label for="showPassword">Show Password</label>
+                    </div>
+                    <a href="login.php" class="text-sm text-blue-500 hover:underline">Already have an account?</a>
+                    <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 mt-3 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 <?= !empty($success_message) ? 'disabled' : '' ?>">Signup</button>
+                </form>
             </div>
-
-            <?php if ($success_message): ?>
-                <div class="bg-green-600 text-white p-3 mb-4 rounded-md text-center font-semibold"><?= $success_message ?></div>
-            <?php endif; ?>
-
-            <form id="signupForm" class="space-y-4" method="POST" action="signup.php">
-                <div>
-                    <label for="email" class="block text-sm font-medium text-white">Email <span class="text-red-500"><?= $email_error ?></span></label>
-                    <input type="email" id="email" name="email" value="<?= htmlspecialchars($_POST['email'] ?? '') ?>"
-                        class="mt-1 block w-full p-3 py-2 bg-gray-800 text-white border <?= $email_error ? 'border-red-500' : 'border-gray-600' ?> rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                </div>
-                <div>
-                    <label for="username" class="block text-sm font-medium text-white">Username <span class="text-red-500"><?= $username_error ?></label>
-                    <input type="text" id="username" name="username" value="<?= htmlspecialchars($_POST['username'] ?? '') ?>"
-                        class="mt-1 block w-full p-3 py-2 bg-gray-800 text-white border <?= $username_error ? 'border-red-500' : 'border-gray-600' ?> rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                </div>
-                <div>
-                    <label for="password" class="block text-sm font-medium text-white">Password <span class="text-red-500"><?= $password_error ?></label>
-                    <input type="password" id="password" name="password" value="<?= htmlspecialchars($_POST['password'] ?? '') ?>"
-                        class="mt-1 block w-full p-3 py-2 bg-gray-800 text-white border <?= $password_error ? 'border-red-500' : 'border-gray-600' ?> rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                </div>
-                <div>
-                    <label for="confirm_password" class="block text-sm font-medium text-white">Confirm Password <span class="text-red-500"><?= $password_error ?></label>
-                    <input type="password" id="confirm_password" name="confirm_password"
-                        class="mt-1 block w-full p-3 py-2 bg-gray-800 text-white border <?= $password_error ? 'border-red-500' : 'border-gray-600' ?> rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                </div>
-                <div class="flex items-center gap-2 pb-5 text-white text-sm">
-                    <input type="checkbox" id="showPassword" class="accent-blue-500 hover:cursor-pointer" style="width: 16px; height: 16px;">
-                    <label for="showPassword">Show Password</label>
-                </div>
-                <a href="login.php" class="text-sm text-blue-500 hover:underline">Already have an account?</a>
-                <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 mt-3 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 <?= !empty($success_message) ? 'disabled' : '' ?>">Signup</button>
-            </form>
         </div>
         <script src="../script/signup.js"></script>
     </body>

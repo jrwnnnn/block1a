@@ -69,6 +69,5 @@ $conn->close();
     <?php include 'includes/footer.php'; ?>
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
     <script src="../script/simplemde.js"></script>
-    <script src="../script/editor.js"></script>
 </body>
 </html>
