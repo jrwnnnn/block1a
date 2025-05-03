@@ -7,6 +7,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link href="src/output.css" rel="stylesheet">
     <title>Block1A - Help and Support</title>
 </head>
@@ -14,7 +15,7 @@ session_start();
     <?php include 'includes/navigation.php'; ?>
         <section class="flex flex-col items-center justify-center text-white bg-cover bg-center bg-no-repeat min-h-[40vh] px-5" style="background-image: url('assets/help-and-support-hero.webp')">
             <p class="md:text-6xl text-4xl text-yellow-500 font-bold text-center">Welcome to the Help and Support!</p>
-            <p class="text-lg text-center mt-5">Need a hand? You're at the right place!</p>
+            <p class="md:text-lg text-center mt-5">Need a hand? You're at the right place!</p>
         </section>
         <section class="bg-[#2D3748] grid md:grid-cols-2 md:px-30 px-5 pt-15 pb-5 gap-10">
             <div class="flex flex-col md:flex-row items-start bg-[#1A212B] p-5 rounded-md shadow-lg text-white">
@@ -73,12 +74,12 @@ session_start();
             </div>
         </section>
         <section class="bg-[#2D3748] md:px-30 px-5 pb-20 pt-5">
-            <div class="flex md:flex-row flex-col justify-between items-center bg-[#1A212B] py-5 px-10 rounded-md shadow-lg text-white">
+            <div class="flex md:flex-row flex-col justify-between gap-5 items-center bg-[#1A212B] py-5 px-10 rounded-md shadow-lg text-white">
                 <div>
                     <p class="text-2xl font-bold">Still need help?</p>
-                    <p class="text-lg">Can't find the answer to your question? Contact our support.</p>
+                    <p class="md:text-lg">Can't find the answer to your question? Contact our support.</p>
                 </div>
-                <button onclick="window.location.href='contact.php';" class="bg-yellow-500 text-[#2D3748] text-lg font-bold py-2 px-5 md:mt-0 mt-10 rounded-md hover:bg-[#3a4d60] hover:text-white hover:cursor-pointer transition duration-300 ease-in-out">Contact us</button>
+                <button onclick="window.location.href='contact.php';" class="bg-yellow-500 text-[#2D3748] md:text-lg font-bold py-2 px-5 rounded-md hover:bg-[#3a4d60] hover:text-white hover:cursor-pointer transition duration-300 ease-in-out">Contact us</button>
             </div>
             <img src="assets/buzzy-bees.webp" alt="faq" class="w-full mt-20 max-h-[40vh] object-cover object-center">
         </section>
