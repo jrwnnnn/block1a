@@ -103,7 +103,7 @@
 
                 <div class="mt-5 text-center">
                     <p class="text-sm text-white">Don't have an account?
-                    <a href="signup.php" class="text-blue-500 hover:underline">Sign up</a>
+                    <a href="signup.php" class="text-blue-500 hover:underline">Create one!</a>
                     </p>
                 </div>
             </div>
