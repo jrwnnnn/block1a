@@ -11,7 +11,6 @@
     $password_error = '';
     $success_message = '';
 
-
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         include '../functions/connect.php';
 
@@ -33,13 +32,11 @@
         mysqli_stmt_execute($email_stmt);
         $email_result = mysqli_stmt_get_result($email_stmt);
 
-
         if (mysqli_num_rows($email_result) > 0) {
             $email_error = " - Email already exists.";
             $has_error = true;
         }
 
-    
         $username_check_sql = "SELECT * FROM profiles WHERE username = ?";
         $username_stmt = mysqli_prepare($conn, $username_check_sql);
         mysqli_stmt_bind_param($username_stmt, "s", $username);
@@ -52,6 +49,10 @@
             $has_error = true;
         }
 
+        if (strlen($password) < 8 || !preg_match('/[A-Z]/', $password) || !preg_match('/[a-z]/', $password) || !preg_match('/[0-9]/', $password)) {
+            $password_error = " - Password must be at least 8 characters, include uppercase, lowercase, and a number.";
+            $has_error = true;
+        }
 
         if (!$has_error) {
             
@@ -75,13 +76,6 @@
                 $password_error = "Signup failed. Please try again.";
             }
         }
-       
-    if (strlen($password) < 8 || !preg_match('/[A-Z]/', $password) ||
-    !preg_match('/[a-z]/', $password) || !preg_match('/[0-9]/', $password)) {
-    $password_error = " - Password must be at least 8 characters, include uppercase, lowercase, and a number.";
-    $has_error = true;
-    }
-
     }
 ?>
 
