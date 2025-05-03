@@ -40,7 +40,7 @@
       ],
       "relatedArticles": [
         {"title": "Reporting Players", "link": "report.php"},
-        {"title": "Appealing Bans", "link": "appeal.php"}
+        {"title": "Appealing Bans", "link": "faq.php?topic=fairplay#what-are-the-rules%3F"}
       ]
     },
     {
@@ -68,6 +68,87 @@
         {"title": "Reporting Players", "link": "report.php"},
         {"title": "Appealing Bans", "link": "appeal.php"}
       ]
+    },
+    {
+      "mainTopic": "Shattered Wilds",
+      "description": "This section Introduces the \"Shattered Wilds\", a huge biome that has more stronger enemies, with exclusive loot that is usable in the overworld.",
+      "subTopics": [
+        {
+          "title": "What is the Shattered Wilds?",
+          "content": "<p>The Shattered Wilds is a more difficult world than the original worlds, which are the “Overworld”, “Nether”, and the “End”.</p>"
+        },
+        {
+          "title": "What is in the Shattered Wilds?",
+          "content": "<p>The shattered wilds have item enchantments only found in the shattered wilds area and can also be used in the overworld.</p>"
+        },
+        {
+          "title": "Can you use totems in the Shattered Wilds?",
+          "content": "<p>You could not use totems back then in the Shattered Wilds last season because of a coding bug; now, in the next season, you can use totems to not die easily in the Shattered Wilds.</p>"
+        },
+        {
+          "title": "Can you use /tpa in the Shattered Wilds?",
+          "content": "<p>No, you cannot teleport in the Shattered Wilds, as we would want the players to explore the world on their own two feet and to truly feel the “Wilds” experience.</p>"
+        }
+      ],
+      "relatedArticles": [
+        {"title": "Shattered Wilds Overview", "link": "shatteredwilds.php"}
+      ]
+    },
+    {
+      "mainTopic": "Commands",
+      "description": "This section focuses on the Spark Pings and their respective uses.",
+      "subTopics": [
+        {
+          "title": "Spark Health",
+          "content": "<p>The health subcommand generates a health report for the server, including TPS, CPU, Memory, and Disk Usage.</p>"
+        },
+        {
+          "title": "Spark Ping",
+          "content": "<p>The ping subcommand prints information about average (or specific) player ping round-trip times.</p>"
+        }
+        
+      ],
+      "relatedArticles": [
+        {"title": "Spark Overview", "link": "spark.php"}
+      ]
+    },
+    {
+      "mainTopic": "MyDog",
+      "description": "This section Primarily targets the Dog Lovers out there.",
+      "subTopics": [
+        {
+          "title": "/MyDog Commands",
+          "content": "<p>This plugin helps the player and their dog companions teleport even outside the rendered chunks. Help My Dog commands are used to teleport dogs, rename them, etc.  <a href=\"https://github.com/HeroGamers/MyDog?tab=readme-ov-file\" class=\"text-blue-400 hover:underline\">Here is a list of commands that are used within the server.</a>.</p>"
+        }
+      ],"relatedArticles": [
+        {"title": "My Dog Commands", "link": "mydog.php"}
+      ]
+    },{
+      "mainTopic": "How to install a simple voice chat?",
+      "description": "Here's a simple guide to installing Simple Voice Chat (client):.",
+      "subTopics": [
+        {
+          "title": "Installing a Voice Chat",
+          "content": "<p>1.Download and install Fabric or Forge for your Minecraft version.\n2. For Fabric: Also install Fabric API (drop it into the mods folder).\n3. Get the correct version from Modrinth or CurseForge.\n4. Put the downloaded file into your mods folder (.minecraft/mods).\n5. Open Minecraft with Fabric or Forge selected in your launcher.\n6. Press V in-game to open the voice chat settings\n7. Press Done.</p>"
+        }
+      ],"relatedArticles": [
+        {"title": "Voice Chat", "link": "voicechat.php"}
+      ]
+    },
+    {
+      "mainTopic": "Feedback",
+      "description": "",
+      "subTopics": [
+        {
+          "title": "How do I report bugs or feedback?",
+          "content": "<p>If there are any bugs or feedback regarding the gameplay within the server, you can contact Help and Support to help you, Your feedback is very much appreciated.</p>"
+        }
+        
+      ],
+      "relatedArticles": [
+        {"title": "Feedback", "link": "feedback.php"}
+      ]
     }
+    
   ]
 }
