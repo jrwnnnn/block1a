@@ -6,7 +6,7 @@
     }
 
     $tab = $_GET['tab'];
-    if (!in_array($tab, ['profile', 'posts', 'settings', 'privacy', 'language'])) {
+    if (!in_array($tab, ['notifications', 'settings', 'privacy', 'language'])) {
         $tab = 'profile';
         header('Location: profile.php?tab=settings');
     }
@@ -36,9 +36,10 @@
                     </div>
                 </div>
                 <div class="flex flex-col space-y-[4px] text-gray-300 ">
-                    <button onclick="window.location.href='profile.php?tab=settings';" class="py-2 px-3 text-left rounded-md hover:bg-[#222a37] hover:text-white focus:bg-blue-500 focus:text-white hover:cursor-pointer">User Settings</button>
-                    <button onclick="window.location.href='profile.php?tab=privacy';" class="py-2 px-3 text-left rounded-md hover:bg-[#222a37] hover:text-white focus:bg-blue-500 focus:text-white hover:cursor-pointer">Data and Privacy</button>
-                    <button onclick="window.location.href='profile.php?tab=language';" class="py-2 px-3 text-left rounded-md hover:bg-[#222a37] hover:text-white focus:bg-blue-500 focus:text-white hover:cursor-pointer">Language</button>
+                    <button onclick="window.location.href='profile.php?tab=notifications';" class="py-2 px-3 text-left rounded-md hover:bg-[#222a37] hover:text-white <?php echo ($tab === 'notifications') ? 'bg-blue-500 text-white' : ''; ?> hover:cursor-pointer">Notifications</button>
+                    <button onclick="window.location.href='profile.php?tab=settings';" class="py-2 px-3 text-left rounded-md hover:bg-[#222a37] hover:text-white <?php echo ($tab === 'settings') ? 'bg-blue-500 text-white' : ''; ?> hover:cursor-pointer">User Settings</button>
+                    <button onclick="window.location.href='profile.php?tab=privacy';" class="py-2 px-3 text-left rounded-md hover:bg-[#222a37] hover:text-white <?php echo ($tab === 'privacy') ? 'bg-blue-500 text-white' : ''; ?> hover:cursor-pointer">Data and Privacy</button>
+                    <button onclick="window.location.href='profile.php?tab=language';" class="py-2 px-3 text-left rounded-md hover:bg-[#222a37] hover:text-white <?php echo ($tab === 'language') ? 'bg-blue-500 text-white' : ''; ?> hover:cursor-pointer">Language</button>
                     <hr class="flex-grow my-2 border-gray-800 border-1">
                     <form action="functions/logout.php" method="POST" class="flex">
                         <button type="submit" class="flex-grow px-3 py-2 text-left text-gray-300 rounded-md hover:bg-red-500 hover:text-white hover:cursor-pointer">Logout</button>

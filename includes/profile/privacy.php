@@ -16,9 +16,13 @@
     <div class="text-white">
         <p class="mb-5 text-2xl font-bold">Account Removal</p>
         <p>Disabling your account will make it inactive and hide your profile and posts from other users. You can reactivate it by logging back in. Deleting your account is permanent and cannot be undone. All your data, including posts and profile information, will be removed.</p>
-        <div class="flex items-start gap-5 mt-5">
-            <button type="submit" class="px-4 py-2 text-white bg-red-500 rounded-lg hover:bg-red-600 hover:cursor-pointer">Disable Account</button>
-            <button type="submit" class="px-4 py-2 text-red-400 bg-gray-700 rounded-lg hover:bg-gray-600 hover:cursor-pointer">Delete Account</button>
+         <div class="flex gap-5 mt-5">
+            <form action="functions/logout.php" method="POST">
+                <button type="submit" class="px-3 py-2 text-white bg-red-500 rounded-md white hover:bg-red-600 hover:text-white hover:cursor-pointer">Disable Account</button>
+            </form>
+            <form action="functions/logout.php" method="POST">
+                <button type="submit" class="px-4 py-2 text-red-400 bg-gray-700 rounded-lg hover:bg-gray-600 hover:cursor-pointer">Delete Account</button>
+            </form>
         </div>
     </div>
 </div>
