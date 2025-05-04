@@ -1,9 +1,9 @@
 <?php
 session_start();
-require 'functions/connect.php';
+require 'connect.php';
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: /pages/login.php");
+    header("Location: ../index.php");
     exit();
 }
 
@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($stmt->execute()) {
         $_SESSION['username'] = $username; 
         echo "Your profile has been updated successfully.";
-        header("Location: profile.php");
+        header("Location: ../profile.php");
         exit();
     } else {
         echo "Your profile wasn't updated. An error occured: " . $stmt->error;
