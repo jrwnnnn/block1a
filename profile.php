@@ -29,7 +29,7 @@
                 <div class="mb-5">
                     <img src="https://mc-heads.net/avatar/<?= $_SESSION['username'] ?>" class="object-cover w-20 aspect-square" alt="avatar">
                     <p class="pt-5 text-2xl font-bold text-white md:text-4xl"><?php echo htmlspecialchars($_SESSION['username'], ENT_QUOTES, 'UTF-8');?></p>
-                    <p class="flex items-center text-gray-400">ID: 54636479 </p>
+                    <p class="flex items-center text-gray-400">ID: <?php echo str_pad(htmlspecialchars($_SESSION['user_id'], ENT_QUOTES, 'UTF-8'), 8, '0', STR_PAD_LEFT); ?> </p>
                     <div class="flex items-center mt-2 text-gray-400">
                         <span class="w-3 h-3 mr-2 bg-green-500 rounded-full"></span>
                         <p class="text-white">Online</p>
