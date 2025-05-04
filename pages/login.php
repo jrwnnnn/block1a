@@ -29,6 +29,7 @@
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['email'] = $user['email']; 
+                $_SESSION['permission_level'] = $user['permission_level']; 
                 
                 $success_message = "Welcome back " . htmlspecialchars($user['username']) . "!";
                 echo "<script>
@@ -52,6 +53,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
         <link href="../src/output.css" rel="stylesheet">
         <title>Block1A - Login</title>
     </head>
