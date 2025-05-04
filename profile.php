@@ -21,7 +21,7 @@
     <link href="src/output.css" rel="stylesheet">
     <title>Block1A - Blog</title>
 </head>
-    // TODO: Improve mobile layout
+    <!-- TODO: Improve mobile layout -->
     <body class="flex flex-col min-h-screen">
         <?php include 'includes/navigation.php'; ?>
         <section class="bg-[#2D3748] flex md:flex-row flex-col gap-5 flex-grow">
