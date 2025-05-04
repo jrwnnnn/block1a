@@ -40,6 +40,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "Build: output.css"
           branch: ${{ env.branch }}
+          base: main # Specify the base branch here
           title: "Build: output.css"
           body: |
             This PR contains the latest Tailwind CSS build from GitHub Actions.
