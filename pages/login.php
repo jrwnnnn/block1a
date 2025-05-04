@@ -29,6 +29,7 @@
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['email'] = $user['email']; 
+                $_SESSION['last_password_change'] = $user['last_password_change']; 
                 $_SESSION['permission_level'] = $user['permission_level']; 
                 
                 $success_message = "Welcome back " . htmlspecialchars($user['username']) . "!";
