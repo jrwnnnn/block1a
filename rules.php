@@ -26,11 +26,11 @@
 <body>
   <div class="flex flex-col">
     <?php include 'includes/navigation.php'; ?>
-    <div class="bg-[#2D3748] flex flex-grow md:flex-row flex-col text-white min-h-screen md:px-30 px-5 sidebar">
+    <div class="bg-[#2D3748] flex flex-grow md:flex-row flex-col text-white min-h-screen md:px-30 px-5 rules-sidebar">
       <div class="min-w-[20vw] py-10 pr-5 md:border-r-1 md:border-gray-500">
         <div class="flex flex-col space-y-4">
           <?php foreach ($pages as $key): ?>
-            <a href="rules.php?page=<?= $key ?>" class="<?= $key === $page ? 'focused' : '' ?>">
+            <a href="rules.php?page=<?= $key ?>" class="<?= $key === $page ? 'text-white bg-gray-700' : 'text-gray-300' ?> rounded-md p-2 mb-2 hover:bg-gray-700">
               <?= ucwords(str_replace('_', ' ', $key)) ?>
             </a>
           <?php endforeach; ?>
@@ -51,10 +51,10 @@
 
         <div class="flex flex-col mt-20 mb-10 md:justify-between md:flex-row">
           <?php if ($prevPage): ?>
-            <button onclick="window.location.href='rules.php?page=<?= $prevPage ?>'" class="bg-yellow-500 text-[#2D3748] font-bold py-2 px-5 rounded-md mt-5 hover:bg-[#1A212B] hover:text-white transition duration-300">Previous: <?= ucwords(str_replace('_', ' ', $prevPage)) ?></button>
+            <button onclick="window.location.href='rules.php?page=<?= $prevPage ?>'" class="glob-btn bg-yellow-500 !text-black font-bold mt-5 hover:bg-yellow-600">Previous: <?= ucwords(str_replace('_', ' ', $prevPage)) ?></button>
           <?php endif; ?>
           <?php if ($nextPage): ?>
-            <button onclick="window.location.href='rules.php?page=<?= $nextPage ?>'" class="bg-yellow-500 text-[#2D3748] font-bold py-2 px-5 rounded-md mt-5 hover:bg-[#1A212B] hover:text-white transition duration-300">Next: <?= ucwords(str_replace('_', ' ', $nextPage)) ?></button>
+            <button onclick="window.location.href='rules.php?page=<?= $nextPage ?>'" class="glob-btn bg-yellow-500 !text-black font-bold mt-5 hover:bg-yellow-600">Next: <?= ucwords(str_replace('_', ' ', $nextPage)) ?></button>
           <?php endif; ?>
         </div>
       </div>

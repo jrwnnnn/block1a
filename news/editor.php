@@ -70,7 +70,7 @@
             </div>
             <textarea name="content" id="editor"><?= $article ? htmlspecialchars($article['content']) : '' ?></textarea>
             <div class="flex items-start justify-between gap-3">
-                <button type="submit" class="px-5 py-2 font-bold text-black transition duration-300 ease-in-out bg-yellow-500 rounded-md md:text-lg hover:bg-yellow-300 hover:cursor-pointer" onclick="loadingLong()">
+                <button type="submit" class="bg-blue-500  glob-btn md:text-lg hover:bg-blue-600" onclick="loadingLong()">
                     <?= $action == 'edit' ? 'Update Article' : 'Post Article' ?>
                 </button>
 

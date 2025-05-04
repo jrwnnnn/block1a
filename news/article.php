@@ -48,11 +48,11 @@
         <?php include 'includes/navigation.php'; ?>
         <?php if (isset($_SESSION['permission_level']) && $_SESSION['permission_level'] == 1): ?>
             <div class="fixed z-10 flex flex-col gap-3 bottom-5 right-5">
-                <div class="flex items-center gap-2 p-3 bg-red-500 rounded-md md:p-4 hover:cursor-pointer"
+                <div class="flex items-center gap-2 p-4 bg-red-500 rounded-md hover:cursor-pointer hover:bg-red-600"
                     onclick="if (confirm('Are you sure you want to delete this article? (This action is irreversable)')) { window.location.href='../functions/delete-article.php?id=<?= htmlspecialchars($post['id']) ?>'; }">
                     <img src="https://cdn-icons-png.flaticon.com/128/3096/3096687.png" class="w-5">
                 </div>
-                <div class="flex items-center gap-2 p-3 bg-yellow-500 rounded-md md:p-4 hover:cursor-pointer"
+                <div class="flex items-center gap-2 p-3 bg-yellow-500 rounded-md hover:cursor-pointer hover:bg-yellow-600"
                     onclick="window.location.href='editor.php?action=edit&id=<?= htmlspecialchars($post['id']) ?>';">
                     <img src="https://cdn-icons-png.flaticon.com/128/9356/9356210.png" class="w-5">
                 </div>
