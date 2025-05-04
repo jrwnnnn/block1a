@@ -26,7 +26,7 @@
             $has_error = true;
         }
 
-        $email_check_sql = "SELECT * FROM profiles WHERE email = ?";
+        $email_check_sql = "SELECT * FROM user_data WHERE email = ?";
         $email_stmt = mysqli_prepare($conn, $email_check_sql);
         mysqli_stmt_bind_param($email_stmt, "s", $email);
         mysqli_stmt_execute($email_stmt);
@@ -37,7 +37,7 @@
             $has_error = true;
         }
 
-        $username_check_sql = "SELECT * FROM profiles WHERE username = ?";
+        $username_check_sql = "SELECT * FROM user_data WHERE username = ?";
         $username_stmt = mysqli_prepare($conn, $username_check_sql);
         mysqli_stmt_bind_param($username_stmt, "s", $username);
         mysqli_stmt_execute($username_stmt);
@@ -57,7 +57,7 @@
         if (!$has_error) {
             
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-            $insert_sql = "INSERT INTO profiles (email, username, password) VALUES (?, ?, ?)";
+            $insert_sql = "INSERT INTO user_data (email, username, password) VALUES (?, ?, ?)";
             $stmt = mysqli_prepare($conn, $insert_sql);
             mysqli_stmt_bind_param($stmt, "sss", $email, $username, $hashed_password);
 
@@ -92,12 +92,12 @@
         <section class="bg-[url('../assets/auth-background.webp')] bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center min-h-screen md:px-30 px-5">
             <div class="bg-[#1a202a] flex flex-col rounded-md p-8 w-full max-w-md">
                 <div class="flex flex-row items-start justify-between pb-7">
-                    <p class="text-white text-2xl font-bold">Create an Account</p>
+                    <p class="text-2xl font-bold text-white">Create an Account</p>
                     <img src="../assets/cs1a.png" alt="logo" class="w-20">
                 </div>
 
                 <?php if ($success_message): ?>
-                    <div class="bg-green-600 text-white p-3 mb-4 rounded-md text-center font-semibold"><?= $success_message ?></div>
+                    <div class="p-3 mb-4 font-semibold text-center text-white bg-green-600 rounded-md"><?= $success_message ?></div>
                 <?php endif; ?>
 
                 <form id="signupForm" class="space-y-4" method="POST" action="signup.php">
@@ -121,7 +121,7 @@
                         <input type="password" id="confirm_password" name="confirm_password"
                             class="mt-1 block w-full p-3 py-2 bg-gray-800 text-white border <?= $password_error ? 'border-red-500' : 'border-gray-600' ?> rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                     </div>
-                    <div class="flex items-center gap-2 pb-5 text-white text-sm">
+                    <div class="flex items-center gap-2 pb-5 text-sm text-white">
                         <input type="checkbox" id="showPassword" class="accent-blue-500 hover:cursor-pointer" style="width: 16px; height: 16px;">
                         <label for="showPassword">Show Password</label>
                     </div>

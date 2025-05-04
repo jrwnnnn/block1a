@@ -18,7 +18,7 @@
         $login = $_POST['login'];
         $password = $_POST['password'];
 
-        $sql = "SELECT * FROM profiles WHERE username = ? OR email = ?";
+        $sql = "SELECT * FROM user_data WHERE username = ? OR email = ?";
         $stmt = mysqli_prepare($conn, $sql);
         mysqli_stmt_bind_param($stmt, "ss", $login, $login);
         mysqli_stmt_execute($stmt);
@@ -61,23 +61,23 @@
         <section class="bg-[url('../assets/auth-background.webp')] bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center min-h-screen px-5 md:px-30">
             <div class="bg-[#1a202a] flex flex-col rounded-md p-8 w-full max-w-md">
                 <div class="flex items-start justify-between pb-7">
-                    <p class="text-white text-2xl font-bold">Login to Your Account</p>
+                    <p class="text-2xl font-bold text-white">Login to Your Account</p>
                     <img src="../assets/cs1a.png" alt="logo" class="w-20">
                 </div>
 
                 <form id="loginForm" class="space-y-4" method="POST" action="login.php">
                     <?php if (!empty($password_error)): ?>
-                        <div class="bg-red-600 text-white p-3 rounded-md text-center font-semibold">
+                        <div class="p-3 font-semibold text-center text-white bg-red-600 rounded-md">
                             <?= htmlspecialchars($password_error) ?>
                         </div>
                     <?php endif; ?>
                     <?php if (!empty($user_error)): ?>
-                        <div class="bg-red-600 text-white p-3 rounded-md text-center font-semibold">
+                        <div class="p-3 font-semibold text-center text-white bg-red-600 rounded-md">
                             <?= htmlspecialchars($user_error) ?>
                         </div>
                     <?php endif; ?>
                     <?php if (!empty($success_message)): ?>
-                        <div class="bg-green-600 text-white p-3 rounded-md text-center font-semibold">
+                        <div class="p-3 font-semibold text-center text-white bg-green-600 rounded-md">
                             <?= htmlspecialchars($success_message) ?>
                         </div>
                     <?php endif; ?>
@@ -90,13 +90,13 @@
                         <input type="password" id="password" name="password" class="mt-1 block w-full p-3 py-2 bg-gray-800 text-white border <?= $has_error ? 'border-red-500' : 'border-gray-600' ?> rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                     </div>
                     <div class="flex items-center justify-between pb-5">
-                        <div class="flex items-center gap-2 text-white text-sm">
+                        <div class="flex items-center gap-2 text-sm text-white">
                             <input type="checkbox" id="showPassword" class="" style="width: 16px; height: 16px; cursor: pointer;">
                             <label for="showPassword">Show Password</label>
                         </div>
                         <a href="../contact.php" class="text-sm text-blue-500 hover:underline">Forgot password?</a>
                     </div>
-                    <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500" <?= !empty($success_message) ? 'disabled' : '' ?>>
+                    <button type="submit" class="w-full px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500" <?= !empty($success_message) ? 'disabled' : '' ?>>
                         Login
                     </button>
                 </form>
