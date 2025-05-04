@@ -6,8 +6,10 @@
     }
 
     $tab = $_GET['tab'];
+    if (!isset($tab) || $tab === '') {
+        $tab = 'settings';
+    }
     if (!in_array($tab, ['notifications', 'settings', 'privacy', 'language'])) {
-        $tab = 'profile';
         header('Location: profile.php?tab=settings');
     }
 ?>
