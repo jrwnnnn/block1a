@@ -1,4 +1,4 @@
-name: Build Tailwind CSS
+name: Build Tailwind CSS & Create PR
 
 on:
   push:
@@ -7,27 +7,39 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Checkout repo
+        uses: actions/checkout@v3
 
-      - name: Set up Git credentials for pushing
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-
-      - uses: actions/setup-node@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - run: npm install
+      - name: Install dependencies
+        run: npm install
 
-      - name: Build TailwindCSS
+      - name: Build Tailwind CSS
         run: npx tailwindcss -i ./src/input.css -o ./src/output.css --minify
 
-      - name: Commit output.css
+      - name: Create branch and commit output.css
         run: |
+          BRANCH="build/output-$(date +%s)"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b $BRANCH
           git add src/output.css
-          git commit -m "Build: output.css from GitHub Actions" || echo "No changes to commit"
-          git push
+          git commit -m "Build: output.css on $BRANCH"
+          git push origin $BRANCH
+          echo "branch=$BRANCH" >> $GITHUB_ENV
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Build: output.css"
+          branch: ${{ env.branch }}
+          title: "Build: output.css"
+          body: |
+            This PR contains the latest Tailwind CSS build from GitHub Actions.
