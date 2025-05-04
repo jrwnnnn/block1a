@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    $stmt = $conn->prepare("UPDATE profiles SET username = ?, email = ?, password = ? WHERE id = ?");
+    $stmt = $conn->prepare("UPDATE user_data SET username = ?, email = ?, password = ? WHERE id = ?");
     $stmt->bind_param("sssi", $username, $email, $hashedPassword, $userId);
 
     if ($stmt->execute()) {
