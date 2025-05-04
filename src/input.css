@@ -1,127 +1,30 @@
     @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
     @import "tailwindcss";
+    @import "./help-and-support.css";
+    @import "./markdown.css";
 
     body {
-    font-family: 'Outfit';
+        font-family: 'Outfit';
     }
-
-    .social-icons img {
-        filter: invert(100%);
-    }
-
     .nav-tab {
         @apply text-white hover:text-yellow-500;
     }
-
-    /* Global */
-
     @keyframes slide {
         from { opacity: 0; transform: translateY(-10px); }
         to { opacity: 1; transform: translateY(0); }
     }
-
     .animate-slide {
         animation: slide 0.3s ease-out forwards;
     }
-
-    /* Rules */
-
-    .focused {
-        @apply text-yellow-500;
+    .social-icons img {
+        filter: invert(100%);
     }
-    
-    .sidebar a{
-        @apply rounded-md p-2 mb-2 hover:bg-gray-700;
+    .glob-btn {
+        @apply px-4 py-2 rounded-lg hover:cursor-pointer text-white;
     }
-
-    /* Markdown Utilities (utilized on article.php) */
-
-    .markdown h1 {
-        @apply text-4xl font-bold mt-8 mb-4;
+    .glob-input {
+        @apply w-full px-3 py-2 text-white bg-gray-800 border-2 border-gray-600 rounded-lg focus:outline-none focus:border-blue-500 ;
     }
-
-    .markdown h2 {
-        @apply text-3xl font-bold mt-6 mb-4;
-    }
-
-    .markdown h3 {
-        @apply text-2xl font-bold mt-4 mb-4;
-    }
-
-    .markdown h4 {
-        @apply text-xl font-bold mt-2 mb-3;
-    }
-
-    .markdown h5 {
-        @apply text-lg font-bold mt-2 mb-3;
-    }
-
-    .markdown ul {
-        @apply list-disc pl-6 mb-4 space-y-2;
-    }
-
-    .markdown ol {
-        @apply list-decimal pl-6 mb-4 space-y-2;
-    }
-
-    .markdown li {
-        @apply mt-2;
-    }
-
-    .markdown ul li {
-        @apply pl-4;
-    }
-
-    .markdown blockquote {
-        @apply border-l-4 pl-4 italic mt-6 mb-6;
-    }
-
-    .markdown p {
-        @apply mb-4;
-    }
-
-    .markdown a {
+    .glob-link {
         @apply text-blue-500 hover:underline;
     }
-
-    .markdown p img {
-        @apply max-w-full h-auto mb-4;
-    }
-
-    .markdown pre {
-        @apply bg-gray-800 text-white p-4 rounded-md overflow-x-auto;
-    }
-
-    .markdown code {
-        @apply bg-gray-800 text-white p-1 rounded-sm;
-    }
-
-    .markdown table {
-        @apply w-full table-auto border-collapse mt-6 mb-6;
-    }
-    
-    .markdown th,
-    .markdown td {
-        @apply border border-[#DEE2E6] px-4 py-2 text-left;
-    }
-    
-    .markdown th {
-        @apply font-semibold;
-    }
-    
-    .markdown footnote {
-        @apply text-sm text-gray-600 mt-2;
-    }
-    
-    .markdown footnote a {
-        @apply text-blue-500 hover:underline;
-    }
-
-    .markdown div {
-        @apply mb-4;
-    }
-
-    .markdown hr {
-        @apply border-[#DEE2E6] mb-4;
-    }
-    
