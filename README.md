@@ -1,4 +1,4 @@
-# Block1A <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/1067px-PHP-logo.svg.png?" style="height:30px;">
+# Block1A <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/1067px-PHP-logo.svg.png?" style="height:30px;"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/2560px-Tailwind_CSS_Logo.svg.png" style="margin-left: 2rem; height:30px;">
 
 <!-- PROGRAMMING LANGUAGE ICONS
 HTML: https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/512px-HTML5_logo_and_wordmark.svg.png
@@ -14,105 +14,76 @@ mySQL: https://upload.wikimedia.org/wikipedia/labs/8/8e/Mysql_logo.png
 <li>Baldestamon, Mark Jerwin M.
 <li>Estopia, Debbie Anne O.
 <li>Pinera, Roxane B.
-<li>Nm3
+<li>Felices, Glaiza B.
 <li>Reyes, Jieben A.
 </ul>
 
-# Block1A <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/1067px-PHP-logo.svg.png?" style="height:30px;">
+## Prerequisites
 
-**Programmed and published on GitHub by Group 8 members:**  
-- Baldestamon, Mark Jerwin M.  
-- Estopia, Debbie Anne O.  
-- Pinera, Roxane B.  
-- Nm3  
-- Reyes, Jieben A.  
+Make sure the following are installed:
 
----
+- [PHP (recommended: PHP 8.x)](https://www.php.net/downloads.php)
+- [Composer](https://getcomposer.org/download/)
+- [Node.js](https://nodejs.org/)
+- A local web server like [XAMPP](https://www.apachefriends.org/download.html) or [Laragon](https://laragon.org/download/)
 
-## How to Use
-
-Click [here](https://block1a.onrender.com) to use the web app online, or run it locally:
-
-### Run It Locally
+## Setup Instructions
+This project is a PHP-based website using Composer for dependency management and Tailwind CSS for styling. The following instructions will guide you through setting up the project on your local machine for development and testing purposes.
 
 1. **Clone the repository**
-   ```sh
+
+   ```bash
    git clone https://github.com/jrwnnnn/block1a.git
    cd block1a
+   ````
+
+2. **Install `vlucas/phpdotenv`**
+
+   This is needed to manage environment variables:
+
+   ```bash
+   composer require vlucas/phpdotenv
    ```
 
-2. **Install Composer** (Skip if already installed)  
-   - [Download Composer](https://getcomposer.org/download/)  
-   - Or install via terminal (Linux/macOS):
-     ```sh
-     curl -sS https://getcomposer.org/installer | php
-     sudo mv composer.phar /usr/local/bin/composer
+3. Create a `.env` file in the root directory of the project. It should contain environment-specific variables such as:
+
+   ```env
+   DB_HOST=localhost
+   DB_NAME=your_database
+   DB_USER=root
+   DB_PASS=
+   ```
+
+4. Ensure the `.env` file is loaded in your PHP project by including the following in your main file (e.g., `index.php` or a config file):
+   
+   ```php
+   require_once __DIR__ . '/vendor/autoload.php';
+   $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+   $dotenv->load();
+   ```
+
+5. **Install Node dependencies**
+
+   In the project folder, run the following command in the terminal to install Node dependencies:
+
+   ```bash
+   npm install
+   ```
+
+6. **Run Tailwind CSS**
+
+   Compile TailwindCSS by running:
+
+   ```bash
+   npm run tailwind
+   ```
+
+7. **Start the website**
+
+   * Open your local server (e.g., XAMPP, Laragon).
+   * Point it to your project folder.
+   * Visit the site at:
+
      ```
-
-3. **Install dependencies**
-   ```sh
-   composer install
-   ```
-
-4. **Set up environment variables**
-   - Create a `.env` file:
-     ```sh
-     cp .env.example .env
+     http://localhost/block1a/index.php
      ```
-   - Edit `.env` and set your local DB config:
-     ```
-     DB_HOST=localhost
-     DB_NAME=block1a
-     DB_USER=root
-     DB_PASS=
-     ```
-
-5. **Link `.env` in PHP**
-   - In your PHP file (like `index.php`), make sure you include:
-     ```php
-     require_once __DIR__ . '/vendor/autoload.php';
-
-     $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-     $dotenv->load();
-     ```
-
-6. **Run the project**
-   ```sh
-   php -S localhost:8000
-   ```
-   - Open `http://localhost:8000/index.php` in your browser.
-
-## Contribute
-
-This repository is maintained by a select group of contributors. Only the said members are authorized to submit pull requests and merge changes. But you are still welcome to **experiment** by forking the repository.
-
-### How to Fork and Experiment
-
-1. **Fork the Repository**
-   - Click the **Fork** button at the top-right of this repository.  
-   - This will create a copy under your GitHub account.
-
-2. **Clone Your Fork**
-   ```sh
-   git clone https://github.com/YOUR_USERNAME/block1a.git
-   cd block1a
-   ```
-
-3. **Create a New Branch**
-   ```sh
-   git checkout -b my-experiment
-   ```
-
-4. **Make Changes and Commit**
-   ```sh
-   git add .
-   git commit -m "My experimental changes"
-   ```
-
-5. **Push to Your Fork**
-   ```sh
-   git push origin my-experiment
-   ```
-
-Now you can experiment freely without affecting the main project.
-
