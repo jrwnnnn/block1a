@@ -10,7 +10,6 @@
         $tab = 'settings';
         header('Location: profile.php?tab=settings');
     }
-
 ?>
 
 <!doctype html>
@@ -22,8 +21,7 @@
     <link href="src/output.css" rel="stylesheet">
     <title>Block1A - Blog</title>
 </head>
-    <!-- TODO: Improve mobile layout -->
-    <body class="flex flex-col min-h-screen">
+    <body>
         <?php include 'includes/navigation.php'; ?>
         <section class="bg-[#2D3748] flex md:flex-row flex-col gap-5 flex-grow">
             <div class="flex flex-col p-7 md:w-100  md:pl-30 bg-[#151a22]">
