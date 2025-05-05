@@ -3,13 +3,7 @@
     if (!isset($_SESSION['user_id'])) {
         header('Location: pages/login.php');
         exit();
-    }
-
-    $tab = $_GET['tab'] ?? 'settings';
-    if (!in_array($tab, ['notifications', 'settings', 'privacy', 'language'])) {
-        $tab = 'settings';
-        header('Location: profile.php?tab=settings');
-    }
+    } 
 ?>
 
 <!doctype html>
@@ -21,8 +15,7 @@
     <link href="src/output.css" rel="stylesheet">
     <title>Block1A - Blog</title>
 </head>
-    <!-- TODO: Improve mobile layout -->
-    <body class="flex flex-col min-h-screen">
+    <body>
         <?php include 'includes/navigation.php'; ?>
             <section class="bg-[#2D3748] md:px-30 px-5 py-10 flex flex-col items-center">
                 <img src="https://mc-heads.net/avatar/<?php echo htmlspecialchars($_SESSION['username'], ENT_QUOTES, 'UTF-8');?>" class="object-cover w-20 md:w-30 aspect-square" alt="avatar">
@@ -70,5 +63,6 @@
                 </form>
             </section>
         <?php include 'includes/footer.php'; ?>
+        
     </body>
 </html>
