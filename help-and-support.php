@@ -14,61 +14,61 @@ session_start();
     <body>
     <?php include 'includes/navigation.php'; ?>
         <section class="flex flex-col items-center justify-center text-white bg-cover bg-center bg-no-repeat min-h-[40vh] px-5" style="background-image: url('assets/help-and-support-hero.webp')">
-            <p class="md:text-6xl text-4xl text-yellow-500 font-bold text-center">Welcome to the Help and Support!</p>
-            <p class="md:text-lg text-center mt-5">Need a hand? You're at the right place!</p>
+            <p class="text-4xl font-bold text-center text-yellow-500 md:text-6xl">Welcome to the Help and Support!</p>
+            <p class="mt-5 text-center md:text-lg">Need a hand? You're at the right place!</p>
         </section>
         <section class="bg-[#2D3748] grid md:grid-cols-2 md:px-30 px-5 pt-15 pb-5 gap-10">
-            <div class="flex flex-col md:flex-row items-start bg-[#1A212B] p-5 rounded-md shadow-lg text-white">
-                <img src="assets/faq.png" alt="faq" class="w-10 md:mx-5 mb-5" style="filter: invert(100%);">
+            <div class="has-card">
+                <img src="assets/faq.png" alt="faq">
                 <div class="flex flex-col space-y-2">
-                    <p class="text-2xl font-bold mb-5">Frequently Asked Questions</p>
-                    <div class="flex flex-col space-y-2 mb-5">
-                        <a href="faq.php?topic=getting-started#how-do-i-join-the-server%3F" class="text-blue-500 hover:underline">How do I join the server?</a>
-                        <a href="faq.php?topic=getting-started#how-do-i-join-the-server-on-bedrock-edition%3F" class="text-blue-500 hover:underline">How do I join the server on Bedrock Edition?</a>
-                        <a href="#" class="text-blue-500 hover:underline">*Can I play on a bedrock client?</a>
-                        <a href="faq.php?topic=getting-started#what-version-of-minecraft-do-i-need%3F" class="text-blue-500 hover:underline">What version of Minecraft do I need?</a>
-                        <a href="#" class="text-blue-500 hover:underline">*Do I need a Minecraft License to join?</a>
+                    <p class="mb-5 text-2xl font-bold">Frequently Asked Questions</p>
+                    <div class="flex flex-col mb-5 space-y-2">
+                        <a href="faq.php?topic=getting-started#how-do-i-join-the-server%3F" class="glob-link">How do I join the server?</a>
+                        <a href="faq.php?topic=getting-started#how-do-i-join-the-server-on-bedrock-edition%3F" class="glob-link">How do I join the server on Bedrock Edition?</a>
+                        <a href="#" class="glob-link">*Can I play on a bedrock client?</a>
+                        <a href="faq.php?topic=getting-started#what-version-of-minecraft-do-i-need%3F" class="glob-link">What version of Minecraft do I need?</a>
+                        <a href="#" class="glob-link">*Do I need a Minecraft License to join?</a>
                     </div>
                 </div>
             </div>
-            <div class="flex flex-col md:flex-row items-start bg-[#1A212B] p-5 rounded-md shadow-lg text-white">
-                <img src="assets/technical.png" alt="technical" class="w-10 md:mx-5 mb-5" style="filter: invert(100%);">
+            <div class="has-card">
+                <img src="assets/technical.png" alt="technical">
                 <div class="flex flex-col space-y-2">
-                    <p class="text-2xl font-bold mb-5">Technical</p>
-                    <div class="flex flex-col space-y-2 mb-5">
-                        <a href="#" class="text-blue-500 hover:underline">Connection lost</a>
-                        <a href="#" class="text-blue-500 hover:underline">Unable to connect to world</a>
-                        <a href="#" class="text-blue-500 hover:underline">VPN or Proxy Detected</a>
-                        <a href="#" class="text-blue-500 hover:underline">We couldn't validate your login</a>
-                        <a href="#" class="text-blue-500 hover:underline">Maintenance Mode</a>
-                        <a href="#" class="text-blue-500 hover:underline">Outdated client</a>
-                        <a href="#" class="text-blue-500 hover:underline">Invalid IP Address</a>
+                    <p class="mb-5 text-2xl font-bold">Technical</p>
+                    <div class="flex flex-col mb-5 space-y-2">
+                        <a href="#" class="glob-link">Connection lost</a>
+                        <a href="#" class="glob-link">Unable to connect to world</a>
+                        <a href="#" class="glob-link">VPN or Proxy Detected</a>
+                        <a href="#" class="glob-link">We couldn't validate your login</a>
+                        <a href="#" class="glob-link">Maintenance Mode</a>
+                        <a href="#" class="glob-link">Outdated client</a>
+                        <a href="#" class="glob-link">Invalid IP Address</a>
                     </div>
                 </div>
             </div>
-            <div class="flex flex-col md:flex-row items-start bg-[#1A212B] p-5 rounded-md shadow-lg text-white">
-                <img src="assets/fairplay.png" alt="fairplay" class="w-10 md:mx-5 mb-5" style="filter: invert(100%);">
+            <div class="has-card">
+                <img src="assets/fairplay.png" alt="fairplay">
                 <div class="flex flex-col space-y-2">
-                    <p class="text-2xl font-bold mb-5">Fairplay</p>
-                    <div class="flex flex-col space-y-2 mb-5">
-                        <a href="faq.php?topic=fairplay#what-are-the-rules%3F" class="text-blue-500 hover:underline">What are the rules?</a>
-                        <a href="faq.php?topic=fairplay#i%27ve-been-banned%2Fmuted-—-what-now%3F" class="text-blue-500 hover:underline">I've been banned/muted/jailed</a>
-                        <a href="faq.php?topic=fairplay#ban-appeals" class="text-blue-500 hover:underline">Ban Appeals</a>
-                        <a href="faq.php?topic=fairplay#someone-griefed-my-base%21" class="text-blue-500 hover:underline">Someone griefed my base!</a>
-                        <a href="#" class="text-blue-500 hover:underline">*How do I report rulebreakers?</a>
+                    <p class="mb-5 text-2xl font-bold">Fairplay</p>
+                    <div class="flex flex-col mb-5 space-y-2">
+                        <a href="faq.php?topic=fairplay#what-are-the-rules%3F" class="glob-link">What are the rules?</a>
+                        <a href="faq.php?topic=fairplay#i%27ve-been-banned%2Fmuted-—-what-now%3F" class="glob-link">I've been banned/muted/jailed</a>
+                        <a href="faq.php?topic=fairplay#ban-appeals" class="glob-link">Ban Appeals</a>
+                        <a href="faq.php?topic=fairplay#someone-griefed-my-base%21" class="glob-link">Someone griefed my base!</a>
+                        <a href="#" class="glob-link">*How do I report rulebreakers?</a>
                     </div>
                 </div>
             </div>
-            <div class="flex flex-col md:flex-row items-start bg-[#1A212B] p-5 rounded-md shadow-lg text-white">
-                <img src="assets/gameplay.png" alt="gameplay" class="w-10 md:mx-5 mb-5" style="filter: invert(100%);">
+            <div class="has-card">
+                <img src="assets/gameplay.png" alt="gameplay">
                 <div class="flex flex-col space-y-2">
-                    <p class="text-2xl font-bold mb-5">Gameplay</p>
-                    <div class="flex flex-col space-y-2 mb-5">
-                        <a href="#" class="text-blue-500 hover:underline">How do I use /tpa?</a>
-                        <a href="#" class="text-blue-500 hover:underline">How do I use /skin?</a>
-                        <a href="#" class="text-blue-500 hover:underline">What is the shattered wilds?</a>
-                        <a href="#" class="text-blue-500 hover:underline">Why can't I sleep?</a>
-                        <a href="#" class="text-blue-500 hover:underline"></a>
+                    <p class="mb-5 text-2xl font-bold">Gameplay</p>
+                    <div class="flex flex-col mb-5 space-y-2">
+                        <a href="#" class="glob-link">How do I use /tpa?</a>
+                        <a href="#" class="glob-link">How do I use /skin?</a>
+                        <a href="#" class="glob-link">What is the shattered wilds?</a>
+                        <a href="#" class="glob-link">Why can't I sleep?</a>
+                        <a href="#" class="glob-link"></a>
                     </div>
                 </div>
             </div>

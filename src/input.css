@@ -1,120 +1,29 @@
     @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
     @import "tailwindcss";
-    
+    @import "./help-and-support.css";
+    @import "./markdown.css";
+
     body {
-    font-family: 'Outfit';
+        font-family: 'Outfit';
     }
-
-    .social-icons img {
-        filter: invert(100%);
+    .nav-tab {
+        @apply text-white hover:text-yellow-500;
     }
-
     @keyframes slide {
         from { opacity: 0; transform: translateY(-10px); }
         to { opacity: 1; transform: translateY(0); }
     }
-
     .animate-slide {
         animation: slide 0.3s ease-out forwards;
     }
-
-    /* Rules */
-    
-    .focused {
-        @apply text-yellow-500;
+    .social-icons img {
+        filter: invert(100%);
     }
-    
-    .sidebar a{
-        @apply p-2 mb-2 rounded-md hover:bg-gray-700;
+    .glob-btn {
+        @apply px-4 py-2 rounded-lg hover:cursor-pointer text-white;
     }
-
-    .markdown {
-        & h1 {
-            @apply mt-8 mb-4 text-4xl font-bold;
-        }
-
-        & h2 {
-            @apply mt-6 mb-4 text-3xl font-bold;
-        }
-
-        & h3 {
-            @apply mt-4 mb-4 text-2xl font-bold;
-        }
-
-        & h4 {
-            @apply mt-2 mb-3 text-xl font-bold;
-        }
-
-        & h5 {
-            @apply mt-2 mb-3 text-lg font-bold;
-        }
-
-        & ul {
-            @apply pl-6 mb-4 space-y-2 list-disc;
-        }
-
-        & ol {
-            @apply pl-6 mb-4 space-y-2 list-decimal;
-        }
-
-        & li {
-            @apply mt-2;
-        }
-
-        & ul li {
-            @apply pl-4;
-        }
-
-        & blockquote {
-            @apply pl-4 mt-6 mb-6 italic border-l-4;
-        }
-
-        & p {
-            @apply mb-4;
-        }
-
-        & a {
-            @apply text-blue-500 hover:underline;
-        }
-
-        & img {
-            @apply h-auto max-w-full mb-4;
-        }
-
-        & pre {
-            @apply p-4 overflow-x-auto text-white bg-gray-800 rounded-md;
-        }
-
-        & code {
-            @apply p-1 text-white bg-gray-800 rounded-sm;
-        }
-
-        & table {
-            @apply w-full mt-6 mb-6 border-collapse table-auto;
-        }
-
-        & th,
-        & td {
-            @apply border border-[#DEE2E6] px-4 py-2 text-left;
-        }
-
-        & th {
-            @apply font-semibold;
-        }
-
-        & footnote {
-            @apply mt-2 text-sm text-gray-600;
-        }
-
-        & footnote a {
-            @apply text-blue-500 hover:underline;
-        }
-
-        & div {
-            @apply mb-4;
-        }
-
-        & hr {
-            @apply border-[#DEE2E6] mb-4;
-        }
+    .glob-input {
+        @apply w-full px-3 py-2 text-white bg-gray-800 border-2 border-gray-600 rounded-lg focus:outline-none focus:border-blue-500 ;
     }
+    .glob-link {
+        @apply text-blue-500 hover:underline;

@@ -9,3 +9,4 @@ src/output.css
 *.log
 *.env
 *.sql
+src/output.css
