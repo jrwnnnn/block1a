@@ -21,7 +21,7 @@ function navLink($href, $label, $current_page, $activePages = []) {
 <nav class="bg-[#1A212B] p-4 px-5 md:px-30 flex items-center justify-between">
     <img src="assets/cs1a.png" alt="logo" class="w-20 hover:cursor-pointer" onclick="window.location.replace('index.php')">
 
-    <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
+    <button id="menu-toggle" class="text-white md:hidden focus:outline-none">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
             viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round"
@@ -29,7 +29,7 @@ function navLink($href, $label, $current_page, $activePages = []) {
         </svg>
     </button>
 
-    <div id="nav-links" class="hidden md:grid md:grid-cols-6 absolute md:static top-19.5 left-0 w-full md:w-auto bg-[#1A212B] text-center md:flex-row md:space-x-4 transition-all duration-300 ease-in-out z-10">
+    <div id="nav-links" class="hidden md:grid md:grid-cols-6 absolute md:static top-19.5 left-0 w-full md:w-auto bg-[#1A212B] text-center md:flex-row md:space-x-4 transition-all duration-300 ease-in-out z-10 hover:text-yellow-500">
         <?php
         echo navLink("index.php", "Home", $current_page, ["index.php"]);
         echo navLink("news.php", "News", $current_page, ["news.php", "article.php", "editor.php"]);

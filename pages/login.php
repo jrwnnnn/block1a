@@ -29,6 +29,7 @@
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['email'] = $user['email']; 
+                $_SESSION['last_password_change'] = $user['last_password_change']; 
                 $_SESSION['permission_level'] = $user['permission_level']; 
                 
                 $success_message = "Welcome back " . htmlspecialchars($user['username']) . "!";
@@ -59,7 +60,7 @@
     </head>
     <body>
         <section class="bg-[url('../assets/auth-background.webp')] bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center min-h-screen px-5 md:px-30">
-            <div class="bg-[#1a202a] flex flex-col rounded-md p-8 w-full max-w-md">
+            <div class="bg-[#1a202a] flex flex-col rounded-md p-8 w-full max-w-md"
                 <div class="flex items-start justify-between pb-5">
                     <p class="text-2xl font-bold text-white">Login to Your Account</p>
                     <img src="../assets/cs1a.png" alt="logo" class="w-20">

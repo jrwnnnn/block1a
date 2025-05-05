@@ -15,7 +15,9 @@
   "type": "commonjs",
   "main": "tailwind.config.js",
   "scripts": {
-    "tailwind": "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch"
+    "build": "npx tailwindcss -i ./src/input.css -o ./src/output.css --minify",
+    "tailwind": "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch",
+    "retailwind": "npm install tailwindcss @tailwindcss/cli"
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.1.5",
