@@ -10,7 +10,7 @@
         $tab = 'settings';
         header('Location: profile.php?tab=settings');
     }
-?> ../includes/profile/settings.php <---- dito mag edit
+?> 
 
 <!doctype html>
 <html>

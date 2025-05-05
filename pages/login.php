@@ -31,7 +31,7 @@
                 $_SESSION['email'] = $user['email']; 
                 $_SESSION['permission_level'] = $user['permission_level']; 
                 
-                $success_message = "Welcome back " . htmlspecialchars($user['username']) . "!";
+                $success_message = "Welcome back, " . htmlspecialchars($user['username']) . "!";
                 echo "<script>
                     setTimeout(function() {
                         window.location.href = '../profile.php';
