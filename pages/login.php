@@ -60,12 +60,11 @@
     </head>
     <body>
         <section class="bg-[url('../assets/auth-background.webp')] bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center min-h-screen px-5 md:px-30">
-            <div class="bg-[#1a202a] flex flex-col rounded-md p-8 w-full max-w-md"
+            <div class="bg-[#1a202a] flex flex-col rounded-md p-8 w-full max-w-md">
                 <div class="flex items-start justify-between pb-5">
                     <p class="text-2xl font-bold text-white">Login to Your Account</p>
                     <img src="../assets/cs1a.png" alt="logo" class="w-20">
                 </div>
-
                 <form id="loginForm" class="space-y-4" method="POST" action="login.php">
                     <?php if (!empty($password_error)): ?>
                         <div class="p-3 font-semibold text-center text-white bg-red-600 rounded-md">
