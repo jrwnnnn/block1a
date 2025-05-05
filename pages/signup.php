@@ -36,7 +36,7 @@
             $email_error = " - Email already exists.";
             $has_error = true;
         }
-
+      
         $username_check_sql = "SELECT * FROM user_data WHERE username = ?";
         $username_stmt = mysqli_prepare($conn, $username_check_sql);
         mysqli_stmt_bind_param($username_stmt, "s", $username);

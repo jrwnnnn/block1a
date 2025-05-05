@@ -1,5 +1,6 @@
 node_modules/
 vendor/
+src/output.css
 
 .DS_Store
 Thumbs.db
@@ -8,4 +9,3 @@ debug.php
 *.log
 *.env
 *.sql
-src/output.css
