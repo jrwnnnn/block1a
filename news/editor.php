@@ -49,11 +49,11 @@
             <input type="hidden" name="action" value="<?= $action ?>">
             <input type="hidden" name="id" value="<?= $article ? $article['id'] : '' ?>">
 
-            <input type="text" name="title" placeholder="Title" class="w-full text-4xl font-bold text-white md:text-6xl focus:outline-none" value="<?= $article ? htmlspecialchars($article['title']) : '' ?>" required autocomplete="off">
-            <textarea type="text" name="subtitle" placeholder="Subtitle" class="w-full text-lg text-white md:text-2xl focus:outline-none" required autocomplete="off"><?= $article ? htmlspecialchars($article['subtitle']) : '' ?></textarea >
+            <input type="text" name="title" placeholder="Title" class="w-full text-4xl font-bold text-white md:text-6xl focus:outline-none" value="<?= $article ? htmlspecialchars($article['title'], ENT_QUOTES, 'UTF-8') : '' ?>" required autocomplete="off">
+            <textarea type="text" name="subtitle" placeholder="Subtitle" class="w-full text-lg text-white md:text-2xl focus:outline-none" required autocomplete="off"><?= $article ? htmlspecialchars($article['subtitle'], ENT_QUOTES, 'UTF-8') : '' ?></textarea >
 
             <div class="flex flex-col gap-3 md:flex-row">
-                <input type="text" name="cover" placeholder="Cover Image URL" class="px-3 py-2 text-white bg-gray-800 rounded-lg focus:outline-none" value="<?= $article ? htmlspecialchars($article['cover']) : '' ?>" required autocomplete="off">
+                <input type="text" name="cover" placeholder="Cover Image URL" class="px-3 py-2 text-white bg-gray-800 rounded-lg focus:outline-none" value="<?= $article ? htmlspecialchars($article['cover'], ENT_QUOTES, 'UTF-8') : '' ?>" required autocomplete="off">
                 <div class="flex gap-3">
                     <select name="tag" class="flex-grow px-3 py-2 text-white bg-gray-800 rounded-lg md:w-auto md:order focus:outline-none">
                         <option value="server_updates" <?= $article && $article['tag'] == 'server_updates' ? 'selected' : '' ?>>Server Updates</option>
@@ -67,7 +67,7 @@
                     </div>
                 </div>
             </div>
-            <textarea name="content" id="editor"><?= $article ? htmlspecialchars($article['content']) : '' ?></textarea>
+            <textarea name="content" id="editor"><?= $article ? htmlspecialchars($article['content'], ENT_QUOTES, 'UTF-8') : '' ?></textarea>
             <div class="flex items-start justify-between gap-3">
                 <button type="submit" class="bg-blue-500  glob-btn md:text-lg hover:bg-blue-600" onclick="loadingLong()">
                     <?= $action == 'edit' ? 'Update Article' : 'Post Article' ?>
@@ -101,7 +101,6 @@
 
         coverInput.addEventListener("input", updatePreview);
 
-        // Set initial state on load (for edit mode)
         updatePreview();
     });
 </script>

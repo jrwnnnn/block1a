@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['last_password_change'] = $user['last_password_change']; 
             $_SESSION['permission_level'] = $user['permission_level']; 
             
-            $success_message = "Welcome back, " . htmlspecialchars($user['username']) . "!";
+            $success_message = "Welcome back, " . htmlspecialchars($user['username'], ENT_QUOTES, 'UTF-8') . "!";
             echo "<script>
                 setTimeout(function() {
                     window.location.href = '../profile.php';
@@ -71,17 +71,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <form id="loginForm" class="space-y-4" method="POST" action="login.php">
                     <?php if (!empty($password_error)): ?>
                         <div class="p-3 font-semibold text-center text-white bg-red-600 rounded-md">
-                            <?= htmlspecialchars($password_error) ?>
+                            <?= htmlspecialchars($password_error, ENT_QUOTES, 'UTF-8') ?>
                         </div>
                     <?php endif; ?>
                     <?php if (!empty($user_error)): ?>
                         <div class="p-3 font-semibold text-center text-white bg-red-600 rounded-md">
-                            <?= htmlspecialchars($user_error) ?>
+                            <?= htmlspecialchars($user_error, ENT_QUOTES, 'UTF-8') ?>
                         </div>
                     <?php endif; ?>
                     <?php if (!empty($success_message)): ?>
                         <div class="p-3 font-semibold text-center text-white bg-green-600 rounded-md">
-                            <?= htmlspecialchars($success_message) ?>
+                            <?= htmlspecialchars($success_message, ENT_QUOTES, 'UTF-8') ?>
                         </div>
                     <?php endif; ?>
                     <div>

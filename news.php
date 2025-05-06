@@ -43,11 +43,11 @@
                 ?>
                 <div onclick="window.location.href='news/article.php?id=<?= $post['id'] ?>'" class="text-white hover:cursor-pointer">
                     <div class="w-full mb-4 overflow-hidden rounded-md aspect-video">
-                        <img src="<?= htmlspecialchars($post['cover']) ?>" class="object-cover w-full h-full transition duration-500 ease-in-out hover:scale-105">
+                        <img src="<?= htmlspecialchars($post['cover'], ENT_QUOTES, 'UTF-8') ?>" class="object-cover w-full h-full transition duration-500 ease-in-out hover:scale-105">
                     </div>
-                    <p class="<?= $tagColor ?> capitalize"><?= htmlspecialchars(str_replace('_', ' ', $post['tag'])) ?></p>
-                    <p class="mb-2 text-2xl font-bold"><?= htmlspecialchars($post['title']) ?></p>
-                    <p><?= htmlspecialchars($post['subtitle']) ?></p>
+                    <p class="<?= $tagColor ?> capitalize"><?= htmlspecialchars(str_replace('_', ' ', $post['tag'], ENT_QUOTES, 'UTF-8')) ?></p>
+                    <p class="mb-2 text-2xl font-bold"><?= htmlspecialchars($post['title'], ENT_QUOTES, 'UTF-8') ?></p>
+                    <p><?= htmlspecialchars($post['subtitle'], ENT_QUOTES, 'UTF-8') ?></p>
                     <div class="flex items-center gap-2 mt-5">                      
                         <p class="text-sm text-gray-400"><?= date("F d, Y", strtotime($post['date_posted'])) ?></p>
                         <hr class="flex-grow border-gray-600 md:hidden border-1">

@@ -34,31 +34,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link href="src/output.css" rel="stylesheet">
-    <title>Block1A - <?php echo htmlspecialchars($mainTopic); ?></title>
+    <title>Block1A - <?php echo htmlspecialchars($mainTopic, ENT_QUOTES, 'UTF-8'); ?></title>
 </head>
 <body>
     <?php require 'includes/navigation.php'; ?>
     <section class="flex md:flex-row flex-col gap-5 bg-[#2D3748] pt-10 pb-20 md:px-30 px-10">
         <div class="text-white flex-grow">
-            <p class="md:text-6xl text-4xl font-bold"><?php echo htmlspecialchars($mainTopic); ?></p>
+            <p class="md:text-6xl text-4xl font-bold"><?php echo htmlspecialchars($mainTopic, ENT_QUOTES, 'UTF-8'); ?></p>
 
             <div class="bg-[#1A212B] px-8 py-5 rounded-lg my-5">
                 <p class="text-lg text-white font-bold mb-2">Table of Contents</p>
                 <ul class="text-white list-disc ml-5">
                     <?php foreach ($subTopics as $sub): ?>
-                        <li><a href="#<?php echo urlencode(strtolower(str_replace(' ', '-', $sub['title']))); ?>" class="text-blue-400 hover:underline"><?php echo htmlspecialchars($sub['title']); ?></a></li>
+                        <li><a href="#<?php echo urlencode(strtolower(str_replace(' ', '-', $sub['title']))); ?>" class="text-blue-400 hover:underline"><?php echo htmlspecialchars($sub['title'], ENT_QUOTES, 'UTF-8'); ?></a></li>
                     <?php endforeach; ?>
                 </ul>
             </div>
 
-            <p class="text-white pb-5"><?php echo htmlspecialchars($description); ?></p>
+            <p class="text-white pb-5"><?php echo htmlspecialchars($description, ENT_QUOTES, 'UTF-8'); ?></p>
 
             <!-- <div class="px-4 my-5" style="border-left: 4px solid #ECC94B;">
                 <p class="text-white"><span class="text-white font-bold">See: </span> <span class="text-blue-400 hover:underline">Common Issues and Troubleshooting</p>
             </div> -->
 
             <?php foreach ($subTopics as $sub): ?>
-                <p id="<?php echo urlencode(strtolower(str_replace(' ', '-', $sub['title']))); ?>" class="text-2xl text-white font-bold py-4"><?php echo htmlspecialchars($sub['title']); ?></p>
+                <p id="<?php echo urlencode(strtolower(str_replace(' ', '-', $sub['title']))); ?>" class="text-2xl text-white font-bold py-4"><?php echo htmlspecialchars($sub['title'], ENT_QUOTES, 'UTF-8'); ?></p>
                 <div class="text-white py-5 prose prose-invert max-w-none space-y-3">
                     <?php echo $sub['content']; ?>
                 </div>
@@ -91,7 +91,7 @@
                 <p class="text-lg text-white font-bold mb-2">Related Articles</p>
                 <ul class="text-white list-disc ml-5">
                     <?php foreach ($relatedArticles as $article): ?>
-                        <li><a href="<?php echo htmlspecialchars($article['link']); ?>" class="text-blue-400 hover:underline"><?php echo htmlspecialchars($article['title']); ?></a></li>
+                        <li><a href="<?php echo htmlspecialchars($article['link'], ENT_QUOTES, 'UTF-8'); ?>" class="text-blue-400 hover:underline"><?php echo htmlspecialchars($article['title'], ENT_QUOTES, 'UTF-8'); ?></a></li>
                     <?php endforeach; ?>
                 </ul>
             </div>

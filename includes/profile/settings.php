@@ -119,10 +119,10 @@
             <div>
                 <label for="username" class="block mb-1 text-gray-300">Username 
                     <?php if (!empty($error['username'])): ?>
-                        <span class="text-red-500">- <?= htmlspecialchars($error['username']) ?></span>
+                        <span class="text-red-500">- <?= htmlspecialchars($error['username'], ENT_QUOTES, 'UTF-8') ?></span>
                     <?php endif; ?>
                 </label>
-                <input type="text" id="username" name="username" class="glob-input <?= !empty($error['username']) ? '!border-red-500' : 'border-gray-600 focus:border-blue-500' ?>" value="<?= isset($_POST['username']) ? htmlspecialchars($_POST['username']) : htmlspecialchars($user['username']) ?>"">
+                <input type="text" id="username" name="username" class="glob-input <?= !empty($error['username']) ? '!border-red-500' : 'border-gray-600 focus:border-blue-500' ?>" value="<?= isset($_POST['username']) ? htmlspecialchars($_POST['username'], ENT_QUOTES, 'UTF-8') : htmlspecialchars($user['username'], ENT_QUOTES, 'UTF-8') ?>"">
             </div>
 
             <div>
@@ -131,7 +131,7 @@
                         <span class="text-red-500">- <?= htmlspecialchars($error['email']) ?></span>
                     <?php endif; ?>
                 </label>
-                <input type="email" id="email" name="email" class="glob-input <?= !empty($error['email']) ? '!border-red-500' : 'border-gray-600 focus:border-blue-500' ?>" value="<?= isset($_POST['email']) ? htmlspecialchars($_POST['email']) : htmlspecialchars($user['email']) ?>">
+                <input type="email" id="email" name="email" class="glob-input <?= !empty($error['email']) ? '!border-red-500' : 'border-gray-600 focus:border-blue-500' ?>" value="<?= isset($_POST['email']) ? htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8') : htmlspecialchars($user['email'], ENT_QUOTES, 'UTF-8') ?>">
             </div>
 
             <button type="submit" class="glob-btn mt-5 bg-blue-500 hover:bg-blue-600">Save Changes</button>

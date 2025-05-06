@@ -55,11 +55,11 @@
     <section class="relative bg-[#2D3748] text-white">
         <?php if ($spotlightPost): ?>
             <div class="relative">
-                <img src="<?= htmlspecialchars($spotlightPost['cover']) ?>" class="w-full md:h-[70vh] h-[80vh] object-cover object-center brightness-75">
+                <img src="<?= htmlspecialchars($spotlightPost['cover'], ENT_QUOTES, 'UTF-8') ?>" class="w-full md:h-[70vh] h-[80vh] object-cover object-center brightness-75">
                 <div class="absolute inset-0 flex flex-col items-start justify-end px-5 py-10 md:justify-center md:px-30">
                     <p class="text-lg tracking-widest text-blue-400">Spotlight</p>
-                    <p class="pb-5 text-3xl font-bold md:text-5xl"><?= htmlspecialchars($spotlightPost['title']) ?></p>
-                    <p class="text-base md:text-lg"><?= htmlspecialchars($spotlightPost['subtitle']) ?></p>
+                    <p class="pb-5 text-3xl font-bold md:text-5xl"><?= htmlspecialchars($spotlightPost['title'], ENT_QUOTES, 'UTF-8') ?></p>
+                    <p class="text-base md:text-lg"><?= htmlspecialchars($spotlightPost['subtitle'], ENT_QUOTES, 'UTF-8') ?></p>
                     <button id="copy-button" onclick="window.location.href='news/article.php?id=<?= $spotlightPost['id'] ?>'" class="px-5 py-2 mt-5 font-bold text-white transition duration-300 ease-in-out bg-blue-500 rounded-md md:text-lg hover:bg-white hover:text-black hover:cursor-pointer">Read</button>
                 </div>
             </div>
@@ -80,11 +80,11 @@
                 ?>
                 <div onclick="window.location.href='news/article.php?id=<?= $post['id'] ?>'" class="text-black hover:cursor-pointer">
                     <div class="w-full mb-4 overflow-hidden rounded-md aspect-video">
-                        <img src="<?= htmlspecialchars($post['cover']) ?>" class="object-cover w-full h-full transition duration-500 ease-in-out hover:scale-105">
+                        <img src="<?= htmlspecialchars($post['cover'], ENT_QUOTES, 'UTF-8') ?>" class="object-cover w-full h-full transition duration-500 ease-in-out hover:scale-105">
                     </div>
-                    <p class="<?= $tagColor ?> capitalize"><?= htmlspecialchars(str_replace('_', ' ', $post['tag'])) ?></p>
-                    <p class="mb-2 text-2xl font-bold"><?= htmlspecialchars($post['title']) ?></p>
-                    <p><?= htmlspecialchars($post['subtitle']) ?></p>
+                    <p class="<?= $tagColor ?> capitalize"><?= htmlspecialchars(str_replace('_', ' ', $post['tag'], ENT_QUOTES, 'UTF-8')) ?></p>
+                    <p class="mb-2 text-2xl font-bold"><?= htmlspecialchars($post['title'], ENT_QUOTES, 'UTF-8') ?></p>
+                    <p><?= htmlspecialchars($post['subtitle'], ENT_QUOTES, 'UTF-8') ?></p>
                     <div class="flex items-center gap-2 mt-5">                      
                         <p class="text-sm text-gray-600"><?= date("F d, Y", strtotime($post['date_posted'])) ?></p>
                         <hr class="flex-grow border-gray-500 md:hidden border-1">
