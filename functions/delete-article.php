@@ -17,10 +17,8 @@
         $stmt = $conn->prepare("DELETE FROM articles WHERE id = ?");
         $stmt->bind_param("s", $article_id);
 
-
         if ($stmt->execute()) {
             header('Location: ../news.php');
-
             $stmt->close();
             $conn->close();
             exit;

@@ -43,7 +43,6 @@
         mysqli_stmt_execute($username_stmt);
         $username_result = mysqli_stmt_get_result($username_stmt);
 
-
         if (mysqli_num_rows($username_result) > 0) {
             $username_error = " - Username already exists.";
             $has_error = true;
@@ -55,7 +54,6 @@
         }
 
         if (!$has_error) {
-            
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
             $insert_sql = "INSERT INTO user_data (email, username, password) VALUES (?, ?, ?)";
             $stmt = mysqli_prepare($conn, $insert_sql);
@@ -75,7 +73,13 @@
             } else {
                 $password_error = "Signup failed. Please try again.";
             }
+
+            $stmt->close();
         }
+
+        $email_stmt->close();
+        $username_stmt->close();
+        $conn->close();
     }
 ?>
 

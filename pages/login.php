@@ -1,52 +1,55 @@
 <?php
-    session_start();
+session_start();
 
-    if (isset($_SESSION['user_id'])) {
-        header('Location: ../profile.php');
-        exit();
-    }
-    
-    $user_error = '';
-    $password_error = '';
-    $success_message = '';
+if (isset($_SESSION['user_id'])) {
+    header('Location: ../profile.php');
+    exit();
+}
 
-    $has_error = false;
+$user_error = '';
+$password_error = '';
+$success_message = '';
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        require '../functions/connect.php';
+$has_error = false;
 
-        $login = $_POST['login'];
-        $password = $_POST['password'];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    require '../functions/connect.php';
 
-        $sql = "SELECT * FROM user_data WHERE username = ? OR email = ?";
-        $stmt = mysqli_prepare($conn, $sql);
-        mysqli_stmt_bind_param($stmt, "ss", $login, $login);
-        mysqli_stmt_execute($stmt);
-        $result = mysqli_stmt_get_result($stmt);
+    $login = $_POST['login'];
+    $password = $_POST['password'];
 
-        if ($user = mysqli_fetch_assoc($result)) {
-            if (password_verify($password, $user['password'])) {
-                $_SESSION['user_id'] = $user['id'];
-                $_SESSION['username'] = $user['username'];
-                $_SESSION['email'] = $user['email']; 
-                $_SESSION['last_password_change'] = $user['last_password_change']; 
-                $_SESSION['permission_level'] = $user['permission_level']; 
-                
-                $success_message = "Welcome back, " . htmlspecialchars($user['username']) . "!";
-                echo "<script>
-                    setTimeout(function() {
-                        window.location.href = '../profile.php';
-                    }, 2000);
-                </script>";
-            } else {
-                $password_error = "Incorrect password. Please try again.";
-                $has_error = true;
-            }
+    $sql = "SELECT * FROM user_data WHERE username = ? OR email = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "ss", $login, $login);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+
+    if ($user = mysqli_fetch_assoc($result)) {
+        if (password_verify($password, $user['password'])) {
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $user['username'];
+            $_SESSION['email'] = $user['email']; 
+            $_SESSION['last_password_change'] = $user['last_password_change']; 
+            $_SESSION['permission_level'] = $user['permission_level']; 
+            
+            $success_message = "Welcome back, " . htmlspecialchars($user['username']) . "!";
+            echo "<script>
+                setTimeout(function() {
+                    window.location.href = '../profile.php';
+                }, 2000);
+            </script>";
         } else {
-            $user_error = "Email not found. Please try again.";
+            $password_error = "Incorrect password. Please try again.";
             $has_error = true;
         }
+    } else {
+        $user_error = "Email not found. Please try again.";
+        $has_error = true;
     }
+
+    $stmt->close();
+    $conn->close();
+}
 ?>
 
 <!doctype html>

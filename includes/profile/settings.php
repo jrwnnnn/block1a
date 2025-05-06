@@ -96,8 +96,10 @@
                 echo "<script>window.location.href = 'profile.php';</script>";
                 exit();
             }
+            $stmt->close();
         }
     }
+    $conn->close();
 ?>
 
 <div class="space-y-10 md:pr-100">    

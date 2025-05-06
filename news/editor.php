@@ -24,7 +24,6 @@
         header('Location: ../news.php');
         exit;
     }
-
     $conn->close();
 ?>
 
