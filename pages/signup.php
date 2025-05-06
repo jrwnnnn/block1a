@@ -49,8 +49,8 @@
             $has_error = true;
         }
 
-        if (strlen($password) < 8 || !preg_match('/[A-Z]/', $password) || !preg_match('/[a-z]/', $password) || !preg_match('/[0-9]/', $password) || !preg_match('/[\W_]/', $password)) {
-            $password_error = " - Password must be at least 8 characters, include uppercase, lowercase, a number, and a symbol.";
+        if (strlen($password) < 8 || !preg_match('/[A-Z]/', $password) || !preg_match('/[a-z]/', $password) || !preg_match('/[0-9]/', $password)) {
+            $password_error = " - Password must be at least 8 characters, include uppercase, lowercase, a number.";
             $has_error = true;
         }
 

@@ -29,9 +29,10 @@
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['email'] = $user['email']; 
+                $_SESSION['last_password_change'] = $user['last_password_change']; 
                 $_SESSION['permission_level'] = $user['permission_level']; 
                 
-                $success_message = "Welcome back " . htmlspecialchars($user['username']) . "!";
+                $success_message = "Welcome back, " . htmlspecialchars($user['username']) . "!";
                 echo "<script>
                     setTimeout(function() {
                         window.location.href = '../profile.php';
@@ -64,7 +65,6 @@
                     <p class="text-2xl font-bold text-white">Login to Your Account</p>
                     <img src="../assets/cs1a.png" alt="logo" class="w-20">
                 </div>
-
                 <form id="loginForm" class="space-y-4" method="POST" action="login.php">
                     <?php if (!empty($password_error)): ?>
                         <div class="p-3 font-semibold text-center text-white bg-red-600 rounded-md">
