@@ -26,7 +26,7 @@
             <p class="mt-5 text-center md:text-lg">Stay updated with the latest news, updates, and events happening in our community.</p>
         </section>
         <?php if (isset($_SESSION['permission_level']) && $_SESSION['permission_level'] == 1): ?>
-            <div class="fixed z-10 p-3 bg-yellow-500 rounded-md bottom-5 right-5 md:p-4 hover:bg-yellow-300 hover:cursor-pointer" onclick="window.location.href='news/editor.php?action=create';">
+            <div class="fixed z-10 p-4 bg-yellow-500 rounded-md bottom-5 right-5 hover:bg-yellow-300 hover:cursor-pointer" onclick="window.location.href='news/editor.php?action=create';">
                 <img src="https://cdn-icons-png.flaticon.com/128/3524/3524388.png" class="w-5">
             </div>
         <?php endif; ?>

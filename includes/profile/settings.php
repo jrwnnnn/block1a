@@ -31,11 +31,19 @@
     $error = [];
     
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        $username = !empty($_POST['username']) ? htmlspecialchars(trim($_POST['username'])) : $user['username'];
-        $email = !empty($_POST['email']) ? filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL) : $user['email'];
+        $username = htmlspecialchars(trim($_POST['username'] ?? ''));
+        $email = filter_var(trim($_POST['email'] ?? ''), FILTER_SANITIZE_EMAIL);    
         $currentPassword = $_POST['current_password'] ?? '';
         $newPassword = $_POST['password'] ?? '';
         $confirmPassword = $_POST['confirm_password'] ?? '';
+
+        if (empty($email)) {
+            $error['email'] = "Email cannot be blank.";
+        }
+
+        if (empty($username)) {
+            $error['username'] = "Username cannot be blank.";
+        }
     
         if ($username !== $user['username']) {
             $stmt = $conn->prepare("SELECT id FROM user_data WHERE username = ? AND id != ?");
