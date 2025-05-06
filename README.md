@@ -13,8 +13,8 @@ mySQL: https://upload.wikimedia.org/wikipedia/labs/8/8e/Mysql_logo.png
 <ul>
 <li>Baldestamon, Mark Jerwin M.
 <li>Estopia, Debbie Anne O.
-<li>Pinera, Roxane B.
 <li>Felices, Glaiza B.
+<li>Pinera, Roxane B.
 <li>Reyes, Jieben A.
 </ul>
 
