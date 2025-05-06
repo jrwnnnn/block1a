@@ -22,7 +22,7 @@
     <title>Block1A - Profile</title>
 </head>
     <body class="flex flex-col min-h-screen">
-        <?php include 'includes/navigation.php'; ?>
+        <?php require 'includes/navigation.php'; ?>
         <section class="bg-[#2D3748] flex md:flex-row flex-col gap-5 flex-grow">
             <div class="flex flex-col p-7 md:w-100  md:pl-30 bg-[#151a22]">
                 <div class="mb-5">
@@ -46,7 +46,7 @@
                 </div>
             </div>
             <div class="flex flex-col flex-grow w-full pb-20 text-white p-7 md:w-100">
-                <?php include 'includes/profile/' . $tab . '.php'; ?>
+                <?php require 'includes/profile/' . $tab . '.php'; ?>
             </div>
         </section>
     </body>

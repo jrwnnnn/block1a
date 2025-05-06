@@ -37,7 +37,7 @@
     <title>Block1A - <?php echo htmlspecialchars($mainTopic); ?></title>
 </head>
 <body>
-    <?php include 'includes/navigation.php'; ?>
+    <?php require 'includes/navigation.php'; ?>
     <section class="flex md:flex-row flex-col gap-5 bg-[#2D3748] pt-10 pb-20 md:px-30 px-10">
         <div class="text-white flex-grow">
             <p class="md:text-6xl text-4xl font-bold"><?php echo htmlspecialchars($mainTopic); ?></p>
@@ -97,7 +97,7 @@
             </div>
         </div>
     </section>
-    <?php include 'includes/footer.php'; ?>
+    <?php require 'includes/footer.php'; ?>
     
 </body>
 </html>

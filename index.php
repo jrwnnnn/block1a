@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include 'functions/connect.php';
+    require 'functions/connect.php';
 
     $spotlightStmt = $conn->prepare("SELECT * FROM articles WHERE spotlight = 1 ORDER BY date_posted DESC LIMIT 1");
     $spotlightStmt->execute();
@@ -29,7 +29,7 @@
 </head>
 <body>
     <section class="flex flex-col min-h-screen bg-center bg-no-repeat bg-cover" style="background-image: url('assets/home_splash.webp')">
-        <?php include 'includes/navigation.php'; ?>
+        <?php require 'includes/navigation.php'; ?>
         <div class="flex flex-col items-center justify-center flex-grow px-10 pb-20 text-white md:items-start md:justify-end md:px-30">
             <p class="pb-5 text-5xl font-bold text-center md:text-6xl md:pt-0 pt-9">HOP IN, BUILD STUFF, HAVE FUN</p>
             <p class="text-center md:text-lg">The Official Minecraft Server of BSCS-1A! Available for both Minecraft Java and Bedrock Platform.</p>
@@ -122,7 +122,7 @@
     <section class="flex flex-col items-center px-5 py-5 bg-blue-500 md:px-30">
         <p class="text-center text-white "> Whether you’re here to build, explore, or just vibe with friends, welcome to the crew!</p>
     </section>
-    <?php include 'includes/footer.php'; ?>
+    <?php require 'includes/footer.php'; ?>
     <script src="script/index.js"></script>
 </body>
 </html>

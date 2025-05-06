@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include 'functions/connect.php';
+    require 'functions/connect.php';
 
     $stmt = $conn->prepare("SELECT * FROM articles ORDER BY date_posted DESC");
     $stmt->execute();
@@ -20,7 +20,7 @@
         <title>Block1A - News</title>
     </head>
     <body>
-        <?php include 'includes/navigation.php'; ?>
+        <?php require 'includes/navigation.php'; ?>
         <section class="flex flex-col items-center justify-center text-white bg-cover bg-center bg-no-repeat min-h-[40vh] px-5" style="background-image: url('assets/blog-hero.webp')">
             <p class="text-4xl font-bold text-yellow-500 md:text-6xl">News</p>
             <p class="mt-5 text-center md:text-lg">Stay updated with the latest news, updates, and events happening in our community.</p>
@@ -55,6 +55,6 @@
                 </div>
             <?php endforeach; ?>
         </section>
-        <?php include 'includes/footer.php'; ?>
+        <?php require 'includes/footer.php'; ?>
     </body>
     </html>

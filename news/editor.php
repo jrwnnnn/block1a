@@ -2,7 +2,7 @@
     session_start();
 
     if (isset($_SESSION['permission_level']) && $_SESSION['permission_level'] == 1) {
-        include '../functions/connect.php';
+        require '../functions/connect.php';
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
@@ -40,7 +40,7 @@
     <title>Block1A - Editor</title>
 </head>
 <body class="min-h-screen">
-    <?php include 'includes/navigation.php'; ?>
+    <?php require 'includes/navigation.php'; ?>
     <img src="" id="coverPreview" alt="cover" class="hidden w-full max-h-[40vh] object-cover object-center">
     <div id="loading" class="fixed inset-0 flex flex-col items-center justify-center invisible z-99" style="background-color: rgba(0, 0, 0, 0.75);">
         <img src="../assets/panda-roll.gif" alt="Loading" class="w-30 h-30">
@@ -80,7 +80,7 @@
             </div>
         </form>
     </section>
-    <?php include 'includes/footer.php'; ?>
+    <?php require 'includes/footer.php'; ?>
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
     <script src="../script/simplemde.js"></script>
     <script src="../script/editor.js"></script>

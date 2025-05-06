@@ -12,7 +12,7 @@
     $success_message = '';
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        include '../functions/connect.php';
+        require '../functions/connect.php';
 
         $email = trim($_POST['email']);
         $username = trim($_POST['username']);

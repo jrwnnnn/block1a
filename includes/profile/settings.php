@@ -3,7 +3,7 @@
         session_start();
     }
 
-    include_once 'functions/connect.php';
+    require_once 'functions/connect.php';
 
     if (!isset($_SESSION['user_id'])) {
         header('Location: pages/login.php');

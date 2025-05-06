@@ -25,7 +25,7 @@
 </head>
 <body>
   <div class="flex flex-col">
-    <?php include 'includes/navigation.php'; ?>
+    <?php require 'includes/navigation.php'; ?>
     <div class="bg-[#2D3748] flex flex-grow md:flex-row flex-col text-white min-h-screen md:px-30 px-5 rules-sidebar">
       <div class="min-w-[20vw] py-10 pr-5 md:border-r-1 md:border-gray-500">
         <div class="flex flex-col space-y-4">
@@ -60,7 +60,7 @@
       </div>
     </div>
   </div>
-  <?php include 'includes/footer.php'; ?>
+  <?php require 'includes/footer.php'; ?>
   
 </body>
 </html>

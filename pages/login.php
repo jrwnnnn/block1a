@@ -13,7 +13,7 @@
     $has_error = false;
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        include '../functions/connect.php';
+        require '../functions/connect.php';
 
         $login = $_POST['login'];
         $password = $_POST['password'];

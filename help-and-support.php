@@ -12,7 +12,7 @@ session_start();
     <title>Block1A - Help and Support</title>
 </head>
     <body>
-    <?php include 'includes/navigation.php'; ?>
+    <?php require 'includes/navigation.php'; ?>
         <section class="flex flex-col items-center justify-center text-white bg-cover bg-center bg-no-repeat min-h-[40vh] px-5" style="background-image: url('assets/help-and-support-hero.webp')">
             <p class="text-4xl font-bold text-center text-yellow-500 md:text-6xl">Welcome to the Help and Support!</p>
             <p class="mt-5 text-center md:text-lg">Need a hand? You're at the right place!</p>
@@ -83,7 +83,7 @@ session_start();
             </div>
             <img src="assets/buzzy-bees.webp" alt="faq" class="w-full mt-20 max-h-[40vh] object-cover object-center">
         </section>
-        <?php include 'includes/footer.php'; ?>
+        <?php require 'includes/footer.php'; ?>
         
     </body>
 </html>

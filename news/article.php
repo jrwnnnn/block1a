@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include '../functions/connect.php';
+    require '../functions/connect.php';
 
     $id = $_GET['id'] ?? '';
     $stmt = $conn->prepare("SELECT * FROM articles WHERE id = ?");
@@ -45,7 +45,7 @@
         <title>Block1A - <?= htmlspecialchars($post['title']) ?></title>
     </head>
     <body>
-        <?php include 'includes/navigation.php'; ?>
+        <?php require 'includes/navigation.php'; ?>
         <?php if (isset($_SESSION['permission_level']) && $_SESSION['permission_level'] == 1): ?>
             <div class="fixed z-10 flex flex-col gap-3 bottom-5 right-5">
                 <div class="flex items-center gap-2 p-4 bg-red-500 rounded-md hover:cursor-pointer hover:bg-red-600"
@@ -77,7 +77,7 @@
                 <p class="italic text-center text-gray-500">Last edited on <?= date("F d, Y", strtotime($post['last_edited'])) ?></p>
             </div>
         <?php endif; ?>
-        <?php include 'includes/footer.php'; ?>
+        <?php require 'includes/footer.php'; ?>
         <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
         <script>
             const content = <?= json_encode($post['content']) ?>;
