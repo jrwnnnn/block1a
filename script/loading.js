@@ -6,7 +6,6 @@ function showLoading() {
     document.getElementById('loading-overlay').classList.add('hidden');
   }
   
-  // Optional: Automatically show on form submit
   document.addEventListener('DOMContentLoaded', () => {
     const forms = document.querySelectorAll('form');
     forms.forEach(form => {

@@ -19,15 +19,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link href="src/output.css" rel="stylesheet">
-    <title>Block1A - Blog</title>
+    <title>Block1A - Profile</title>
 </head>
-    <body>
+    <body class="flex flex-col min-h-screen">
         <?php include 'includes/navigation.php'; ?>
         <section class="bg-[#2D3748] flex md:flex-row flex-col gap-5 flex-grow">
             <div class="flex flex-col p-7 md:w-100  md:pl-30 bg-[#151a22]">
                 <div class="mb-5">
                     <img src="https://mc-heads.net/avatar/<?= $_SESSION['username'] ?>" class="object-cover w-20 aspect-square" alt="avatar">
-                    <p class="pt-5 text-2xl font-bold text-white md:text-4xl"><?php echo htmlspecialchars($_SESSION['username'], ENT_QUOTES, 'UTF-8');?></p>
+                    <p class="pt-5 text-2xl font-bold text-white md:text-4xl truncate"><?php echo htmlspecialchars($_SESSION['username'], ENT_QUOTES, 'UTF-8');?></p>
                 <p class="flex items-center text-gray-400">ID: <?php echo htmlspecialchars($_SESSION['user_id'], ENT_QUOTES, 'UTF-8'); ?> </p>
                     <div class="flex items-center mt-2 text-gray-400">
                         <span class="w-3 h-3 mr-2 bg-green-500 rounded-full"></span>

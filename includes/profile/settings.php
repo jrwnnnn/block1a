@@ -3,7 +3,7 @@
         session_start();
     }
 
-    include_once __DIR__ . '/../../functions/connect.php';
+    include_once 'functions/connect.php';
 
     if (!isset($_SESSION['user_id'])) {
         header('Location: pages/login.php');
@@ -28,7 +28,7 @@
     $_SESSION['username'] = $user['username'];
     $_SESSION['email'] = $user['email'];
     
-    $errors = [];
+    $error = [];
     
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $username = !empty($_POST['username']) ? htmlspecialchars(trim($_POST['username'])) : $user['username'];
@@ -43,7 +43,7 @@
             $stmt->execute();
             $stmt->store_result();
             if ($stmt->num_rows > 0) {
-                $errors['username'] = "Username is already taken.";
+                $error['username'] = "Username is already taken.";
             }
         }
     
@@ -53,7 +53,7 @@
             $stmt->execute();
             $stmt->store_result();
             if ($stmt->num_rows > 0) {
-                $errors['email'] = "Email is already in use.";
+                $error['email'] = "Email is already in use.";
             }
         }
     
@@ -62,19 +62,23 @@
     
         if (!empty($newPassword)) {
             if (!password_verify($currentPassword, $user['password'])) {
-                $errors['password'] = "Current password is incorrect. Try again.";
+                $error['currentPassword'] = "Password is incorrect.";
             } elseif ($newPassword !== $confirmPassword) {
-                $errors['password'] = "New password do not match. Try again.";
+                $error['newPassword'] = "Passwords don't match.";
+            } else if (strlen($newPassword) < 8 || !preg_match('/[A-Z]/', $newPassword) || !preg_match('/[a-z]/', $newPassword) || !preg_match('/[0-9]/', $newPassword)) {
+                $error['newPassword'] = "Password must be at least 8 characters, include uppercase, lowercase, a number.";
             } else {
                 $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
                 $updatePassword = true;
             }
         }
     
-        if (empty($errors)) {
+        if (empty($error)) {
             if ($updatePassword) {
-                $stmt = $conn->prepare("UPDATE user_data SET username = ?, email = ?, password = ? WHERE id = ?");
+                $stmt = $conn->prepare("UPDATE user_data SET username = ?, email = ?, password = ?, last_password_change = NOW() WHERE id = ?");
                 $stmt->bind_param("sssi", $username, $email, $hashedPassword, $userId);
+                $_SESSION['last_password_change'] = gmdate('Y-m-d H:i:s');
+
             } else {
                 $stmt = $conn->prepare("UPDATE user_data SET username = ?, email = ? WHERE id = ?");
                 $stmt->bind_param("ssi", $username, $email, $userId);
@@ -83,83 +87,125 @@
             if ($stmt->execute()) {
                 $_SESSION['username'] = $username;
                 $_SESSION['email'] = $email;
-                $_SESSION['success_message'] = "Profile updated successfully!";
+                if ($updatePassword) {
+                    $_SESSION['success_password'] = "Password updated successfully!";
+                } else {
+                    $_SESSION['success_profile'] = "Profile updated successfully!";
+                }
+                
                 echo "<script>window.location.href = 'profile.php';</script>";
                 exit();
-            } else {
-                $errors[] = "Error updating profile: " . $stmt->error;
-            }
-        }
-    
-        if (!empty($errors)) {
-            foreach ($errors as $err) {
-                echo "<p style='color:red;'>$err</p>";
             }
         }
     }
 ?>
 
 <div class="space-y-10 md:pr-100">    
-    <div class="text-white">
+    <div class="text-white space-y-2">
         <p class="mb-5 text-2xl font-bold e">Profile Settings</p>
-        <?php if (!empty($_SESSION['success_message'])): ?>
+
+        <?php if (!empty($_SESSION['success_profile'])): ?>
             <div class="p-3 font-semibold text-center text-white bg-green-600 rounded-md">
-                <?= htmlspecialchars($_SESSION['success_message']) ?>
+                <?= htmlspecialchars($_SESSION['success_profile']) ?>
             </div>
-            <?php unset($_SESSION['success_message']); ?>
+            <?php unset($_SESSION['success_profile']); ?>
         <?php endif; ?>
-        <form action="" method="POST" class="space-y-2">
+
+
+        <form method="POST" class="space-y-2">
+
             <div>
-            <label for="username" class="block mb-1 text-gray-300">Username </label>
-                <input type="text" id="username" name="username"
-                    class="w-full px-3 py-2 text-white bg-gray-800 border-2 rounded-lg focus:outline-none <?= !empty($errors['username']) ? 'border-red-500' : 'border-gray-600 focus:border-blue-500' ?>"
-                    value="<?= htmlspecialchars($_SESSION['username'] ?? '') ?>">
-                <?php if (!empty($errors['username'])): ?>
-                    <p class="mt-1 text-sm text-red-500"><?= htmlspecialchars($errors['username']) ?></p>
-                <?php endif; ?>
+                <label for="username" class="block mb-1 text-gray-300">Username 
+                    <?php if (!empty($error['username'])): ?>
+                        <span class="text-red-500">- <?= htmlspecialchars($error['username']) ?></span>
+                    <?php endif; ?>
+                </label>
+                <input type="text" id="username" name="username" class="glob-input <?= !empty($error['username']) ? '!border-red-500' : 'border-gray-600 focus:border-blue-500' ?>" value="<?= isset($_POST['username']) ? htmlspecialchars($_POST['username']) : htmlspecialchars($user['username']) ?>"">
             </div>
+
             <div>
-            <label for="email" class="block mb-1 text-gray-300">Email </label>
-                <input type="email" id="email" name="email" class="w-full px-3 py-2 text-white bg-gray-800 border-2 rounded-lg focus:outline-none <?= !empty($errors['email']) ? 'border-red-500' : 'border-gray-600 focus:border-blue-500' ?>"
-                    value="<?= htmlspecialchars($_SESSION['email'] ?? '') ?>">
-                <?php if (!empty($errors['email'])): ?>
-                    <p class="mt-1 text-sm text-red-500"><?= htmlspecialchars($errors['email']) ?></p>
-                <?php endif; ?>
+                <label for="email" class="block mb-1 text-gray-300">Email 
+                    <?php if (!empty($error['email'])): ?>
+                        <span class="text-red-500">- <?= htmlspecialchars($error['email']) ?></span>
+                    <?php endif; ?>
+                </label>
+                <input type="email" id="email" name="email" class="glob-input <?= !empty($error['email']) ? '!border-red-500' : 'border-gray-600 focus:border-blue-500' ?>" value="<?= isset($_POST['email']) ? htmlspecialchars($_POST['email']) : htmlspecialchars($user['email']) ?>">
             </div>
-            <button type="submit" class="px-4 py-2 mt-5 bg-blue-500 rounded-lg hover:bg-blue-600 hover:cursor-pointer">Save Changes</button>
+
+            <button type="submit" class="glob-btn mt-5 bg-blue-500 hover:bg-blue-600">Save Changes</button>
         </form>
     </div>
-    <div class="text-white">
+    <div class="text-white space-y-2">
         <p class="mb-5 text-2xl font-bold">Password </p>
         <p>Please remember your password as there is currently no way to reset it.</p>
-        <p class="mb-5 text-sm italic text-gray-300">Last changed: <?= htmlspecialchars($_SESSION['last_password_change'], ENT_QUOTES, 'UTF-8') ?></p>
-        <button id="show-form" onclick="togglePasswordForm();" class="px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600 hover:cursor-pointer">Change Password</button>
-        <form id="change-password-form" action="" method="POST" class="hidden space-y-2">
-            <div class="mb-4">
-                <label for="current_password" class="block mb-2 text-gray-300">Current Password </label>
-                <input type="password" id="current_password" name="current_password" class="w-full px-3 py-2 text-white bg-gray-800 border-2 border-gray-600 rounded-lg focus:outline-none focus:border-blue-500" required>
-                <?php if (!empty($errors['password'])): ?>
-                    <p class="mt-1 text-sm text-red-500"><?= htmlspecialchars($errors['password']) ?></p>
-                <?php endif; ?>
+        <p class="mb-5 text-sm italic text-gray-300">
+  Last changed:
+  <span id="last_auth_change_timestamp"
+        data-time="<?= htmlspecialchars($_SESSION['last_password_change'], ENT_QUOTES, 'UTF-8') ?>">
+  </span>
+</p>
+        
+        <?php if (!empty($_SESSION['success_password'])): ?>
+            <div class="p-3 font-semibold text-center text-white bg-green-600 rounded-md">
+                <?= htmlspecialchars($_SESSION['success_password']) ?>
             </div>
-            <div class="mb-4">
-                <label for="password" class="block mb-2 text-gray-300">New Password</label>
-                <input type="password" id="password" name="password" class="w-full px-3 py-2 text-white bg-gray-800 border-2 <?= !empty($errors['password']) ? 'border-red-500' : 'border-gray-600' ?> rounded-lg focus:outline-none focus:border-blue-500" required>            
+            <?php unset($_SESSION['success_password']); ?>
+        <?php endif; ?>
+
+        <form method="POST" class="space-y-2">
+            <div>
+                <label for="current_password" class="block mb-2 text-gray-300">Current Password 
+                    <?php if (!empty($error['currentPassword'])): ?>
+                        <span class="text-red-500">- <?= htmlspecialchars($error['currentPassword'], ENT_QUOTES, 'UTF-8') ?></span>
+                    <?php endif; ?>
+                </label>
+                <input type="password" id="current_password" name="current_password" class="glob-input <?= !empty($error['currentPassword']) ? '!border-red-500' : 'border-gray-600' ?>" required>
             </div>
-            <div class="mb-4">
-                <label for="confirm_password" class="block mb-2 text-gray-300">Confirm New Password </label>
-                <input type="password" id="confirm_password" name="confirm_password" class="w-full px-3 py-2 text-white bg-gray-800 border-2 <?= !empty($errors['password']) ? 'border-red-500' : 'border-gray-600' ?> rounded-lg focus:outline-none focus:border-blue-500" required>            
+            <div>
+                <label for="password" class="block mb-2 text-gray-300">New Password
+                    <?php if (!empty($error['newPassword'])): ?>
+                        <span class="text-red-500">- <?= htmlspecialchars($error['newPassword'], ENT_QUOTES, 'UTF-8') ?></span>
+                    <?php endif; ?>
+                </label>
+                <input type="password" id="password" name="password" class="glob-input <?= !empty($error['newPassword']) ? '!border-red-500' : '!border-gray-600' ?>" required>            
             </div>
-            <button type="submit" class="px-4 py-2 mt-5 text-white bg-blue-500 rounded-lg hover:bg-blue-600 hover:cursor-pointer">Change Password</button>
+            <div>
+                <label for="confirm_password" class="block mb-2 text-gray-300">Confirm New Password 
+                    <?php if (!empty($error['newPassword'])): ?>
+                        <span class="text-red-500">- <?= htmlspecialchars($error['newPassword'], ENT_QUOTES, 'UTF-8') ?></span>
+                    <?php endif; ?>
+                </label>
+                <input type="password" id="confirm_password" name="confirm_password" class="glob-input <?= !empty($error['newPassword']) ? '!border-red-500' : 'border-gray-600' ?>" required>            
+            </div>
+
+            <div class="flex items-center gap-2 text-white">
+                <input type="checkbox" id="showPassword" class="" style="width: 16px; height: 16px; cursor: pointer;">
+                <label for="showPassword">Show Password</label>
+            </div>
+
+            <button type="submit" class="glob-btn mt-5 bg-blue-500 hover:bg-blue-600">Change Password</button>
         </form>
     </div>
 </div>
 
-    <script>
-        function togglePasswordForm() {
-            const form = document.getElementById('change-password-form');
-            const button = document.getElementById('show-form');
-            form.classList.remove('hidden');
-            button.classList.add('hidden');
-        }
-    </script>
+<script>
+    document.getElementById('showPassword').addEventListener('change', function () {
+    const cu_pass = document.getElementById('current_password');
+    const pass = document.getElementById('password');
+    const confirm = document.getElementById('confirm_password');
+    const type = this.checked ? 'text' : 'password';
+    cu_pass.type = type;
+    pass.type = type;
+    confirm.type = type;
+    });
+
+    const el = document.getElementById('last_auth_change_timestamp');
+    const utcTime = el.dataset.time + ' UTC';  // Add ' UTC' to make it readable by JavaScript
+    const date = new Date(utcTime);  // Now it will parse correctly
+
+    if (!isNaN(date)) {
+        el.innerText = date.toLocaleString();  // Local time
+    } else {
+        el.innerText = "Invalid date";  // Error handling
+    }
+</script>
