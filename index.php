@@ -56,7 +56,7 @@
     <section class="relative bg-[#2D3748] text-white">
         <?php if ($spotlightPost): ?>
             <div class="relative">
-                <img src="<?= htmlspecialchars($spotlightPost['cover'], ENT_QUOTES, 'UTF-8') ?>" class="w-full md:h-[70vh] h-[80vh] object-cover object-center brightness-75">
+                <img src="<?= htmlspecialchars($spotlightPost['cover'], ENT_QUOTES, 'UTF-8') ?>" class="w-full md:h-[70vh] h-[80vh] object-cover object-center">
                 <div class="absolute inset-0 flex flex-col items-start justify-end px-5 py-10 md:justify-center md:px-30">
                     <p class="text-lg tracking-widest text-blue-400">Spotlight</p>
                     <p class="pb-5 text-3xl font-bold md:text-5xl"><?= htmlspecialchars($spotlightPost['title'], ENT_QUOTES, 'UTF-8') ?></p>
@@ -113,6 +113,9 @@
             <img src="assets/carousel-5.webp" alt="Screenshot 5" class="flex-shrink-0 w-full">
             <img src="assets/carousel-6.webp" alt="Screenshot 6" class="flex-shrink-0 w-full">
             <img src="assets/carousel-7.webp" alt="Screenshot 7" class="flex-shrink-0 w-full">
+            <img src="assets/carousel-8.webp" alt="Screenshot 8" class="flex-shrink-0 w-full">
+            <img src="assets/carousel-9.webp" alt="Screenshot 9" class="flex-shrink-0 w-full">
+            <img src="assets/carousel-10.webp" alt="Screenshot 10" class="flex-shrink-0 w-full">
           </div>
           <div class="flex flex-col items-center justify-center gap-5 transition-opacity duration-300 ease-in-out md:absolute md:inset-0 md:opacity-0 group-hover:opacity-100">
             <img src="assets/cs1a.png" class="hidden md:block w-50">

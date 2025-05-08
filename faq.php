@@ -27,7 +27,7 @@
     $description = $matchedTopic['description'];
     $subTopics = $matchedTopic['subTopics'];
     $relatedArticles = $matchedTopic['relatedArticles'];
-    $id = strtolower(str_replace(' ', '-', $sub['title']));
+    $id = strtolower(str_replace(' ', '-', $matchedTopic['mainTopic']));
     $id = preg_replace('/[^a-z0-9\-_]/', '', $id);
 
 ?>

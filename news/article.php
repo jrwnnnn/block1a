@@ -53,7 +53,7 @@
                     onclick="if (confirm('Are you sure you want to delete this article? (This action is irreversable)')) { window.location.href='../functions/delete-article.php?id=<?= htmlspecialchars($post['id'], ENT_QUOTES, 'UTF-8') ?>'; }">
                     <img src="https://cdn-icons-png.flaticon.com/128/3096/3096687.png" class="w-5">
                 </div>
-                <div class="flex items-center gap-2 p-3 bg-yellow-500 rounded-md hover:cursor-pointer hover:bg-yellow-600"
+                <div class="flex items-center gap-2 p-4 bg-yellow-500 rounded-md hover:cursor-pointer hover:bg-yellow-600"
                     onclick="window.location.href='editor.php?action=edit&id=<?= htmlspecialchars($post['id'], ENT_QUOTES, 'UTF-8') ?>';">
                     <img src="https://cdn-icons-png.flaticon.com/128/9356/9356210.png" class="w-5">
                 </div>
