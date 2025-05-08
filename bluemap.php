@@ -1,5 +1,6 @@
 <?php
-session_start();
+  session_start();
+  require 'includes/security-headers.php';
 ?>
 
 <!doctype html>

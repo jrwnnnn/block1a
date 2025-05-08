@@ -1,5 +1,7 @@
 <?php
     session_start();
+    require '../includes/security-headers.php';
+
 
     if (isset($_SESSION['permission_level']) && $_SESSION['permission_level'] == 1) {
         require '../functions/connect.php';

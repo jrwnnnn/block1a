@@ -1,5 +1,7 @@
 <?php
   session_start();
+  require 'includes/security-headers.php';
+  
   $page = $_GET['page'] ?? 'home';
   $rules = json_decode(file_get_contents('data/rules.json'), true);
 
