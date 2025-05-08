@@ -37,6 +37,12 @@
         $newPassword = $_POST['password'] ?? '';
         $confirmPassword = $_POST['confirm_password'] ?? '';
 
+        if ($username === $_SESSION['username'] && $email === $_SESSION['email'] && empty($newPassword)) {
+            $_SESSION['success_profile'] = "No changes were made. ദ്ദി •⩊• )";
+            echo "<script>window.location.href = 'profile.php';</script>";
+            exit();
+        }
+
         if (empty($email)) {
             $error['email'] = "Email cannot be blank.";
         }
