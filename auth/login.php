@@ -39,11 +39,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }, 2000);
             </script>";
         } else {
-            $password_error = "Incorrect password. Please try again.";
+            $password_error = "Incorrect password.";
             $has_error = true;
         }
     } else {
-        $user_error = "Email not found. Please try again.";
+        $user_error = "Email not found.";
         $has_error = true;
     }
 
@@ -86,11 +86,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <?php endif; ?>
                     <div>
                         <label for="login" class="block text-sm font-medium text-white">Email</label>
-                        <input type="email" id="login" name="login" class="glob-input mt-1 <?= $has_error ? 'border-red-500' : 'border-gray-600' ?> focus:outline-none focus:ring-blue-500" required>
+                        <input type="email" id="login" name="login" value="<?= htmlspecialchars($_POST['login'] ?? '') ?>" class="glob-input mt-1 <?= $user_error ? '!border-red-500' : 'border-gray-600' ?> focus:outline-none focus:ring-blue-500" required>
                     </div>
                     <div>
                         <label for="password" class="block text-sm font-medium text-white">Password</label>
-                        <input type="password" id="password" name="password" class="glob-input mt-1 <?= $has_error ? 'border-red-500' : 'border-gray-600' ?> focus:outline-none focus:ring-blue-500" required>
+                        <input type="password" id="password" name="password" value="<?= htmlspecialchars($_POST['password'] ?? '') ?>" class="glob-input mt-1 <?= $password_error ? '!border-red-500' : 'border-gray-600' ?> focus:outline-none focus:ring-blue-500" required>
                     </div>
                     <div class="flex items-center justify-between pb-5">
                         <div class="flex justify-center gap-2 text-sm text-white">

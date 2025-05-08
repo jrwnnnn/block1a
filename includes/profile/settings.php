@@ -64,6 +64,14 @@
                 $error['email'] = "Email is already in use.";
             }
         }
+        
+        if (!preg_match('/^[a-zA-Z0-9_]+$/', $username) || !preg_match('/[a-zA-Z0-9]/', $username)) {
+            $error['username'] = "Username must only contain letters, numbers, or underscores, and must have at least one letter or number.";
+            $has_error = true;
+        } elseif (strlen($username) < 3 || strlen($username) > 16) {
+            $error['username'] = "Username must be between 3 and 16 characters long.";
+            $has_error = true;
+        }
     
         $hashedPassword = null;
         $updatePassword = false;
