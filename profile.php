@@ -26,7 +26,7 @@
         <section class="bg-[#2D3748] flex md:flex-row flex-col gap-5 flex-grow">
             <div class="flex flex-col p-7 md:w-100  md:pl-30 bg-[#151a22]">
                 <div class="mb-5">
-                    <img src="https://mc-heads.net/avatar/<?= $_SESSION['username'], ENT_QUOTES, 'UTF-8' ?>" class="object-cover w-20 aspect-square" alt="avatar">
+                    <img src="https://mc-heads.net/avatar/<?= $_SESSION['username'] ?>" class="object-cover w-20 aspect-square" alt="avatar">
                     <p class="pt-5 text-2xl font-bold text-white md:text-4xl truncate"><?php echo htmlspecialchars($_SESSION['username'], ENT_QUOTES, 'UTF-8');?></p>
                 <p class="flex items-center text-gray-400">ID: <?php echo htmlspecialchars($_SESSION['user_id'], ENT_QUOTES, 'UTF-8'); ?> </p>
                     <div class="flex items-center mt-2 text-gray-400">
