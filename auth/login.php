@@ -1,5 +1,6 @@
 <?php
 session_start();
+require '../includes/security-headers.php';
 
 if (isset($_SESSION['user_id'])) {
     header('Location: ../profile.php');
