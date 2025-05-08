@@ -1,6 +1,7 @@
 <?php
     session_start();
-    include 'functions/connect.php';
+    require 'includes/security-headers.php';
+    require 'functions/connect.php';
 
     $spotlightStmt = $conn->prepare("SELECT * FROM articles WHERE spotlight = 1 ORDER BY date_posted DESC LIMIT 1");
     $spotlightStmt->execute();
