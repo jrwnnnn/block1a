@@ -25,6 +25,9 @@
     $description = $matchedTopic['description'];
     $subTopics = $matchedTopic['subTopics'];
     $relatedArticles = $matchedTopic['relatedArticles'];
+    $id = strtolower(str_replace(' ', '-', $sub['title']));
+    $id = preg_replace('/[^a-z0-9\-_]/', '', $id);
+
 ?>
 
 <!doctype html>
@@ -58,7 +61,7 @@
             </div> -->
 
             <?php foreach ($subTopics as $sub): ?>
-                <p id="<?php echo urlencode(strtolower(str_replace(' ', '-', $sub['title']))); ?>" class="text-2xl text-white font-bold py-4"><?php echo htmlspecialchars($sub['title'], ENT_QUOTES, 'UTF-8'); ?></p>
+                <p id="<?= htmlspecialchars($id, ENT_QUOTES, 'UTF-8') ?>" class="text-2xl text-white font-bold py-4"><?php echo htmlspecialchars($sub['title'], ENT_QUOTES, 'UTF-8'); ?></p>
                 <div class="text-white py-5 prose prose-invert max-w-none space-y-3">
                     <?php echo $sub['content']; ?>
                 </div>
