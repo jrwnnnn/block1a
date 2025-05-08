@@ -1,6 +1,6 @@
 <?php
-  session_start();
   require 'includes/security-headers.php';
+  require_once 'includes/session-init.php';
 
 ?>
 

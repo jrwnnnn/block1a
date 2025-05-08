@@ -1,6 +1,6 @@
 <?php
-    session_start();
     require '../includes/security-headers.php';
+    require_once '../includes/session-init.php';
 
     if (isset($_SESSION['user_id'])) {
         header('Location: ../profile.php');
