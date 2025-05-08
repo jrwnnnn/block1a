@@ -1,7 +1,7 @@
 <?php
     require 'includes/security-headers.php';
+    require_once 'includes/session-init.php';
 
-    session_start();
     if (!isset($_SESSION['user_id'])) {
         header('Location: auth/login.php');
         exit();

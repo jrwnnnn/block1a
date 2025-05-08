@@ -1,7 +1,7 @@
 <?php
-    session_start();
     require 'includes/security-headers.php';
     require 'functions/connect.php';
+    require_once 'includes/session-init.php';
 
     $stmt = $conn->prepare("SELECT * FROM articles ORDER BY date_posted DESC");
     $stmt->execute();

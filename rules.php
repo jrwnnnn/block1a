@@ -1,6 +1,6 @@
 <?php
-  session_start();
   require 'includes/security-headers.php';
+  require_once 'includes/session-init.php';
   
   $page = $_GET['page'] ?? 'home';
   $rules = json_decode(file_get_contents('data/rules.json'), true);
