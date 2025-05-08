@@ -2,7 +2,7 @@
 $current_page = basename($_SERVER['PHP_SELF']);
 
 $grid6 = "Login";
-$grid6_link = "pages/login.php";
+$grid6_link = "auth/login.php";
 if (isset($_SESSION['user_id'])) {
     $grid6 = "Profile";
     $grid6_link = "profile.php";
