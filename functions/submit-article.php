@@ -10,7 +10,7 @@
 
     if (isset($_SESSION['permission_level']) && $_SESSION['permission_level'] == 1) {
 
-        include 'connect.php';
+        require 'connect.php';
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }

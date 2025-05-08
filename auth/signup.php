@@ -12,10 +12,10 @@
     $success_message = '';
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        include '../functions/connect.php';
+        require '../functions/connect.php';
 
-        $email = trim($_POST['email']);
-        $username = trim($_POST['username']);
+        $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
+        $username = htmlspecialchars(trim($_POST['username']), ENT_QUOTES, 'UTF-8');
         $password = $_POST['password'];
         $confirm_password = $_POST['confirm_password'];
 
@@ -43,19 +43,25 @@
         mysqli_stmt_execute($username_stmt);
         $username_result = mysqli_stmt_get_result($username_stmt);
 
-
         if (mysqli_num_rows($username_result) > 0) {
             $username_error = " - Username already exists.";
             $has_error = true;
         }
 
+        if (!preg_match('/^[a-zA-Z0-9_]+$/', $username) || !preg_match('/[a-zA-Z0-9]/', $username)) {
+            $username_error = " - Username must only contain letters, numbers, or underscores, and must have at least one letter or number.";
+            $has_error = true;
+        } elseif (strlen($username) < 3 || strlen($username) > 16) {
+            $username_error = " - Username must be between 3 and 16 characters long.";
+            $has_error = true;
+        }
+        
         if (strlen($password) < 8 || !preg_match('/[A-Z]/', $password) || !preg_match('/[a-z]/', $password) || !preg_match('/[0-9]/', $password)) {
             $password_error = " - Password must be at least 8 characters, include uppercase, lowercase, a number.";
             $has_error = true;
         }
 
         if (!$has_error) {
-            
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
             $insert_sql = "INSERT INTO user_data (email, username, password) VALUES (?, ?, ?)";
             $stmt = mysqli_prepare($conn, $insert_sql);
@@ -75,7 +81,13 @@
             } else {
                 $password_error = "Signup failed. Please try again.";
             }
+
+            $stmt->close();
         }
+
+        $email_stmt->close();
+        $username_stmt->close();
+        $conn->close();
     }
 ?>
 
@@ -104,22 +116,22 @@
                     <div>
                         <label for="email" class="block text-sm font-medium text-white">Email <span class="text-red-500"><?= $email_error ?></span></label>
                         <input type="email" id="email" name="email" value="<?= htmlspecialchars($_POST['email'] ?? '') ?>"
-                            class="mt-1 glob-input <?= $email_error ? 'border-red-500' : 'border-gray-600' ?>" required>
+                            class="mt-1 glob-input <?= $email_error ? '!border-red-500' : 'border-gray-600' ?>" required>
                     </div>
                     <div>
                         <label for="username" class="block text-sm font-medium text-white">Username <span class="text-red-500"><?= $username_error ?></label>
                         <input type="text" id="username" name="username" value="<?= htmlspecialchars($_POST['username'] ?? '') ?>"
-                            class="mt-1 glob-input <?= $username_error ? 'border-red-500' : 'border-gray-600' ?>" required>
+                            class="mt-1 glob-input <?= $username_error ? '!border-red-500' : 'border-gray-600' ?>" required>
                     </div>
                     <div>
                         <label for="password" class="block text-sm font-medium text-white">Password <span class="text-red-500"><?= $password_error ?></label>
                         <input type="password" id="password" name="password" value="<?= htmlspecialchars($_POST['password'] ?? '') ?>"
-                            class="mt-1 glob-input <?= $password_error ? 'border-red-500' : 'border-gray-600' ?>" required>
+                            class="mt-1 glob-input <?= $password_error ? '!border-red-500' : 'border-gray-600' ?>" required>
                     </div>
                     <div>
                         <label for="confirm_password" class="block text-sm font-medium text-white">Confirm Password <span class="text-red-500"><?= $password_error ?></label>
-                        <input type="password" id="confirm_password" name="confirm_password"
-                            class="mt-1 glob-input <?= $password_error ? 'border-red-500' : 'border-gray-600' ?>" required>
+                        <input type="password" id="confirm_password" name="confirm_password" value="<?= htmlspecialchars($_POST['confirm_password'] ?? '') ?>"
+                            class="mt-1 glob-input <?= $password_error ? '!border-red-500' : 'border-gray-600' ?>" required>
                     </div>
                     <div class="flex items-center gap-2 pb-5 text-sm text-white">
                         <input type="checkbox" id="showPassword" class="accent-blue-500 hover:cursor-pointer" style="width: 16px; height: 16px;">

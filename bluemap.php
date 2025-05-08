@@ -14,7 +14,7 @@
 </head>
 <body class="min-h-screen flex flex-col">
   <section class="bg-[#1A212B] bg-cover bg-center bg-no-repeat flex flex-col h-screen">
-    <?php include 'includes/navigation.php'; ?>
+    <?php require 'includes/navigation.php'; ?>
     <div class="flex flex-grow flex-col justify-center items-center bg-[#2D3748]">
       <div id="loading" class="flex flex-col items-center justify-center bg-[#2D3748] pb-10">
         <img src="assets/panda-roll.gif" alt="Loading" class="w-30 h-30">

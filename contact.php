@@ -14,7 +14,7 @@
   <title>Block1A - Contact</title>
 </head>
 <body class="min-h-screen flex flex-col">
-    <?php include 'includes/navigation.php'; ?>
+    <?php require 'includes/navigation.php'; ?>
     <section class="bg-[#2D3748] flex flex-col h-screen text-white md:px-30 px-5 pt-20">
         <h1 class="md:text-6xl text-4xl font-bold pb-5">Contact Us</h1>
         <p>To report a player, reset your password, or to ask a generic question about our server, join our <a href="https://discord.gg/" class="text-blue-500 underline">Discord</a>!</p>
@@ -23,6 +23,6 @@
         <img src="assets/panda-and-cat.webp" alt="panda" class="w-full mt-20 max-h-[40vh] object-cover object-center">
     </section>
   
-    <?php include 'includes/footer.php'; ?>
+    <?php require 'includes/footer.php'; ?>
 </body>
 </html>

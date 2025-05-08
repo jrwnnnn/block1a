@@ -1,52 +1,55 @@
 <?php
-    session_start();
+session_start();
 
-    if (isset($_SESSION['user_id'])) {
-        header('Location: ../profile.php');
-        exit();
-    }
-    
-    $user_error = '';
-    $password_error = '';
-    $success_message = '';
+if (isset($_SESSION['user_id'])) {
+    header('Location: ../profile.php');
+    exit();
+}
 
-    $has_error = false;
+$user_error = '';
+$password_error = '';
+$success_message = '';
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        include '../functions/connect.php';
+$has_error = false;
 
-        $login = $_POST['login'];
-        $password = $_POST['password'];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    require '../functions/connect.php';
 
-        $sql = "SELECT * FROM user_data WHERE username = ? OR email = ?";
-        $stmt = mysqli_prepare($conn, $sql);
-        mysqli_stmt_bind_param($stmt, "ss", $login, $login);
-        mysqli_stmt_execute($stmt);
-        $result = mysqli_stmt_get_result($stmt);
+    $login = $_POST['login'];
+    $password = $_POST['password'];
 
-        if ($user = mysqli_fetch_assoc($result)) {
-            if (password_verify($password, $user['password'])) {
-                $_SESSION['user_id'] = $user['id'];
-                $_SESSION['username'] = $user['username'];
-                $_SESSION['email'] = $user['email']; 
-                $_SESSION['last_password_change'] = $user['last_password_change']; 
-                $_SESSION['permission_level'] = $user['permission_level']; 
-                
-                $success_message = "Welcome back, " . htmlspecialchars($user['username']) . "!";
-                echo "<script>
-                    setTimeout(function() {
-                        window.location.href = '../profile.php';
-                    }, 2000);
-                </script>";
-            } else {
-                $password_error = "Incorrect password. Please try again.";
-                $has_error = true;
-            }
+    $sql = "SELECT * FROM user_data WHERE username = ? OR email = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "ss", $login, $login);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+
+    if ($user = mysqli_fetch_assoc($result)) {
+        if (password_verify($password, $user['password'])) {
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $user['username'];
+            $_SESSION['email'] = $user['email']; 
+            $_SESSION['last_password_change'] = $user['last_password_change']; 
+            $_SESSION['permission_level'] = $user['permission_level']; 
+            
+            $success_message = "Welcome back, " . htmlspecialchars($user['username'], ENT_QUOTES, 'UTF-8') . "!";
+            echo "<script>
+                setTimeout(function() {
+                    window.location.href = '../profile.php';
+                }, 2000);
+            </script>";
         } else {
-            $user_error = "Email not found. Please try again.";
+            $password_error = "Incorrect password.";
             $has_error = true;
         }
+    } else {
+        $user_error = "Email not found.";
+        $has_error = true;
     }
+
+    $stmt->close();
+    $conn->close();
+}
 ?>
 
 <!doctype html>
@@ -68,26 +71,26 @@
                 <form id="loginForm" class="space-y-4" method="POST" action="login.php">
                     <?php if (!empty($password_error)): ?>
                         <div class="p-3 font-semibold text-center text-white bg-red-600 rounded-md">
-                            <?= htmlspecialchars($password_error) ?>
+                            <?= htmlspecialchars($password_error, ENT_QUOTES, 'UTF-8') ?>
                         </div>
                     <?php endif; ?>
                     <?php if (!empty($user_error)): ?>
                         <div class="p-3 font-semibold text-center text-white bg-red-600 rounded-md">
-                            <?= htmlspecialchars($user_error) ?>
+                            <?= htmlspecialchars($user_error, ENT_QUOTES, 'UTF-8') ?>
                         </div>
                     <?php endif; ?>
                     <?php if (!empty($success_message)): ?>
                         <div class="p-3 font-semibold text-center text-white bg-green-600 rounded-md">
-                            <?= htmlspecialchars($success_message) ?>
+                            <?= htmlspecialchars($success_message, ENT_QUOTES, 'UTF-8') ?>
                         </div>
                     <?php endif; ?>
                     <div>
                         <label for="login" class="block text-sm font-medium text-white">Email</label>
-                        <input type="email" id="login" name="login" class="glob-input mt-1 <?= $has_error ? 'border-red-500' : 'border-gray-600' ?> focus:outline-none focus:ring-blue-500" required>
+                        <input type="email" id="login" name="login" value="<?= htmlspecialchars($_POST['login'] ?? '') ?>" class="glob-input mt-1 <?= $user_error ? '!border-red-500' : 'border-gray-600' ?> focus:outline-none focus:ring-blue-500" required>
                     </div>
                     <div>
                         <label for="password" class="block text-sm font-medium text-white">Password</label>
-                        <input type="password" id="password" name="password" class="glob-input mt-1 <?= $has_error ? 'border-red-500' : 'border-gray-600' ?> focus:outline-none focus:ring-blue-500" required>
+                        <input type="password" id="password" name="password" value="<?= htmlspecialchars($_POST['password'] ?? '') ?>" class="glob-input mt-1 <?= $password_error ? '!border-red-500' : 'border-gray-600' ?> focus:outline-none focus:ring-blue-500" required>
                     </div>
                     <div class="flex items-center justify-between pb-5">
                         <div class="flex justify-center gap-2 text-sm text-white">

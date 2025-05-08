@@ -3,10 +3,10 @@
         session_start();
     }
 
-    include_once 'functions/connect.php';
+    require_once 'functions/connect.php';
 
     if (!isset($_SESSION['user_id'])) {
-        header('Location: pages/login.php');
+        header('Location: auth/login.php');
         exit();
     }
     if (empty($_SESSION['last_password_change'])) {
@@ -37,6 +37,12 @@
         $newPassword = $_POST['password'] ?? '';
         $confirmPassword = $_POST['confirm_password'] ?? '';
 
+        if ($username === $_SESSION['username'] && $email === $_SESSION['email'] && empty($newPassword)) {
+            $_SESSION['success_profile'] = "No changes were made. ദ്ദി •⩊• )";
+            echo "<script>window.location.href = 'profile.php';</script>";
+            exit();
+        }
+
         if (empty($email)) {
             $error['email'] = "Email cannot be blank.";
         }
@@ -63,6 +69,14 @@
             if ($stmt->num_rows > 0) {
                 $error['email'] = "Email is already in use.";
             }
+        }
+        
+        if (!preg_match('/^[a-zA-Z0-9_]+$/', $username) || !preg_match('/[a-zA-Z0-9]/', $username)) {
+            $error['username'] = "Username must only contain letters, numbers, or underscores, and must have at least one letter or number.";
+            $has_error = true;
+        } elseif (strlen($username) < 3 || strlen($username) > 16) {
+            $error['username'] = "Username must be between 3 and 16 characters long.";
+            $has_error = true;
         }
     
         $hashedPassword = null;
@@ -104,8 +118,10 @@
                 echo "<script>window.location.href = 'profile.php';</script>";
                 exit();
             }
+            $stmt->close();
         }
     }
+    $conn->close();
 ?>
 
 <div class="space-y-10 md:pr-100">    
@@ -125,10 +141,10 @@
             <div>
                 <label for="username" class="block mb-1 text-gray-300">Username 
                     <?php if (!empty($error['username'])): ?>
-                        <span class="text-red-500">- <?= htmlspecialchars($error['username']) ?></span>
+                        <span class="text-red-500">- <?= htmlspecialchars($error['username'], ENT_QUOTES, 'UTF-8') ?></span>
                     <?php endif; ?>
                 </label>
-                <input type="text" id="username" name="username" class="glob-input <?= !empty($error['username']) ? '!border-red-500' : 'border-gray-600 focus:border-blue-500' ?>" value="<?= isset($_POST['username']) ? htmlspecialchars($_POST['username']) : htmlspecialchars($user['username']) ?>"">
+                <input type="text" id="username" name="username" class="glob-input <?= !empty($error['username']) ? '!border-red-500' : 'border-gray-600 focus:border-blue-500' ?>" value="<?= isset($_POST['username']) ? htmlspecialchars($_POST['username'], ENT_QUOTES, 'UTF-8') : htmlspecialchars($user['username'], ENT_QUOTES, 'UTF-8') ?>"">
             </div>
 
             <div>
@@ -137,7 +153,7 @@
                         <span class="text-red-500">- <?= htmlspecialchars($error['email']) ?></span>
                     <?php endif; ?>
                 </label>
-                <input type="email" id="email" name="email" class="glob-input <?= !empty($error['email']) ? '!border-red-500' : 'border-gray-600 focus:border-blue-500' ?>" value="<?= isset($_POST['email']) ? htmlspecialchars($_POST['email']) : htmlspecialchars($user['email']) ?>">
+                <input type="email" id="email" name="email" class="glob-input <?= !empty($error['email']) ? '!border-red-500' : 'border-gray-600 focus:border-blue-500' ?>" value="<?= isset($_POST['email']) ? htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8') : htmlspecialchars($user['email'], ENT_QUOTES, 'UTF-8') ?>">
             </div>
 
             <button type="submit" class="glob-btn mt-5 bg-blue-500 hover:bg-blue-600">Save Changes</button>

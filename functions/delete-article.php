@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include 'connect.php';
+    require 'connect.php';
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
@@ -17,10 +17,8 @@
         $stmt = $conn->prepare("DELETE FROM articles WHERE id = ?");
         $stmt->bind_param("s", $article_id);
 
-
         if ($stmt->execute()) {
             header('Location: ../news.php');
-
             $stmt->close();
             $conn->close();
             exit;

@@ -21,7 +21,7 @@
         <title>Block1A - News</title>
     </head>
     <body>
-        <?php include 'includes/navigation.php'; ?>
+        <?php require 'includes/navigation.php'; ?>
         <section class="flex flex-col items-center justify-center text-white bg-cover bg-center bg-no-repeat min-h-[40vh] px-5" style="background-image: url('assets/blog-hero.webp')">
             <p class="text-4xl font-bold text-yellow-500 md:text-6xl">News</p>
             <p class="mt-5 text-center md:text-lg">Stay updated with the latest news, updates, and events happening in our community.</p>
@@ -44,11 +44,11 @@
                 ?>
                 <div onclick="window.location.href='news/article.php?id=<?= $post['id'] ?>'" class="text-white hover:cursor-pointer">
                     <div class="w-full mb-4 overflow-hidden rounded-md aspect-video">
-                        <img src="<?= htmlspecialchars($post['cover']) ?>" class="object-cover w-full h-full transition duration-500 ease-in-out hover:scale-105">
+                        <img src="<?= htmlspecialchars($post['cover'], ENT_QUOTES, 'UTF-8') ?>" class="object-cover w-full h-full transition duration-500 ease-in-out hover:scale-105">
                     </div>
-                    <p class="<?= $tagColor ?> capitalize"><?= htmlspecialchars(str_replace('_', ' ', $post['tag'])) ?></p>
-                    <p class="mb-2 text-2xl font-bold"><?= htmlspecialchars($post['title']) ?></p>
-                    <p><?= htmlspecialchars($post['subtitle']) ?></p>
+                    <p class="<?= $tagColor ?> capitalize"><?= htmlspecialchars(str_replace('_', ' ', $post['tag']), ENT_QUOTES, 'UTF-8') ?></p>
+                    <p class="mb-2 text-2xl font-bold"><?= htmlspecialchars($post['title'], ENT_QUOTES, 'UTF-8') ?></p>
+                    <p><?= htmlspecialchars($post['subtitle'], ENT_QUOTES, 'UTF-8') ?></p>
                     <div class="flex items-center gap-2 mt-5">                      
                         <p class="text-sm text-gray-400"><?= date("F d, Y", strtotime($post['date_posted'])) ?></p>
                         <hr class="flex-grow border-gray-600 md:hidden border-1">
@@ -56,6 +56,6 @@
                 </div>
             <?php endforeach; ?>
         </section>
-        <?php include 'includes/footer.php'; ?>
+        <?php require 'includes/footer.php'; ?>
     </body>
     </html>
