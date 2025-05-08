@@ -224,12 +224,12 @@
     });
 
     const el = document.getElementById('last_auth_change_timestamp');
-    const utcTime = el.dataset.time + ' UTC';  // Add ' UTC' to make it readable by JavaScript
-    const date = new Date(utcTime);  // Now it will parse correctly
+    const utcTime = el.dataset.time + ' UTC'; 
+    const date = new Date(utcTime); 
 
     if (!isNaN(date)) {
-        el.innerText = date.toLocaleString();  // Local time
+        el.innerText = date.toLocaleString(); 
     } else {
-        el.innerText = "Invalid date";  // Error handling
+        el.innerText = "Never"; 
     }
 </script>
