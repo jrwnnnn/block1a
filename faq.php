@@ -1,5 +1,7 @@
 <?php
     session_start();
+    require 'includes/security-headers.php';
+    
     $requestedTopic = $_GET['topic'] ?? '';
 
     $data = json_decode(file_get_contents('data/faq.json'), true);

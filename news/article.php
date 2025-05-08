@@ -1,6 +1,7 @@
 <?php
     session_start();
-    include '../functions/connect.php';
+    require '../includes/security-headers.php';
+    require '../functions/connect.php';
 
     $id = $_GET['id'] ?? '';
     $stmt = $conn->prepare("SELECT * FROM articles WHERE id = ?");
