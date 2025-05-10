@@ -1,20 +1,13 @@
 <?php
-    if (session_status() === PHP_SESSION_NONE) {
-        session_start();
-    }
-
+    require_once 'includes/session-init.php';
     require_once 'functions/connect.php';
 
     if (!isset($_SESSION['user_id'])) {
-        header('Location: auth/login.php');
+        header('Location: pages/login.php');
         exit();
-    }
-    if (empty($_SESSION['last_password_change'])) {
-        $_SESSION['last_password_change'] = 'Never';
     }
 
     $userId = $_SESSION['user_id'];
-
     $stmt = $conn->prepare("SELECT * FROM user_data WHERE id = ?");
     $stmt->bind_param("i", $userId);
     $stmt->execute();
@@ -24,43 +17,38 @@
     if (!$user) {
         die("User not found.");
     }
-    
-    $_SESSION['username'] = $user['username'];
-    $_SESSION['email'] = $user['email'];
-    
+
     $error = [];
-    
+
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        $username = htmlspecialchars(trim($_POST['username'] ?? ''));
-        $email = filter_var(trim($_POST['email'] ?? ''), FILTER_SANITIZE_EMAIL);    
+        $username = !empty($_POST['username']) ? htmlspecialchars(trim($_POST['username'])) : $user['username'];
+        $email = !empty($_POST['email']) ? filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL) : $user['email'];
         $currentPassword = $_POST['current_password'] ?? '';
         $newPassword = $_POST['password'] ?? '';
         $confirmPassword = $_POST['confirm_password'] ?? '';
 
-        if ($username === $_SESSION['username'] && $email === $_SESSION['email'] && empty($newPassword)) {
+        if ($username === $user['username'] && $email === $user['email'] && empty($newPassword)) {
             $_SESSION['success_profile'] = "No changes were made. ദ്ദി •⩊• )";
             echo "<script>window.location.href = 'profile.php';</script>";
             exit();
         }
 
-        if (empty($email)) {
-            $error['email'] = "Email cannot be blank.";
-        }
-
-        if (empty($username)) {
-            $error['username'] = "Username cannot be blank.";
-        }
-    
         if ($username !== $user['username']) {
-            $stmt = $conn->prepare("SELECT id FROM user_data WHERE username = ? AND id != ?");
-            $stmt->bind_param("si", $username, $userId);
-            $stmt->execute();
-            $stmt->store_result();
-            if ($stmt->num_rows > 0) {
-                $error['username'] = "Username is already taken.";
+            if (!preg_match('/^[a-zA-Z0-9_]+$/', $username) || !preg_match('/[a-zA-Z0-9]/', $username)) {
+                $error['username'] = "Username must only contain letters, numbers, or underscores, and must have at least one letter or number.";
+            } elseif (strlen($username) < 3 || strlen($username) > 16) {
+                $error['username'] = "Username must be between 3 and 16 characters long.";
+            } else {
+                $stmt = $conn->prepare("SELECT id FROM user_data WHERE username = ? AND id != ?");
+                $stmt->bind_param("si", $username, $userId);
+                $stmt->execute();
+                $stmt->store_result();
+                if ($stmt->num_rows > 0) {
+                    $error['username'] = "Username is already taken.";
+                }
             }
         }
-    
+
         if ($email !== $user['email']) {
             $stmt = $conn->prepare("SELECT id FROM user_data WHERE email = ? AND id != ?");
             $stmt->bind_param("si", $email, $userId);
@@ -70,18 +58,10 @@
                 $error['email'] = "Email is already in use.";
             }
         }
-        
-        if (!preg_match('/^[a-zA-Z0-9_]+$/', $username) || !preg_match('/[a-zA-Z0-9]/', $username)) {
-            $error['username'] = "Username must only contain letters, numbers, or underscores, and must have at least one letter or number.";
-            $has_error = true;
-        } elseif (strlen($username) < 3 || strlen($username) > 16) {
-            $error['username'] = "Username must be between 3 and 16 characters long.";
-            $has_error = true;
-        }
-    
+
         $hashedPassword = null;
         $updatePassword = false;
-    
+
         if (!empty($newPassword)) {
             if (!password_verify($currentPassword, $user['password'])) {
                 $error['currentPassword'] = "Password is incorrect.";
@@ -94,7 +74,7 @@
                 $updatePassword = true;
             }
         }
-    
+
         if (empty($error)) {
             if ($updatePassword) {
                 $stmt = $conn->prepare("UPDATE user_data SET username = ?, email = ?, password = ?, last_password_change = NOW() WHERE id = ?");
@@ -114,14 +94,12 @@
                 } else {
                     $_SESSION['success_profile'] = "Profile updated successfully!";
                 }
-                
+
                 echo "<script>window.location.href = 'profile.php';</script>";
                 exit();
             }
-            $stmt->close();
         }
     }
-    $conn->close();
 ?>
 
 <div class="space-y-10 md:pr-100">    
@@ -141,10 +119,10 @@
             <div>
                 <label for="username" class="block mb-1 text-gray-300">Username 
                     <?php if (!empty($error['username'])): ?>
-                        <span class="text-red-500">- <?= htmlspecialchars($error['username'], ENT_QUOTES, 'UTF-8') ?></span>
+                        <span class="text-red-500">- <?= htmlspecialchars($error['username']) ?></span>
                     <?php endif; ?>
                 </label>
-                <input type="text" id="username" name="username" class="glob-input <?= !empty($error['username']) ? '!border-red-500' : 'border-gray-600 focus:border-blue-500' ?>" value="<?= isset($_POST['username']) ? htmlspecialchars($_POST['username'], ENT_QUOTES, 'UTF-8') : htmlspecialchars($user['username'], ENT_QUOTES, 'UTF-8') ?>"">
+                <input type="text" id="username" name="username" class="glob-input <?= !empty($error['username']) ? '!border-red-500' : 'border-gray-600 focus:border-blue-500' ?>" value="<?= isset($_POST['username']) ? htmlspecialchars($_POST['username']) : htmlspecialchars($user['username']) ?>"">
             </div>
 
             <div>
@@ -153,7 +131,7 @@
                         <span class="text-red-500">- <?= htmlspecialchars($error['email']) ?></span>
                     <?php endif; ?>
                 </label>
-                <input type="email" id="email" name="email" class="glob-input <?= !empty($error['email']) ? '!border-red-500' : 'border-gray-600 focus:border-blue-500' ?>" value="<?= isset($_POST['email']) ? htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8') : htmlspecialchars($user['email'], ENT_QUOTES, 'UTF-8') ?>">
+                <input type="email" id="email" name="email" class="glob-input <?= !empty($error['email']) ? '!border-red-500' : 'border-gray-600 focus:border-blue-500' ?>" value="<?= isset($_POST['email']) ? htmlspecialchars($_POST['email']) : htmlspecialchars($user['email']) ?>">
             </div>
 
             <button type="submit" class="glob-btn mt-5 bg-blue-500 hover:bg-blue-600">Save Changes</button>
@@ -162,13 +140,8 @@
     <div class="text-white space-y-2">
         <p class="mb-5 text-2xl font-bold">Password </p>
         <p>Please remember your password as there is currently no way to reset it.</p>
-        <p class="mb-5 text-sm italic text-gray-300">
-  Last changed:
-  <span id="last_auth_change_timestamp"
-        data-time="<?= htmlspecialchars($_SESSION['last_password_change'], ENT_QUOTES, 'UTF-8') ?>">
-  </span>
-</p>
-        
+        <p class="mb-5 text-sm italic text-gray-300"> Last changed: <span id="last_auth_change_timestamp" data-time="<?= htmlspecialchars($_SESSION['last_password_change'], ENT_QUOTES, 'UTF-8') ?>"></span></p>
+
         <?php if (!empty($_SESSION['success_password'])): ?>
             <div class="p-3 font-semibold text-center text-white bg-green-600 rounded-md">
                 <?= htmlspecialchars($_SESSION['success_password']) ?>
@@ -224,9 +197,8 @@
     });
 
     const el = document.getElementById('last_auth_change_timestamp');
-    const utcTime = el.dataset.time + ' UTC'; 
+    const utcTime = el.dataset.time + ' UTC';
     const date = new Date(utcTime); 
-
     if (!isNaN(date)) {
         el.innerText = date.toLocaleString(); 
     } else {
