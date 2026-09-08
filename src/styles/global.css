@@ -3,4 +3,9 @@
 
 body {
 	font-family: "Outfit";
+	@apply bg-[#2D3748];
+}
+
+main {
+	@apply px-5 md:px-30;
 }
