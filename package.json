@@ -1,26 +1,29 @@
 {
-  "name": "block1a",
-  "version": "1.0.0",
-  "description": "<!-- PROGRAMMING LANGUAGE ICONS\r HTML: https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/512px-HTML5_logo_and_wordmark.svg.png\r JAVA: https://upload.wikimedia.org/wikipedia/en/thumb/3/30/Java_programming_language_logo.svg/1200px-Java_programming_language_logo.svg.png\r Python: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png\r PHP : https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/1067px-PHP-logo.svg.png?20180502235434\r mySQL: https://upload.wikimedia.org/wikipedia/labs/8/8e/Mysql_logo.png",
-  "homepage": "https://github.com/jrwnnnn/block1a#readme",
-  "bugs": {
-    "url": "https://github.com/jrwnnnn/block1a/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jrwnnnn/block1a.git"
-  },
-  "license": "ISC",
-  "author": "",
-  "type": "commonjs",
-  "main": "tailwind.config.js",
-  "scripts": {
-    "build": "npx tailwindcss -i ./app/public/css/input.css -o ./app/public/css/output.css --minify",
-    "tailwind": "npx @tailwindcss/cli -i ./app/public/css/input.css -o ./app/public/css/output.css --watch",
-    "retailwind": "npm install tailwindcss @tailwindcss/cli"
-  },
-  "dependencies": {
-    "@tailwindcss/cli": "^4.1.5",
-    "tailwindcss": "^4.1.5"
-  }
+	"name": "block1a",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"generate-types": "wrangler types",
+		"test": "npx eslint . && npx astro check && npm run build"
+	},
+	"dependencies": {
+		"@tailwindcss/vite": "^4.1.18",
+		"astro": "^6.3.2",
+		"tailwindcss": "^4.1.18"
+	},
+	"devDependencies": {
+		"@astrojs/check": "^0.9.8",
+		"@eslint/js": "^10.0.1",
+		"@types/node": "^25.6.0",
+		"eslint": "^10.0.2",
+		"eslint-plugin-astro": "^1.6.0",
+		"prettier": "^3.8.1",
+		"prettier-plugin-astro": "^0.14.1",
+		"prettier-plugin-tailwindcss": "^0.7.2",
+		"typescript": "^5.9.3",
+		"typescript-eslint": "^8.56.1"
+	}
 }

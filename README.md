@@ -1,85 +1,40 @@
-<h1 align="center">Block1A</h1>
+<h1 align="center">Project Name</h1>
 
-<p align="center"><i>Block1A official source repo.</i></p>
+<p align="center"><i>Quick one-liner about what this project does.</i></p>
 
-<p align="center">
-   <img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white">
-   <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white">
-  <a href="https://opensource.org/license/mit"><img src="https://img.shields.io/badge/MIT-green?style=for-the-badge"></a>
-   <a href="https://github.com/jrwnnnn/priv-block1a"><img src="https://img.shields.io/github/stars/jrwnnnn/priv-block1a?style=for-the-badge"></a>
-</p>
+<div align="center">
+   <!-- FIND PREMADE BADGES HERE: https://github.com/Ileriayo/markdown-badges -->
+   <a href="https://astro.build"><img src="https://img.shields.io/badge/astro-%232C2052.svg?style=for-the-badge&logo=astro&logoColor=white"></a>
+   <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white"></a>
+   <a href="https://sqlite.org"><img src="https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white"></a>
+   <a href="./LICENSE"><img src="https://img.shields.io/github/license/jrwnnnn/scaffold?style=for-the-badge"></a>
+   <a href="https://github.com/jrwnnnn/scaffold/stargazers"><img src="https://img.shields.io/github/stars/jrwnnnn/scaffold?style=for-the-badge"></a>
+</div>
 
-## Prerequisites
+<br>
 
-Make sure the following are installed:
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-- [PHP (recommended: PHP 8.x)](https://www.php.net/downloads.php)
-- [Composer](https://getcomposer.org/download/)
-- [Node.js](https://nodejs.org/)
-- A local web server like [XAMPP](https://www.apachefriends.org/download.html) or [Laragon](https://laragon.org/download/)
+## Support
+If you run into any issues, please [open an issue](https://github.com/jrwnnnn/scaffold/issues) and include all relevant details needed to diagnose the problem.
 
-## Setup Instructions
-This project is a PHP-based website using Composer for dependency management and Tailwind CSS for styling. The following instructions will guide you through setting up the project on your local machine for development and testing purposes.
-
-1. **Clone the repository**
-
-   ```bash
-   git clone https://github.com/jrwnnnn/re-block1a.git
-   cd block1a
-   ````
-
-2. **Install `vlucas/phpdotenv`**
-
-   This is needed to manage environment variables:
-
-   ```bash
-   composer require vlucas/phpdotenv
-   ```
-
-3. Create a `.env` file in the root directory of the project. It should contain environment-specific variables such as:
-
-   ```env
-   DB_HOST=localhost
-   DB_NAME=your_database
-   DB_USER=root
-   DB_PASS=
-   ```
-
-4. Ensure the `.env` file is loaded in your PHP project by including the following in your main file (e.g., `index.php` or a config file):
-   
-   ```php
-   require_once __DIR__ . '/vendor/autoload.php';
-   $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-   $dotenv->load();
-   ```
-
-5. **Install Node dependencies**
-
-   In the project folder, run the following command in the terminal to install Node dependencies:
-
-   ```bash
-   npm install
-   ```
-
-6. **Run Tailwind CSS**
-
-   Compile TailwindCSS by running:
-
-   ```bash
-   npm run tailwind
-   ```
-
-7. **Start the website**
-
-   * Open your local server (e.g., XAMPP, Laragon).
-   * Point it to your project folder.
-   * Visit the site at:
-
-     ```
-     http://localhost/re-block1a/index.php
-     ```
 ## License
-This project uses the MIT license. For details, please refer to the LICENSE file.
+Distributed under the MIT License.
+Copyright (c) 2026 Mark Jerwin(@jrwnnnn). All rights reserved.
 
+See the [LICENSE](LICENSE) file for full details.
 
-<img src="https://forthebadge.com/badges/built-with-love.svg">
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+## Contributors
+
+<a href="https://github.com/jrwnnnn/scaffold/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=jrwnnnn/scaffold" />
+</a>
+
+<br>
+<br>
+
+<img src="https://forthebadge.com/images/badges/built-with-love.svg">
