@@ -1,0 +1,22 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/Navigation.astro";
+
+// const world = Astro.url.searchParams.get("world") || "world";
+// const x = Astro.url.searchParams.get("x") || 1857;
+// const z = Astro.url.searchParams.get("z") || 1435;
+// const zoom = Astro.url.searchParams.get("zoom") || 1250;
+---
+
+<Layout title="BlueMap - Block1A" footer={false}>
+	<div class="flex h-screen flex-col">
+		<Navigation />
+		<div class="flex grow bg-[#1A212B]">
+			<iframe
+				id="iframe"
+				class="h-full w-full border-0"
+				src={`https://bluecolored.de/bluemap/#overworld:-807:0:417:667:0.36:0.67:0:0:perspective`}
+			></iframe>
+		</div>
+	</div>
+</Layout>
