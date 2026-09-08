@@ -1,0 +1,32 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/Navigation.astro";
+
+import splash from "../assets/images/backgrounds/lush_cave.webp";
+import warning from "../assets/images/ui/warning.webp";
+---
+
+<Layout title="Block1A">
+	<Navigation />
+	<div class="flex items-center justify-center gap-2 bg-red-500 py-1">
+		<Image
+			src={warning}
+			class="mr-2 inline w-5 invert md:w-4"
+			alt="Warning Icon"
+		/>
+		<p class="text-sm font-semibold text-white">
+			The server is currently offline.
+		</p>
+	</div>
+
+	<Image
+		src={splash}
+		alt="splash"
+		class="h-[50vh] object-cover object-center"
+	/>
+
+	<main class="mt-5 grid grid-cols-2">
+		<div></div>
+	</main>
+</Layout>
