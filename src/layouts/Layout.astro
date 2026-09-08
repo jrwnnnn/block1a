@@ -7,6 +7,7 @@ const {
 	description = "The Official Minecraft Server of BSCS-3A! Available for Minecraft Java Edition players.",
 	robots = "index, follow",
 	ogType = "website",
+	footer = true,
 	image = "https://scaffold.main-973.workers.dev/meta/meta-image.jpg",
 } = Astro.props;
 ---
@@ -39,5 +40,5 @@ const {
 	<body class="h-screen">
 		<slot />
 	</body>
-    <Footer />
+	{footer && <Footer />}
 </html>
