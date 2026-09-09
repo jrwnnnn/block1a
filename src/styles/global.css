@@ -3,7 +3,7 @@
 
 body {
 	font-family: "Outfit";
-	@apply bg-[#2D3748];
+	@apply bg-[#142426] text-[#f1f5e9];
 }
 
 main {
