@@ -4,6 +4,7 @@ import Layout from "../layouts/Layout.astro";
 import Navigation from "../components/Navigation.astro";
 
 import splash from "../assets/images/backgrounds/lush_cave.webp";
+import map from "../assets/images/ui/map.webp";
 import warning from "../assets/images/ui/warning.webp";
 ---
 
@@ -38,6 +39,20 @@ import warning from "../assets/images/ui/warning.webp";
 					hang out.
 				</p>
 			</div>
+
+			<a
+				href="/bluemap"
+				class="group relative block h-64 overflow-hidden rounded-md"
+			>
+				<div
+					class="h-full bg-cover bg-center transition duration-300 group-hover:scale-105"
+					style={`background-image: url(${map.src})`}
+				>
+				</div>
+				<div class="absolute inset-x-0 bottom-0 bg-[#0d1b1d]/90 px-4 py-3">
+					<p class="text-sm text-[#a6c0b8]">Open interactive world map</p>
+				</div>
+			</a>
 		</section>
 	</main>
 </Layout>
