@@ -1,0 +1,83 @@
+---
+import { env } from "cloudflare:workers";
+
+interface D1Response<T> {
+	success: boolean;
+	results: T[];
+}
+
+interface Player {
+	username: string;
+	uuid: string;
+	isOnline: number;
+}
+
+interface Skin {
+	uuid: string;
+	url: string;
+}
+
+async function query<T>(query: string, label: string): Promise<T[]> {
+	try {
+		const res: D1Response<T> = await env.DB.prepare(query).all();
+
+		if (!res.success) {
+			throw new Error(`Failed to fetch ${label} from the database.`);
+		}
+
+		return res.results;
+	} catch (e) {
+		console.error(`Error fetching ${label}:`, e);
+		return [];
+	}
+}
+
+const players = await query<Player>(
+	"SELECT * FROM player_data ORDER BY username COLLATE NOCASE",
+	"players",
+);
+const skins = await query<Skin>("SELECT uuid, url FROM skins", "skins");
+
+const skinsMap = new Map<string, string>(skins.map((s) => [s.uuid, s.url]));
+
+const merged = players.map((player) => ({
+	...player,
+	isOnline: Boolean(player.isOnline),
+	skin: skinsMap.get(player.uuid) ?? null,
+}));
+---
+
+<div class="flex flex-col gap-2">
+	{
+		merged
+			.filter((player) => player.isOnline)
+			.map((player) => (
+				<div class="flex cursor-pointer gap-2">
+					<img
+						src={`https://mc-heads.net/avatar/${player.skin?.split("/").pop()}`}
+						class="w-7 object-contain object-center"
+					/>
+					<div>
+						<p class="truncate">{player.username}</p>
+						<p class="text-xs text-yellow-300">Online</p>
+					</div>
+				</div>
+			))
+	}
+	{
+		merged
+			.filter((player) => !player.isOnline)
+			.map((player) => (
+				<div class="flex cursor-pointer gap-2">
+					<img
+						src={`https://mc-heads.net/avatar/${player.skin?.split("/").pop()}`}
+						class="w-7 object-contain object-center grayscale"
+					/>
+					<div>
+						<p class="truncate">{player.username}</p>
+						<p class="text-xs text-[#a6c0b8]">Offline</p>
+					</div>
+				</div>
+			))
+	}
+</div>

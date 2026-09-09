@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Navigation from "../components/Navigation.astro";
+import PlayerList from "../components/PlayerList.astro";
 
 import splash from "../assets/images/backgrounds/lush_cave.webp";
 import map from "../assets/images/ui/map.webp";
@@ -25,7 +26,7 @@ import warning from "../assets/images/ui/warning.webp";
 		class="h-[50vh] object-cover object-center"
 	/>
 
-	<main class="mt-5 grid grid-cols-2">
+	<main class="my-5 grid gap-8 md:grid-cols-[2fr_1fr]">
 		<section class="flex flex-col gap-5">
 			<div>
 				<p class="mb-3 text-lg font-bold">About the server</p>
@@ -53,6 +54,12 @@ import warning from "../assets/images/ui/warning.webp";
 					<p class="text-sm text-[#a6c0b8]">Open interactive world map</p>
 				</div>
 			</a>
+		</section>
+		<section>
+			<div class="mb-3 flex items-baseline justify-between">
+				<p class="text-lg font-bold">Players</p>
+			</div>
+			<PlayerList />
 		</section>
 	</main>
 </Layout>
