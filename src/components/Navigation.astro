@@ -1,11 +1,12 @@
 ---
 import { Image } from "astro:assets";
 import logo from "../assets/images/ui/logo.webp";
+import ServerStatus from "./ServerStatus.astro";
 ---
 
 <nav class="flex items-center justify-between bg-[#0a1517] px-5 py-4 md:px-30">
 	<a href="/">
 		<Image src={logo} class="w-20 hover:cursor-pointer" alt="Logo" />
 	</a>
-	<p class="cursor-pointer hover:text-yellow-300">Login</p>
+	<ServerStatus />
 </nav>
