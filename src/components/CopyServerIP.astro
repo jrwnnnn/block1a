@@ -1,0 +1,33 @@
+---
+import { Image } from "astro:assets";
+import check_icon from "../assets/images/ui/check.webp";
+import copy_icon from "../assets/images/ui/copy.webp";
+---
+
+<button
+	id="copy-ip-button"
+	class="flex w-full cursor-pointer items-center justify-center gap-2 bg-yellow-300 py-1"
+>
+	<Image
+		id="copy-ip-icon"
+		src={copy_icon}
+		data-check-icon={check_icon.src}
+		class="inline w-5 md:w-4"
+		alt="copy icon"
+	/>
+	<p id="copy-ip-label" class="font-semibold text-black">
+		cs1a.sparked.network
+	</p>
+</button>
+
+<script>
+	const button = document.getElementById("copy-ip-button");
+	const icon = document.getElementById("copy-ip-icon") as HTMLImageElement;
+	const text = document.getElementById("copy-ip-label");
+
+	button!.addEventListener("click", () => {
+		navigator.clipboard.writeText("cs1a.sparked.network");
+		icon.src = icon.dataset.checkIcon!;
+		text!.textContent = "Server IP Copied!";
+	});
+</script>
