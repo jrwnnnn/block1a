@@ -1,0 +1,59 @@
+---
+import { Image } from "astro:assets";
+import server_offline_icon from "../assets/images/ui/server_offline.webp";
+import user_icon from "../assets/images/ui/user.webp";
+
+interface Status {
+	hostname: string;
+	online: boolean;
+	players?: {
+		online: number;
+		max: number;
+	};
+	version: string;
+}
+
+let status: Status | null = null;
+try {
+	const response = await fetch(
+		"https://api.mcsrvstat.us/2/cs1a.sparked.network",
+		{
+			headers: {
+				"User-Agent": "jrwnnnn/block1a (ping@jrwnnnn.me)",
+			},
+		},
+	);
+
+	if (!response.ok) {
+		throw new Error("Failed to fetch server status");
+	}
+
+	status = await response.json();
+} catch (error) {
+	console.error("Error fetching server status:", error);
+}
+---
+
+<div class="flex items-center gap-2">
+	{
+		status ? (
+			status.online && status.players ? (
+				<>
+					<Image src={user_icon} alt="User Icon" class="w-5 invert" />
+					<p>
+						{status.players.online}/{status.players.max}
+					</p>
+				</>
+			) : (
+				<div class="flex items-center gap-2 opacity-50">
+					<Image
+						src={server_offline_icon}
+						alt="Server Offline"
+						class="w-5 invert"
+					/>
+					<p>Offline</p>
+				</div>
+			)
+		) : null
+	}
+</div>
