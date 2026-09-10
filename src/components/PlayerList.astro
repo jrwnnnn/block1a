@@ -43,7 +43,7 @@ const skinsMap = new Map<string, string>(skins.map((s) => [s.uuid, s.url]));
 const merged = players.map((player) => ({
 	...player,
 	isOnline: Boolean(player.isOnline),
-	skin: skinsMap.get(player.uuid) ?? null,
+	skin: skinsMap.get(player.uuid) ?? "MTF steve",
 }));
 ---
 

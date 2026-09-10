@@ -1,32 +1,25 @@
 ---
 import { Image } from "astro:assets";
+import CopyServerIP from "../components/CopyServerIP.astro";
 import Layout from "../layouts/Layout.astro";
 import Navigation from "../components/Navigation.astro";
 import PlayerList from "../components/PlayerList.astro";
 
-import splash from "../assets/images/backgrounds/lush_cave.webp";
+import hero from "../assets/images/backgrounds/lush_cave.webp";
 import map from "../assets/images/ui/map.webp";
-import warning from "../assets/images/ui/warning.webp";
 ---
 
 <Layout title="Block1A">
 	<Navigation />
-	<div class="flex items-center justify-center gap-2 bg-red-600 py-1">
-		<Image
-			src={warning}
-			class="mr-2 inline w-5 invert md:w-4"
-			alt="Warning Icon"
-		/>
-		<p class="text-sm font-semibold">The server is currently offline.</p>
-	</div>
+	<CopyServerIP />
 
 	<Image
-		src={splash}
-		alt="splash"
+		src={hero}
+		alt="hero image"
 		class="h-[50vh] object-cover object-center"
 	/>
 
-	<main class="my-5 grid gap-8 md:grid-cols-[2fr_1fr]">
+	<main class="my-5 grid gap-5 md:grid-cols-[2fr_1fr]">
 		<section class="flex flex-col gap-5">
 			<div>
 				<p class="mb-3 text-lg font-bold">About the server</p>
