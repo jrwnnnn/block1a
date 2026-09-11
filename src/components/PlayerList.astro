@@ -52,7 +52,7 @@ const merged = players.map((player) => ({
 		merged
 			.filter((player) => player.isOnline)
 			.map((player) => (
-				<div class="flex cursor-pointer gap-2">
+				<div class="flex gap-2">
 					<img
 						src={`https://mc-heads.net/avatar/${player.skin?.split("/").pop()}`}
 						class="w-7 object-contain object-center"
@@ -68,7 +68,7 @@ const merged = players.map((player) => ({
 		merged
 			.filter((player) => !player.isOnline)
 			.map((player) => (
-				<div class="flex cursor-pointer gap-2">
+				<div class="flex gap-2">
 					<img
 						src={`https://mc-heads.net/avatar/${player.skin?.split("/").pop()}`}
 						class="w-7 object-contain object-center grayscale"
