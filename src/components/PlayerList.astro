@@ -56,6 +56,7 @@ const merged = players.map((player) => ({
 					<img
 						src={`https://mc-heads.net/avatar/${player.skin?.split("/").pop()}`}
 						class="w-7 object-contain object-center"
+						oncontextmenu="return false;"
 					/>
 					<div>
 						<p class="truncate">{player.username}</p>
@@ -71,6 +72,7 @@ const merged = players.map((player) => ({
 				<div class="flex gap-2">
 					<img
 						src={`https://mc-heads.net/avatar/${player.skin?.split("/").pop()}`}
+						oncontextmenu="return false;"
 						class="w-7 object-contain object-center grayscale"
 					/>
 					<div>
