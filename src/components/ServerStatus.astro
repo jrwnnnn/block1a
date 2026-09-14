@@ -1,49 +1,27 @@
 ---
 import { Image } from "astro:assets";
+import { type Status, getServerStatus } from "../lib/mcsrvstat.ts";
 import server_offline_icon from "../assets/images/ui/server_offline.webp";
 import user_icon from "../assets/images/ui/user.webp";
 
-interface Status {
-	hostname: string;
-	online: boolean;
-	players?: {
-		online: number;
-		max: number;
-	};
-	version: string;
-}
-
-let status: Status | null = null;
+let serverStatus: Status | null = null;
 try {
-	const response = await fetch(
-		"https://api.mcsrvstat.us/2/cs1a.sparked.network",
-		{
-			headers: {
-				"User-Agent": "jrwnnnn/block1a (ping@jrwnnnn.me)",
-			},
-		},
-	);
-
-	if (!response.ok) {
-		throw new Error("Failed to fetch server status");
-	}
-
-	status = await response.json();
-} catch (error) {
-	console.error("Error fetching server status:", error);
+	serverStatus = await getServerStatus();
+} catch (e) {
+	console.error(e);
 }
 ---
 
-<div class="flex items-center gap-2">
+<div>
 	{
-		status ? (
-			status.online && status.players ? (
-				<>
+		serverStatus ? (
+			serverStatus.online ? (
+				<div class="flex items-center gap-2 opacity-50">
 					<Image src={user_icon} alt="User Icon" class="w-5 invert" />
 					<p>
-						{status.players.online}/{status.players.max}
+						{serverStatus.players.online}/{serverStatus.players.max}
 					</p>
-				</>
+				</div>
 			) : (
 				<div class="flex items-center gap-2 opacity-50">
 					<Image
@@ -54,6 +32,15 @@ try {
 					<p>Offline</p>
 				</div>
 			)
-		) : null
+		) : (
+			<div class="flex items-center gap-2 opacity-50">
+				<Image
+					src={server_offline_icon}
+					alt="Server Offline"
+					class="w-5 invert"
+				/>
+				<p>Unavailable</p>
+			</div>
+		)
 	}
 </div>
