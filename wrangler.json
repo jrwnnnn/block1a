@@ -12,7 +12,7 @@
 			"binding": "DB",
 			"database_name": "block1a",
 			"database_id": "850428dc-fe68-4e1b-80b3-eb0c37320371",
-			"remote": true
+			"remote": false
 		}
 	],
 	"observability": {
