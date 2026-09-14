@@ -1,0 +1,15 @@
+---
+import { Image } from "astro:assets";
+import background from "../assets/images/ui/map.webp";
+---
+
+<a href="/bluemap" class="group relative block h-64 overflow-hidden rounded-md">
+	<Image
+		src={background}
+		alt="BlueMap card background image"
+		class="h-full object-cover transition duration-300 group-hover:scale-105 group-focus:scale-105"
+	/>
+	<div class="absolute inset-x-0 bottom-0 bg-[#0d1b1d]/90 px-4 py-3">
+		<p class="text-sm text-[#a6c0b8]">Open interactive world map</p>
+	</div>
+</a>

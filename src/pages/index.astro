@@ -1,12 +1,20 @@
 ---
 import { Image } from "astro:assets";
+import { type Status, getServerStatus } from "../lib/mcsrvstat.ts";
+import BluemapCard from "../components/BluemapCard.astro";
 import CopyServerIP from "../components/CopyServerIP.astro";
 import Layout from "../layouts/Layout.astro";
 import Navigation from "../components/Navigation.astro";
 import PlayerList from "../components/PlayerList.astro";
 
 import hero from "../assets/images/backgrounds/lush_cave.webp";
-import map from "../assets/images/ui/map.webp";
+
+let serverStatus: Status | null = null;
+try {
+	serverStatus = await getServerStatus();
+} catch (e) {
+	console.error(e);
+}
 ---
 
 <Layout title="Block1A">
@@ -34,19 +42,7 @@ import map from "../assets/images/ui/map.webp";
 				</p>
 			</div>
 
-			<a
-				href="/bluemap"
-				class="group relative block h-64 overflow-hidden rounded-md"
-			>
-				<div
-					class="h-full bg-cover bg-center transition duration-300 group-hover:scale-105 group-focus:scale-105"
-					style={`background-image: url(${map.src})`}
-				>
-				</div>
-				<div class="absolute inset-x-0 bottom-0 bg-[#0d1b1d]/90 px-4 py-3">
-					<p class="text-sm text-[#a6c0b8]">Open interactive world map</p>
-				</div>
-			</a>
+			{serverStatus && serverStatus.online ? <BluemapCard /> : null}
 		</section>
 		<section>
 			<div class="mb-3 flex items-baseline justify-between">
