@@ -7,7 +7,8 @@
 		"build": "astro build",
 		"preview": "astro preview",
 		"generate-types": "wrangler types",
-		"test": "npx eslint . && npx astro check && npm run build"
+		"test": "npx eslint . && npx astro check && npm run build",
+		"db:setup": "wrangler d1 migrations apply block1a --local && wrangler d1 execute block1a --local --file=seed.sql"
 	},
 	"dependencies": {
 		"@astrojs/cloudflare": "^14.3.0",
